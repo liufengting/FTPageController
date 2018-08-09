@@ -7,14 +7,50 @@
 
 import UIKit
 
+open class FTPCTitleModel: NSObject {
+    
+    public var title: String = "" {
+        didSet {
+            self.calculateTitleWidth()
+        }
+    }
+    public var font: UIFont = UIFont.systemFont(ofSize: 0) {
+        didSet {
+            self.calculateTitleWidth()
+        }
+    }
+    
+    public var titleWidth: CGFloat = 0.0
+    
+    public convenience init(title: String, font: UIFont) {
+        self.init()
+        self.title = title
+        self.font = font
+    }
+    
+    func calculateTitleWidth() {
+        if self.title.count > 0 || self.font.pointSize > 0 {
+            return
+        }
+        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.font] , context: nil)
+        self.titleWidth = size.width
+    }
+    
+}
+
 open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
-    public var titleArray: [String] = []
+    public var titleArray: [FTPCTitleModel] = []
 
     override open func awakeFromNib() {
         super.awakeFromNib()
         
+    }
+    
+    func setupWithTitles(titles: [FTPCTitleModel])  {
+        self.titleArray = titles;
+        self.collectionView.reloadData()
     }
 
     public func selectIndex(index: NSInteger) {
@@ -45,7 +81,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : FTPCSegementCell = collectionView.dequeueReusableCell(withReuseIdentifier: FTPCSegementCell.identifier, for: indexPath) as! FTPCSegementCell
-
+        
         return cell
     }
     

@@ -30,9 +30,22 @@ public enum FTPCSegementWidthMode {
     case fill
 }
 
+public extension UIScreen {
+    
+    public static func width() -> CGFloat {
+        return self.main.bounds.size.width
+    }
+    
+    public static func height() -> CGFloat {
+        return self.main.bounds.size.height
+    }
+    
+}
+
 public struct FTPCConfig {
-    public var segementViewFrame: CGRect
-    public var scrollViewFrame: CGRect
+    
+    public var segementViewFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: UIScreen.width(), height: 40.0)
+    public var scrollViewFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: UIScreen.height(), height: 40.0)
     public var segementEnableScrolling: Bool = true
     public var contentEnableScrolling: Bool = true
     public var segementModel: FTPCSegementWidthMode = .auto
@@ -43,39 +56,12 @@ public struct FTPCConfig {
     public var titleSelectedFontSize: CGFloat = 15.0
     public var indicatorHeight: CGFloat = 2.0
     public var indicatorColor: UIColor = UIColor.red
-}
+    
+    static func defaultConfig() -> FTPCConfig {
+        let config = FTPCConfig()
+        return config
+    }
 
-open class FTPCTitleModel: NSObject {
-    
-    public var title: String = "" {
-        didSet {
-            self.calculateTitleWidth()
-        }
-    }
-    public var font: UIFont = UIFont.systemFont(ofSize: 0) {
-        didSet {
-            self.calculateTitleWidth()
-        }
-    }
-    
-    public var titleWidth: CGFloat = 0.0
-    
-    public convenience init(title: String, font: UIFont) {
-        self.init()
-        self.title = title
-        self.font = font
-    }
-    
-    func calculateTitleWidth() {
-        if self.title.count > 0 || self.font.pointSize > 0 {
-            return
-        }
-        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.font] , context: nil)
-        print(size)
-        self.titleWidth = size.width
-
-    }
-    
 }
 
 open class FTPCScrollView: UIScrollView {
@@ -111,13 +97,17 @@ open class FTPageController: UIViewController {
     private weak var superViewContoller: UIViewController?
     public var viewControllers: [UIViewController] = [] {
         willSet {
-            self.setupMode = .Manually
+            if newValue.count > 0 {
+                self.setupMode = .Manually
+            }
         }
     }
     public weak var delegate: FTPageControllerDelegate?
     public weak var dataSource: FTPageControllerDataSource? {
         willSet {
-            self.setupMode = .Delegate
+            if newValue != nil {
+                self.setupMode = .Delegate
+            }
         }
     }
     
@@ -144,20 +134,38 @@ open class FTPageController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], initialIndex: NSInteger? = 0, config: FTPCConfig? = nil, delegate: FTPageControllerDelegate? = nil) {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.addSubview(self.scrollView)
+    }
+    
+    public func setupWith(superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger? = 0, config: FTPCConfig? = nil) {
+        self.superViewContoller = superViewController
+        self.dataSource = dataSource
+        
+        self.currentPage = initialIndex!
+        self.config = config
+        self.delegate = delegate
+    }
+    
+    public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger? = 0, config: FTPCConfig? = nil) {
 
         self.superViewContoller = superViewController
         self.viewControllers = viewControllers
         
         self.currentPage = initialIndex!
-        self.config = config
+        if config != nil {
+            self.config = config
+        }
         self.delegate = delegate
-//
-//        [self initializeConponents];
-//
-//        [self scrollToViewControllerAtIndex:initialViewControllerIndex];
+    }
+    
+    func setupConponents() {
+        
         
     }
+    
     
     
     
