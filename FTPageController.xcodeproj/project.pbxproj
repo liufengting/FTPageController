@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A174513212A47B100897450 /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A17450E212A47B000897450 /* FTPCSegementCell.swift */; };
+		2A174514212A47B100897450 /* FTPCSegementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A17450F212A47B000897450 /* FTPCSegementCell.xib */; };
+		2A174515212A47B100897450 /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A174510212A47B100897450 /* FTPCSegement.swift */; };
+		2A174516212A47B100897450 /* FTPCSegement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A174511212A47B100897450 /* FTPCSegement.xib */; };
+		2A174517212A47B100897450 /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A174512212A47B100897450 /* FTPageController.swift */; };
 		2AAD6796211A90E600613CDD /* FTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AAD6794211A90E600613CDD /* FTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A17450E212A47B000897450 /* FTPCSegementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCSegementCell.swift; sourceTree = "<group>"; };
+		2A17450F212A47B000897450 /* FTPCSegementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTPCSegementCell.xib; sourceTree = "<group>"; };
+		2A174510212A47B100897450 /* FTPCSegement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCSegement.swift; sourceTree = "<group>"; };
+		2A174511212A47B100897450 /* FTPCSegement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTPCSegement.xib; sourceTree = "<group>"; };
+		2A174512212A47B100897450 /* FTPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPageController.swift; sourceTree = "<group>"; };
 		2AAD6791211A90E600613CDD /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAD6794211A90E600613CDD /* FTPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPageController.h; sourceTree = "<group>"; };
 		2AAD6795211A90E600613CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				2AAD6794211A90E600613CDD /* FTPageController.h */,
+				2A174512212A47B100897450 /* FTPageController.swift */,
+				2A174510212A47B100897450 /* FTPCSegement.swift */,
+				2A174511212A47B100897450 /* FTPCSegement.xib */,
+				2A17450E212A47B000897450 /* FTPCSegementCell.swift */,
+				2A17450F212A47B000897450 /* FTPCSegementCell.xib */,
 				2AAD6795211A90E600613CDD /* Info.plist */,
 			);
 			path = FTPageController;
@@ -95,6 +110,7 @@
 				TargetAttributes = {
 					2AAD6790211A90E600613CDD = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -120,6 +136,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A174516212A47B100897450 /* FTPCSegement.xib in Resources */,
+				2A174514212A47B100897450 /* FTPCSegementCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A174517212A47B100897450 /* FTPageController.swift in Sources */,
+				2A174515212A47B100897450 /* FTPCSegement.swift in Sources */,
+				2A174513212A47B100897450 /* FTPCSegementCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +282,7 @@
 		2AAD679A211A90E600613CDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +309,7 @@
 		2AAD679B211A90E600613CDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

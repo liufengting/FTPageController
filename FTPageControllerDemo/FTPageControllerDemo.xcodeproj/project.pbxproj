@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22DD5650FBA853550A6C9D52 /* Pods_FTPageControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBC434D6BCD8B7BDA78F5A5 /* Pods_FTPageControllerDemo.framework */; };
+		2A8F9246212ECCA0002EF6DC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */; };
+		2A8F9248212ECCE5002EF6DC /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F9247212ECCE5002EF6DC /* SubViewController.swift */; };
 		2AAD67A9211A919300613CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD67A8211A919300613CDD /* AppDelegate.swift */; };
 		2AAD67AB211A919300613CDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD67AA211A919300613CDD /* ViewController.swift */; };
 		2AAD67AE211A919300613CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD67AC211A919300613CDD /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		12E90AFCD79C0F79F0EC49FA /* Pods-FTPageControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTPageControllerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
+		2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2A8F9247212ECCE5002EF6DC /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 		2AAD67A5211A919300613CDD /* FTPageControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAD67A8211A919300613CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AAD67AA211A919300613CDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 			children = (
 				2AAD67A8211A919300613CDD /* AppDelegate.swift */,
 				2AAD67AA211A919300613CDD /* ViewController.swift */,
+				2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */,
+				2A8F9247212ECCE5002EF6DC /* SubViewController.swift */,
 				2AAD67AC211A919300613CDD /* Main.storyboard */,
 				2AAD67AF211A919500613CDD /* Assets.xcassets */,
 				2AAD67B1211A919500613CDD /* LaunchScreen.storyboard */,
@@ -200,8 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8F9246212ECCA0002EF6DC /* DetailViewController.swift in Sources */,
 				2AAD67AB211A919300613CDD /* ViewController.swift in Sources */,
 				2AAD67A9211A919300613CDD /* AppDelegate.swift in Sources */,
+				2A8F9248212ECCE5002EF6DC /* SubViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +359,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -367,7 +378,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

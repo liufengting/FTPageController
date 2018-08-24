@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.author       = { "liufengting" => "wo157121900@me.com" }
   s.source       = { :git => "https://github.com/liufengting/FTPageController.git", :tag => "#{s.version}" }
-  s.source_files  = "FTPageController", "FTPageController/**/*.{h,m,swift}"
+  s.source_files  = "FTPageController", "FTPageController/**/*.{h,m,xib,swift}"
   s.swift_version = '4.0'
 
 end
