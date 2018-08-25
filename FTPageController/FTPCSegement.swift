@@ -39,19 +39,17 @@ public protocol FTPCSegementDelegate: NSObjectProtocol {
 open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var collectionView: UICollectionView!
+    public var indicator: UIView = UIView()
     public weak var delegate: FTPCSegementDelegate?
-    public weak var config: FTPCConfig!
+    public weak var segementConfig: FTPCSegementConfig!
+    public weak var indicatorConfig: FTPCIndicatorConfig!
     public var selectedPage: NSInteger = 0
-    public var titleArray: [FTPCTitleModel] = [] {
-        didSet {
-            if self.collectionView != nil {
-//                self.collectionView.reloadData()
-            }
-        }
-    }
+    public var titleArray: [FTPCTitleModel] = []
 
     override open func awakeFromNib() {
         super.awakeFromNib()
+
+        self.collectionView.insertSubview(self.indicator, at: 0)
         if #available(iOS 11.0, *) {
             self.collectionView.contentInsetAdjustmentBehavior = .never
         }
@@ -67,10 +65,14 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     public func setupWithTitles(titles: [FTPCTitleModel], config: FTPCConfig, delegate: FTPCSegementDelegate?, selectedPage: NSInteger)  {
         self.titleArray = titles
-        self.config = config
+        self.segementConfig = config.segementConfig
+        self.indicatorConfig = config.indicatorConfig
         self.delegate = delegate
         self.selectedPage = selectedPage
+        self.frame = self.segementConfig.frame
+        self.indicator.backgroundColor = self.indicatorConfig.color
     }
+
 
     public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
@@ -79,7 +81,19 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
                 realCell.setSelected(selected: realCell.indexPath.item == page)
             }
         }
-//        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.right, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.right, animated: animated)
+        self.scrollIndictorToPage(page: page, animated: animated)
+    }
+    
+    func scrollIndictorToPage(page: NSInteger, animated: Bool) {
+        let rect = self.frameForIndicatorAtIndex(index: page)
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.indicator.frame = rect
+            }
+        } else {
+            self.indicator.frame = rect
+        }
     }
     
     public func handleTransition(fromPage: NSInteger, toPage: NSInteger, percent: CGFloat) {
@@ -108,7 +122,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.widthForItemForIndexPath(indexPath: indexPath), height: self.bounds.size.height)
+        return CGSize(width: self.widthForItemAtIndex(index: indexPath.item), height: self.bounds.size.height)
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -117,7 +131,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : FTPCSegementCell = collectionView.dequeueReusableCell(withReuseIdentifier: FTPCSegementCell.identifier, for: indexPath) as! FTPCSegementCell
-        cell.setupWith(titleModel: self.titleArray[indexPath.item], config: self.config, indexPath: indexPath, selected: (indexPath.item == self.selectedPage))
+        cell.setupWith(titleModel: self.titleArray[indexPath.item], segementConfig: self.segementConfig, indexPath: indexPath, selected: (indexPath.item == self.selectedPage))
         return cell
     }
     
@@ -135,19 +149,72 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    func widthForItemForIndexPath(indexPath: IndexPath) -> CGFloat {
+    func titleWidthForItemAtIndex(index: NSInteger) -> CGFloat {
+        return self.titleArray[index].titleWidth
+    }
+    
+    func widthForItemAtIndex(index: NSInteger) -> CGFloat {
         var width: CGFloat = 0.0
-        switch self.config.segementMode {
+        switch self.segementConfig.mode {
         case .auto:
-            width = (self.titleArray[indexPath.item].titleWidth + self.config.titleMargin * 2.0)
+            width = (self.titleArray[index].titleWidth + self.segementConfig.titleMargin * 2.0)
         case .fixed:
-            width = self.config.segementFixedWidth
+            width = self.segementConfig.fixedWidth
         case .fill:
-            width = self.bounds.size.width / CGFloat(self.config.segementColumns)
+            width = self.bounds.size.width / CGFloat(self.segementConfig.columns)
         }
         return width
     }
-
-
     
+    func xPositionForIndicatorAtIndex(index: NSInteger) -> CGFloat {
+        var x: CGFloat = 0
+        if index > 0 {
+            for i in 0...(index-1) {
+                x += self.widthForItemAtIndex(index: i)
+            }
+        }
+        let itemWidth = self.widthForItemAtIndex(index: index)
+        let indicatorWidth = self.widthForIndicatorAtIndex(index: index)
+        x += (itemWidth - indicatorWidth)/2.0
+        return x
+    }
+    
+    func yPositionForIndicatorAtIndex(index: NSInteger) -> CGFloat {
+        var y: CGFloat = 0
+        switch self.indicatorConfig.position {
+        case .top:
+            y = 0
+        case .center:
+            y = (self.bounds.size.height - self.indicatorConfig.height)/2
+        case .bottom:
+            y = self.bounds.size.height - self.indicatorConfig.height
+        }
+        return y
+    }
+    
+    func widthForIndicatorAtIndex(index: NSInteger) -> CGFloat {
+        var width: CGFloat = 0.0
+        switch self.indicatorConfig.mode {
+        case .auto:
+            width = self.titleWidthForItemAtIndex(index: index) - (self.indicatorConfig.horizontalOffsetToTitle * 2.0)
+        case .fill:
+            width = self.widthForItemAtIndex(index: index)
+        case .fixed:
+            width = self.indicatorConfig.width
+        }
+        return width
+    }
+    
+    func heightForIndicatorAtIndex(index: NSInteger) -> CGFloat {
+        return self.indicatorConfig.height
+    }
+    
+    func frameForIndicatorAtIndex(index: NSInteger) -> CGRect {
+        return CGRect(x: self.xPositionForIndicatorAtIndex(index: index),
+                      y: self.yPositionForIndicatorAtIndex(index: index),
+                      width: self.widthForIndicatorAtIndex(index: index),
+                      height: self.heightForIndicatorAtIndex(index: index))
+    }
+    
+
 }

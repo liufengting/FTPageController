@@ -26,12 +26,6 @@ public enum FTPCSetupMode {
     case DataSource
 }
 
-public enum FTPCSegementWidthMode {
-    case auto
-    case fixed
-    case fill
-}
-
 public extension UIScreen {
     
     public static func width() -> CGFloat {
@@ -66,52 +60,7 @@ extension CGFloat {
     
 }
 
-public class FTPCConfig {
-    
-    public var segementFrame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
-    public var scrollViewFrame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight() + 40, width: UIScreen.width(), height: UIScreen.height() - (CGFloat.navigationBarHeight() + 40))
-    public var segementEnableScrolling: Bool = true
-    public var contentEnableScrolling: Bool = true
-    public var segementMode: FTPCSegementWidthMode = .auto
-    public var segementColumns: NSInteger = 4
-    public var segementFixedWidth: CGFloat = 100.0
-    public var titleMargin: CGFloat = 25.0
-    public var titleDefaultColor: UIColor = .red//UIColor.darkGray
-    public var titleSelectedColor: UIColor = .green//UIColor.black
-    public var titleDefaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
-    public var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
-    public var indicatorHeight: CGFloat = 2.0
-    public var indicatorColor: UIColor = UIColor.red
-    
-    static func defaultConfig() -> FTPCConfig {
-        return FTPCConfig()
-    }
 
-}
-
-open class FTPCScrollView: UIScrollView {
-
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setup()
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setup()
-    }
-    
-    func setup() {
-        self.showsHorizontalScrollIndicator = false
-        self.showsVerticalScrollIndicator = false
-        self.alwaysBounceHorizontal = true
-        self.alwaysBounceVertical = false
-        self.alwaysBounceVertical = false
-        self.scrollsToTop = false
-        self.isPagingEnabled = true
-    }
-    
-}
 
 
 open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
@@ -192,10 +141,8 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     }
     
     func setupConponents() {
-        self.segement.frame = self.config.segementFrame
         self.segement.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
-        self.scrollView.frame = self.config.scrollViewFrame;
-        self.scrollView.contentSize = CGSize(width: self.config.scrollViewFrame.width * CGFloat(self.numberOfPages()), height: self.config.scrollViewFrame.height)
+        self.scrollView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
         
         if self.segement.superview == nil {
             self.superViewContoller?.view.addSubview(self.segement)
@@ -211,13 +158,13 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         var titles: [FTPCTitleModel] = []
         if self.setupMode == .Manually {
             for vc in self.viewControllers {
-                let titleModel = FTPCTitleModel(title: vc.title, font: self.config.titleDefaultFont)
+                let titleModel = FTPCTitleModel(title: vc.title, font: self.config.segementConfig.titleDefaultFont)
                 titles.append(titleModel)
             }
         } else {
             for i in 0...numberOfPages() {
                 if let vc = self.viewControllerForPage(page: i) {
-                    let titleModel = FTPCTitleModel(title: vc.title, font: self.config.titleDefaultFont)
+                    let titleModel = FTPCTitleModel(title: vc.title, font: self.config.segementConfig.titleDefaultFont)
                     titles.append(titleModel)
                 }
             }
@@ -271,13 +218,11 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     //    MARK: - UIScrollViewDelegate -
     
     public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
-        print("scrollViewDidEndScrollingAnimation")
         self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.scrollToPage(page: self.currentPage, animated: false)
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating")
         self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.scrollToPage(page: self.currentPage , animated: false)
     }
