@@ -13,17 +13,31 @@ class DetailViewController: UIViewController, FTPageControllerDataSource {
 
     var pageController = FTPageController()
     
+    
+    let colors = [UIColor.red,
+                  UIColor.black,
+                  UIColor.green,
+                  UIColor.cyan]
+    
+    
+    lazy var titleModels: [FTPCTitleModel] = {
+        var array: [FTPCTitleModel] = []
+        for i in 0...3 {
+            let model = FTPCTitleModel(title: "Title\(i)", defaultFont: nil, selectedFont: nil, defaultColor: nil, selectedColor: colors[i])
+            array.append(model);
+        }
+        return array;
+    }()
+
     lazy var viewControllers: [UIViewController] = {
         var array: [UIViewController] = []
-        for i in 0...5 {
+        for i in 0...3 {
             let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
             sub.text = "index: \(i)"
             array.append(sub);
         }
         return array;
     }()
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +50,8 @@ class DetailViewController: UIViewController, FTPageControllerDataSource {
     }
     
     
+    //    MARK: - FTPageControllerDataSource -
+    
     func numberOfViewControllers(pageController: FTPageController) -> NSInteger {
         return self.viewControllers.count
     }
@@ -43,6 +59,13 @@ class DetailViewController: UIViewController, FTPageControllerDataSource {
     func pageController(pageController: FTPageController, viewControllerForIndex index: NSInteger) -> UIViewController? {
         if index < self.viewControllers.count {
             return self.viewControllers[index]
+        }
+        return nil
+    }
+    
+    func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel? {
+        if index < self.titleModels.count {
+            return self.titleModels[index]
         }
         return nil
     }

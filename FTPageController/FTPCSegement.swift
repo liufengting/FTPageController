@@ -10,21 +10,27 @@ import UIKit
 open class FTPCTitleModel: NSObject {
     
     public var title: String = ""
-    public var font: UIFont = UIFont.systemFont(ofSize: 10.0)
-    public var titleWidth: CGFloat = 0.0
+    public var defaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
+    public var selectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
+    public var defaultColor: UIColor = UIColor.lightGray
+    public var selectedColor: UIColor = UIColor.black
+    private(set) var titleWidth: CGFloat = 20.0
     
-    public convenience init(title: String?, font: UIFont) {
+    public convenience init(title: String?, defaultFont: UIFont? = nil, selectedFont: UIFont? = nil, defaultColor: UIColor? = nil, selectedColor: UIColor? = nil) {
         self.init()
         self.title = (title != nil && (title?.count)! > 0) ? title! : "Title"
-        self.font = font
+        self.defaultFont = defaultFont ?? UIFont.systemFont(ofSize: 12.0)
+        self.selectedFont = selectedFont ?? UIFont.systemFont(ofSize: 15.0)
+        self.defaultColor = defaultColor ?? UIColor.darkGray
+        self.selectedColor = selectedColor ?? UIColor.black
         self.calculateTitleWidth()
     }
     
     private func calculateTitleWidth() {
-        if self.title.count <= 0 || self.font.pointSize < 0 {
+        if self.title.count <= 0 || self.defaultFont.pointSize < 0 {
             return
         }
-        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.font] , context: nil)
+        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.defaultFont] , context: nil)
         self.titleWidth = size.width
     }
     
@@ -81,26 +87,55 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
                 realCell.setSelected(selected: realCell.indexPath.item == page)
             }
         }
-        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.right, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
         self.scrollIndictorToPage(page: page, animated: animated)
     }
     
-    func scrollIndictorToPage(page: NSInteger, animated: Bool) {
+    public func handleTransition(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+        self.cellAtIndex(index: fromPage)?.handleTransition(percent: percent)
+        self.cellAtIndex(index: toPage)?.handleTransition(percent:(1.0 - percent))
+        self.updateIndicatorFrame(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
+        self.updateIndicatorColor(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
+    }
+    
+    public func scrollIndictorToPage(page: NSInteger, animated: Bool) {
         let rect = self.frameForIndicatorAtIndex(index: page)
+        let color = self.titleArray[page].selectedColor
         if animated {
             UIView.animate(withDuration: 0.3) {
                 self.indicator.frame = rect
+                self.indicator.backgroundColor = color
             }
         } else {
             self.indicator.frame = rect
+            self.indicator.backgroundColor = color
         }
     }
     
-    public func handleTransition(fromPage: NSInteger, toPage: NSInteger, percent: CGFloat) {
-//        self.cellAtIndex(index: fromPage)?.handleTransition(percent: isLeftToRight ? percent : (1 - percent), isLeftToRight: isLeftToRight)
-//        self.cellAtIndex(index: toPage)?.handleTransition(percent: isLeftToRight ? (1 - percent) : percent, isLeftToRight: isLeftToRight)
-        self.cellAtIndex(index: fromPage)?.handleTransition(percent: percent)
-        self.cellAtIndex(index: toPage)?.handleTransition(percent:(1.0 - percent))
+    func updateIndicatorFrame(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+        let y = self.yPositionForIndicatorAtIndex(index: fromPage)
+        var x: CGFloat = 0
+        var width: CGFloat = 0
+        let frX = self.xPositionForIndicatorAtIndex(index: fromPage)
+        let toX = self.xPositionForIndicatorAtIndex(index: toPage)
+        let frW = self.widthForIndicatorAtIndex(index: fromPage)
+        let toW = self.widthForIndicatorAtIndex(index: toPage)
+        if percent <= 0.5 {
+            x = frX
+            let totalRange = toX + toW - frX
+            width = frW + percent * 2.0 * (totalRange - frW)
+        } else {
+            x = frX + (toX - frX) * (percent - 0.5) * 2
+            width = toX + toW - x
+        }
+        self.indicator.frame = CGRect(x: x, y: y, width: width, height: self.heightForIndicatorAtIndex(index: fromPage))
+    }
+    
+    func updateIndicatorColor(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+        let fromColor = (currentPage == fromPage) ? self.titleArray[fromPage].selectedColor : self.titleArray[toPage].selectedColor
+        let toColor = (currentPage == fromPage) ? self.titleArray[toPage].selectedColor : self.titleArray[fromPage].selectedColor
+        let color = UIColor.transition(fromColor: fromColor, toColor: toColor, percent: (currentPage == fromPage) ? percent : (1 - percent))
+        self.indicator.backgroundColor = color
     }
     
     func cellAtIndex(index: NSInteger) -> FTPCSegementCell? {
@@ -148,6 +183,8 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
             }
         }
     }
+    
+    //    MARK: - privite methods
     
     func titleWidthForItemAtIndex(index: NSInteger) -> CGFloat {
         return self.titleArray[index].titleWidth

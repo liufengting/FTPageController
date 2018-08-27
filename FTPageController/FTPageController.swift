@@ -14,9 +14,10 @@ import UIKit
 
 }
 
-public protocol FTPageControllerDataSource: NSObjectProtocol {
+@objc public protocol FTPageControllerDataSource: NSObjectProtocol {
     
     func numberOfViewControllers(pageController: FTPageController) -> NSInteger
+    @objc optional func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel?
     func pageController(pageController: FTPageController, viewControllerForIndex index: NSInteger) -> UIViewController?
 
 }
@@ -158,15 +159,23 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         var titles: [FTPCTitleModel] = []
         if self.setupMode == .Manually {
             for vc in self.viewControllers {
-                let titleModel = FTPCTitleModel(title: vc.title, font: self.config.segementConfig.titleDefaultFont)
+                let titleModel = FTPCTitleModel(title: vc.title, defaultFont: UIFont.systemFont(ofSize: 12.0))
                 titles.append(titleModel)
             }
         } else {
-            for i in 0...numberOfPages() {
-                if let vc = self.viewControllerForPage(page: i) {
-                    let titleModel = FTPCTitleModel(title: vc.title, font: self.config.segementConfig.titleDefaultFont)
-                    titles.append(titleModel)
+            for i in 0...numberOfPages() - 1  {
+                var titleModel: FTPCTitleModel? = nil
+                if self.dataSource != nil && (self.dataSource?.responds(to: #selector(FTPageControllerDataSource.pageController(pageController:titleModelForIndex:))))!{
+                    if let model = self.dataSource?.pageController!(pageController: self, titleModelForIndex: i) {
+                        titleModel = model
+                    }
+                }else if let vc = self.viewControllerForPage(page: i) {
+                    titleModel = FTPCTitleModel(title: vc.title)
                 }
+                if titleModel == nil {
+                    titleModel = FTPCTitleModel(title: "")
+                }
+                titles.append(titleModel!)
             }
         }
         return titles
@@ -240,7 +249,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
             self.currentPage = formerPage
             return
         }
-        self.segement.handleTransition(fromPage: formerPage, toPage: latterPage, percent: (pageOffset - CGFloat(formerPage)))
+        self.segement.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
     }
     
     //    MARK: - FTPCSegementDelegate -

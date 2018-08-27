@@ -59,14 +59,14 @@ public class FTPCSegementConfig {
     
     public var frame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
     public var enableScrolling: Bool = true
-    public var mode: FTPCSegementMode = .auto
+    public var mode: FTPCSegementMode = .fill
     public var columns: NSInteger = 4
     public var fixedWidth: CGFloat = 100.0
     public var titleMargin: CGFloat = 25.0
-    public var titleDefaultColor: UIColor = .red//UIColor.darkGray
-    public var titleSelectedColor: UIColor = .green//UIColor.black
-    public var titleDefaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
-    public var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
+//    public var titleDefaultColor: UIColor = .red//UIColor.darkGray
+//    public var titleSelectedColor: UIColor = .green//UIColor.black
+//    public var titleDefaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
+//    public var titleSelectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
     
 }
 
@@ -76,7 +76,7 @@ public class FTPCIndicatorConfig {
     
     public var mode: FTPCIndicatorMode = .auto
     public var position: FTPCIndicatorPosition = .bottom
-    public var height: CGFloat = 2.0
+    public var height: CGFloat = 3.0
     public var width: CGFloat = 20.0
     public var horizontalOffsetToTitle: CGFloat = 5.0
     public var cornerRadius: CGFloat = 0.0

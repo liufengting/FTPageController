@@ -33,6 +33,7 @@ open class FTPCSegementCell: UICollectionViewCell {
     static let identifier = "\(FTPCSegementCell.classForCoder())"
     
     @IBOutlet var nameLabel: UILabel!
+    public weak var titleModel: FTPCTitleModel!
     public weak var segementConfig: FTPCSegementConfig!
     public var indexPath: IndexPath!
 
@@ -42,6 +43,7 @@ open class FTPCSegementCell: UICollectionViewCell {
     }
     
     func setupWith(titleModel: FTPCTitleModel, segementConfig: FTPCSegementConfig, indexPath: IndexPath, selected: Bool) {
+        self.titleModel = titleModel
         self.nameLabel.text = titleModel.title
         self.segementConfig = segementConfig
         self.indexPath = indexPath
@@ -49,8 +51,8 @@ open class FTPCSegementCell: UICollectionViewCell {
     }
     
     func setSelected(selected: Bool) {
-        let font = selected ? self.segementConfig.titleSelectedFont : self.segementConfig.titleDefaultFont
-        let textColor = selected ? self.segementConfig.titleSelectedColor : self.segementConfig.titleDefaultColor
+        let font = selected ? self.titleModel.selectedFont : self.titleModel.defaultFont
+        let textColor = selected ? self.titleModel.selectedColor : self.titleModel.defaultColor
         UIView.animate(withDuration: 0.3) {
             self.nameLabel.font = font
             self.nameLabel.textColor = textColor
@@ -58,16 +60,16 @@ open class FTPCSegementCell: UICollectionViewCell {
     }
     
     func handleTransition(percent: CGFloat) {
-        let fontSize = self.segementConfig.titleSelectedFont.pointSize - ((self.segementConfig.titleSelectedFont.pointSize - self.segementConfig.titleDefaultFont.pointSize) * percent)
-        let color = UIColor.transition(fromColor: self.segementConfig.titleSelectedColor, toColor: self.segementConfig.titleDefaultColor, percent: percent)
+        let fontSize = self.titleModel.selectedFont.pointSize - ((self.titleModel.selectedFont.pointSize - self.titleModel.defaultFont.pointSize) * percent)
+        let color = UIColor.transition(fromColor: self.titleModel.selectedColor, toColor: self.titleModel.defaultColor, percent: percent)
 //        if isLeftToRight {
-//            fontSize = self.config.titleSelectedFont.pointSize - ((self.config.titleSelectedFont.pointSize - self.config.titleDefaultFont.pointSize) * percent)
+//            fontSize = self.config.selectedFont.pointSize - ((self.config.selectedFont.pointSize - self.config.defaultFont.pointSize) * percent)
 //            color = UIColor.transition(fromColor: self.config.titleSelectedColor, toColor: self.config.titleDefaultColor, percent: percent)
 //        } else {
-//            fontSize = self.config.titleDefaultFont.pointSize + ((self.config.titleSelectedFont.pointSize - self.config.titleDefaultFont.pointSize) * percent)
+//            fontSize = self.config.defaultFont.pointSize + ((self.config.selectedFont.pointSize - self.config.defaultFont.pointSize) * percent)
 //            color = UIColor.transition(fromColor: self.config.titleDefaultColor, toColor: self.config.titleSelectedColor, percent: percent)
 //        }
-        let font = UIFont(name: self.segementConfig.titleDefaultFont.fontName, size: fontSize)
+        let font = UIFont(name: self.titleModel.defaultFont.fontName, size: fontSize)
         self.nameLabel.font = font
         self.nameLabel.textColor = color
         self.nameLabel.setNeedsLayout()
