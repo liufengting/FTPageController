@@ -7,26 +7,6 @@
 
 import UIKit
 
-extension UIColor {
-    
-    static func transition(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
-        var fromR: CGFloat = 0;
-        var fromG: CGFloat = 0;
-        var fromB: CGFloat = 0;
-        var fromA: CGFloat = 0;
-        fromColor.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
-        var toR: CGFloat = 0;
-        var toG: CGFloat = 0;
-        var toB: CGFloat = 0;
-        var toA: CGFloat = 0;
-        toColor.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
-        return UIColor(red: fromR - ((fromR - toR) * percent),
-                       green: fromG - ((fromG - toG) * percent),
-                       blue: fromB - ((fromB - toB) * percent),
-                       alpha: fromA - ((fromA - toA) * percent))
-    }
-    
-}
 
 open class FTPCSegementCell: UICollectionViewCell {
 

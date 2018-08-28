@@ -7,6 +7,8 @@
 
 import UIKit
 
+// MARK: - FTPageControllerDelegate -
+
 @objc public protocol FTPageControllerDelegate: NSObjectProtocol {
 
     @objc optional func pageController(pageController: FTPageController, didScollToPage page: NSInteger)
@@ -14,62 +16,21 @@ import UIKit
 
 }
 
+// MARK: - FTPageControllerDataSource -
+
 @objc public protocol FTPageControllerDataSource: NSObjectProtocol {
     
     func numberOfViewControllers(pageController: FTPageController) -> NSInteger
-    @objc optional func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel?
     func pageController(pageController: FTPageController, viewControllerForIndex index: NSInteger) -> UIViewController?
+    @objc optional func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel?
 
 }
 
-public enum FTPCSetupMode {
-    case Manually
-    case DataSource
-}
-
-public extension UIScreen {
-    
-    public static func width() -> CGFloat {
-        return self.main.bounds.size.width
-    }
-    
-    public static func height() -> CGFloat {
-        return self.main.bounds.size.height
-    }
-    
-}
-
-public extension UIDevice {
-
-    public func is_iPhone_X() -> Bool {
-        if UIScreen.main.bounds.height == 812.0 {
-            return true
-        }
-        return false
-    }
-
-}
-
-extension CGFloat {
-    
-    public static func navigationBarHeight() -> CGFloat {
-        if UIDevice.current.is_iPhone_X() {
-            return 88.0
-        }
-        return 64.0
-    }
-    
-}
-
-
-
+// MARK: - FTPageController -
 
 open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
 
-    private(set) var setupMode: FTPCSetupMode = .Manually
-    private var config: FTPCConfig = FTPCConfig.defaultConfig()
-    private var currentPage: NSInteger = 0
-    private weak var superViewContoller: UIViewController?
+    public var currentPage: NSInteger = 0
     public var viewControllers: [UIViewController] = [] {
         willSet {
             if newValue.count > 0 {
@@ -87,8 +48,8 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     }
     
     public lazy var segement: FTPCSegement = {
-        let view: FTPCSegement = Bundle(for: self.classForCoder).loadNibNamed("FTPCSegement", owner: nil, options: nil)?.first as! FTPCSegement
-        view.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0)
+        let view: FTPCSegement = FTPCSegement(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0))
+//        view.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0)
         return view
     }()
     
@@ -97,6 +58,10 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         view.delegate = self
         return view
     }()
+    
+    private(set) var setupMode: FTPCSetupMode = .Manually
+    private var config: FTPCConfig = FTPCConfig.defaultConfig()
+    private weak var superViewContoller: UIViewController?
     
 //    public init() {
 //        super.init(nibName: nil, bundle: nil)
@@ -141,18 +106,23 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         self.setupConponents()
     }
     
+    public func applyConfigAndReload(config: FTPCConfig) {
+        self.config = config
+        self.setupConponents()
+    }
+    
     func setupConponents() {
         self.segement.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
         self.scrollView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
         
-        if self.segement.superview == nil {
-            self.superViewContoller?.view.addSubview(self.segement)
-        }
-        if self.scrollView.superview == nil {
-            self.superViewContoller?.view.addSubview(self.scrollView)
-        }
+//        if self.segement.superview == nil {
+//            self.superViewContoller?.view.addSubview(self.segement)
+//        }
+//        if self.scrollView.superview == nil {
+//            self.superViewContoller?.view.addSubview(self.scrollView)
+//        }
         
-        self.scrollToPage(page: self.currentPage, animated: false)
+        self.scrollToPage(page: self.currentPage, isInitialSetup: true, animated: false)
     }
     
     func titleModelArray() -> [FTPCTitleModel] {
@@ -205,7 +175,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         return nil
     }
     
-    public func scrollToPage(page: NSInteger, animated: Bool) {
+    public func scrollToPage(page: NSInteger, isInitialSetup: Bool, animated: Bool) {
         let width = self.scrollView.bounds.size.width
         let vcRect = CGRect(x: width*CGFloat(page), y: 0, width: width, height: self.scrollView.bounds.size.height)
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
@@ -226,16 +196,6 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
 
     //    MARK: - UIScrollViewDelegate -
     
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
-        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        self.scrollToPage(page: self.currentPage, animated: false)
-    }
-
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        self.scrollToPage(page: self.currentPage , animated: false)
-    }
-    
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageOffset = scrollView.contentOffset.x/scrollView.bounds.size.width
         // out of range
@@ -250,12 +210,25 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
             return
         }
         self.segement.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
+        if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:isScolling:toPage:percent:))))! {
+            self.delegate?.pageController!(pageController: self, isScolling: formerPage, toPage: latterPage, percent: (pageOffset - CGFloat(formerPage)))
+        }
+    }
+    
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
+        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        self.scrollToPage(page: self.currentPage, isInitialSetup: false, animated: false)
+    }
+
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        self.scrollToPage(page: self.currentPage , isInitialSetup: false, animated: false)
     }
     
     //    MARK: - FTPCSegementDelegate -
     
     public func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger) {
-        self.scrollToPage(page: page, animated: true)
+        self.scrollToPage(page: page, isInitialSetup: false, animated: true)
     }
     
 }

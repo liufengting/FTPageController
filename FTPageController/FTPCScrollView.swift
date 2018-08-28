@@ -29,6 +29,10 @@ open class FTPCScrollView: UIScrollView {
         self.alwaysBounceVertical = false
         self.scrollsToTop = false
         self.isPagingEnabled = true
+        self.decelerationRate = UIScrollViewDecelerationRateNormal
+        if #available(iOS 11.0, *) {
+            self.contentInsetAdjustmentBehavior = .never
+        }
     }
     
     public func setupWith(scrollViewConfig: FTPCScrollViewConfig, pageCount: NSInteger) {
