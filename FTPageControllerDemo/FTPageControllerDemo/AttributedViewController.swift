@@ -15,17 +15,17 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
     
     let bgColors = [UIColor.red,
                     UIColor.cyan,
-                    UIColor.green]
+                    UIColor.brown]
     
     let titleColors = [UIColor.green,
                        UIColor.red,
-                       UIColor.white]
+                       UIColor.cyan]
     
     
     lazy var titleModels: [FTPCTitleModel] = {
         var array: [FTPCTitleModel] = []
         for i in 0...2 {
-            let model = FTPCTitleModel(title: "Title\(i)", defaultFont: nil, selectedFont: nil, defaultColor: nil, selectedColor: titleColors[i], indicatorColor: bgColors[i])
+            let model = FTPCTitleModel(title: "Title\(i)", defaultFont: nil, selectedFont: nil, defaultColor: UIColor.white, selectedColor: titleColors[i], indicatorColor: bgColors[i])
             array.append(model);
         }
         return array;
@@ -48,22 +48,30 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         } else {
             self.automaticallyAdjustsScrollViewInsets = false
         }
+
         
-        let height: CGFloat = 32.0;
-        let cornerRadius = height/2.0;
+        let segementHeight: CGFloat = 32.0;
+        let segementCornerRadius = segementHeight/2.0;
+        let segementBGColor = UIColor(red: 11/255.0, green: 71/255.0, blue: 232/255.0, alpha: 1.0)
+        let segementBRColor = UIColor(red: 13/255.0, green: 162/255.0, blue: 255/255.0, alpha: 1.0)
+
+        let indicatorHeight: CGFloat = 30.0;
+        let indicatorCornerRadius = indicatorHeight/2.0;
+        let indicatorBorderColor = UIColor(red: 255/255.0, green: 232/255.0, blue: 20/255.0, alpha: 1.0)
+
 
         let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: UIScreen.height() - CGFloat.navigationBarHeight()), isScrollEnabled: true)
         
-        let segementConfig = FTPCSegementConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: height), isScrollEnabled: true, columns: self.viewControllers.count)
-        segementConfig.setupWith(backgroundColor: UIColor.gray, cornerRadius: cornerRadius, borderColor: UIColor.yellow, borderWidth: 1.0)
+        let segementConfig = FTPCSegementConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: segementHeight), isScrollEnabled: true, columns: self.viewControllers.count)
+        segementConfig.setupWith(backgroundColor: segementBGColor, cornerRadius: segementCornerRadius, borderColor: segementBRColor, borderWidth: 1.0)
 
         let indicatorConfig = FTPCIndicatorConfig.init(fillMode: .center, animationOption: .linnear)
-        indicatorConfig.setupWith(height: height, cornerRadius: cornerRadius, borderColor: UIColor.orange, borderWidth: 1)
+        indicatorConfig.setupWith(height: indicatorHeight, cornerRadius: indicatorCornerRadius, borderColor: indicatorBorderColor, borderWidth: 1)
 
         let config = FTPCConfig.init(scrollViewConfig: scrollViewConfig, segementConfig: segementConfig, indicatorConfig: indicatorConfig)
 
         pageController.setupWith(superViewController: self, dataSource: self, delegate: self, initialIndex: 1, config: config)
-        pageController.segement.layer.cornerRadius = cornerRadius
+        
         self.navigationItem.titleView = pageController.segement
         self.view.addSubview(pageController.scrollView)
     }
