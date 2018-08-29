@@ -14,9 +14,18 @@ class SubViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.title = "Container"
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Container"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Container"
         
         if self.text.count > 0 {
             nameLabel.text = text

@@ -27,6 +27,17 @@ public enum FTPCSegementMode {
     case fill
 }
 
+/// FTPCIndicatorMode
+/// decides width of the indicator
+/// - auto: same with the title width (with margins)
+/// - fixed: fixed width
+/// - fill: width fill item
+public enum FTPCIndicatorMode {
+    case auto
+    case fixed
+    case fill
+}
+
 /// FTPCIndicatorPosition
 /// decides position of indicator
 /// - center: vertical center of segement
@@ -38,16 +49,13 @@ public enum FTPCIndicatorPosition {
     case bottom
 }
 
-
-/// FTPCIndicatorMode
-/// decides width of the indicator
-/// - auto: same with the title width (with margins)
-/// - fixed: fixed width
-/// - fill: width fill item
-public enum FTPCIndicatorMode {
-    case auto
-    case fixed
-    case fill
+/// FTPCIndicatorAnimationOption
+/// decides animation of indicator
+/// - linnear: linnear
+/// - expand: expand
+public enum FTPCIndicatorAnimationOption {
+    case linnear
+    case expand
 }
 
 //MARK: - FTPCConfig -
@@ -144,7 +152,8 @@ public class FTPCIndicatorConfig: NSObject {
     
     public var mode: FTPCIndicatorMode = .auto
     public var position: FTPCIndicatorPosition = .bottom
-    public var height: CGFloat = 3.0
+    public var animationOption: FTPCIndicatorAnimationOption = .expand
+    public var height: CGFloat = 2.0
     public var width: CGFloat = 20.0
     public var horizontalOffsetToTitle: CGFloat = 5.0
     
@@ -152,23 +161,26 @@ public class FTPCIndicatorConfig: NSObject {
     public var borderColor: UIColor = UIColor.red
     public var borderWidth: CGFloat = 0.0
 
-    public convenience init(autoMode position: FTPCIndicatorPosition, horizontalOffsetToTitle: CGFloat) {
+    public convenience init(autoMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, horizontalOffsetToTitle: CGFloat) {
         self.init()
         self.mode = .auto
         self.position = position
+        self.animationOption = animationOption
         self.horizontalOffsetToTitle = horizontalOffsetToTitle
     }
     
-    public convenience init(fixedMode position: FTPCIndicatorPosition, width: CGFloat) {
+    public convenience init(fixedMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, width: CGFloat) {
         self.init()
         self.mode = .fixed
         self.position = position
+        self.animationOption = animationOption
         self.width = width
     }
     
-    public convenience init(fillMode position: FTPCIndicatorPosition) {
+    public convenience init(fillMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption) {
         self.init()
         self.mode = .fill
+        self.animationOption = animationOption
         self.position = position
     }
     
@@ -180,7 +192,6 @@ public class FTPCIndicatorConfig: NSObject {
     }
     
 }
-
 
 public extension UIScreen {
     

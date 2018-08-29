@@ -20,7 +20,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         layout.scrollDirection = UICollectionViewScrollDirection.horizontal
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collection.backgroundColor = UIColor.clear
-        collection.register(UINib(nibName: "FTPCSegementCell", bundle: Bundle(for: self.classForCoder)), forCellWithReuseIdentifier: FTPCSegementCell.identifier)
+        collection.register(FTPCSegementCell.classForCoder(), forCellWithReuseIdentifier: FTPCSegementCell.identifier)
         if #available(iOS 11.0, *) {
             collection.contentInsetAdjustmentBehavior = .never
         }
@@ -61,7 +61,11 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         self.selectedPage = selectedPage
         self.applyConfigs(config: config)
     }
-
+    
+    public func setSelectedPage(page: NSInteger) {
+        self.selectedPage = page
+    }
+    
     public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
         for cell in self.collectionView.visibleCells {
@@ -70,7 +74,6 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
             }
         }
         self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
-        self.scrollIndictorToPage(page: page, animated: animated)
     }
     
     public func scrollIndictorToPage(page: NSInteger, animated: Bool) {
@@ -93,13 +96,19 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         let toX = self.xPositionForIndicatorAtIndex(index: toPage)
         let frW = self.widthForIndicatorAtIndex(index: fromPage)
         let toW = self.widthForIndicatorAtIndex(index: toPage)
-        if percent <= 0.5 {
-            x = frX
-            let totalRange = toX + toW - frX
-            width = frW + percent * 2.0 * (totalRange - frW)
-        } else {
-            x = frX + (toX - frX) * (percent - 0.5) * 2
-            width = toX + toW - x
+        switch self.indicatorConfig.animationOption {
+        case .linnear:
+            x = frX + ((toX - frX) * percent)
+            width = frW + ((toW - frW) * percent)
+        case .expand:
+            if percent <= 0.5 {
+                x = frX
+                let totalRange = toX + toW - frX
+                width = frW + percent * 2.0 * (totalRange - frW)
+            } else {
+                x = frX + (toX - frX) * (percent - 0.5) * 2
+                width = toX + toW - x
+            }
         }
         self.indicator.frame = CGRect(x: x, y: y, width: width, height: self.heightForIndicatorAtIndex(index: fromPage))
     }
@@ -177,7 +186,6 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
     
     func handleCellTapAtIndexPath(indexPath: IndexPath) {
         if self.selectedPage != indexPath.item {
-            self.selectPage(page: indexPath.item, animated: true)
             if self.delegate != nil {
                 self.delegate!.ftPCSegement(segement: self, didSelect: indexPath.item)
             }

@@ -17,9 +17,9 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
                     UIColor.cyan,
                     UIColor.green]
     
-    let titleColors = [UIColor.gray,
-                       UIColor.blue,
-                       UIColor.red]
+    let titleColors = [UIColor.green,
+                       UIColor.red,
+                       UIColor.white]
     
     
     lazy var titleModels: [FTPCTitleModel] = {
@@ -57,7 +57,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         let segementConfig = FTPCSegementConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: height), isScrollEnabled: true, columns: self.viewControllers.count)
         segementConfig.setupWith(backgroundColor: UIColor.gray, cornerRadius: cornerRadius, borderColor: UIColor.yellow, borderWidth: 1.0)
 
-        let indicatorConfig = FTPCIndicatorConfig.init(fillMode: .center)
+        let indicatorConfig = FTPCIndicatorConfig.init(fillMode: .center, animationOption: .linnear)
         indicatorConfig.setupWith(height: height, cornerRadius: cornerRadius, borderColor: UIColor.orange, borderWidth: 1)
 
         let config = FTPCConfig.init(scrollViewConfig: scrollViewConfig, segementConfig: segementConfig, indicatorConfig: indicatorConfig)
@@ -98,14 +98,5 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
     func pageController(pageController: FTPageController, isScolling fromPage: NSInteger, toPage: NSInteger, percent: CGFloat) {
         
     }
-    
 
-    
-
-    @IBAction func doneBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true) {
-            
-        }
-    }
-    
 }

@@ -34,12 +34,5 @@ class DetailViewController: UIViewController {
         self.view.addSubview(pageController.segement)
         self.view.addSubview(pageController.scrollView)
     }
-    
-    @IBAction func doneBarButtonItemTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true) {
-            
-        }
-    }
-    
 
 }
