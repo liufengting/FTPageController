@@ -59,27 +59,9 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     }()
     
     private(set) var setupMode: FTPCSetupMode = .Manually
-    private var config: FTPCConfig = FTPCConfig.defaultConfig()
     private weak var superViewContoller: UIViewController?
-    
-//    public init() {
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    public required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//    }
-//
-//    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    }
-//
-//    open override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        self.view.addSubview(self.scrollView)
-//    }
-    
+    private var config: FTPCConfig = FTPCConfig.defaultConfig()
+
     public func setupWith(superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger? = 0, config: FTPCConfig? = nil) {
         self.superViewContoller = superViewController
         self.dataSource = dataSource
@@ -113,14 +95,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     func setupConponents() {
         self.segement.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
         self.scrollView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
-        
-//        if self.segement.superview == nil {
-//            self.superViewContoller?.view.addSubview(self.segement)
-//        }
-//        if self.scrollView.superview == nil {
-//            self.superViewContoller?.view.addSubview(self.scrollView)
-//        }
-        
+
         self.scrollToPage(page: self.currentPage, animated: false)
         self.didSelectPage(page: self.currentPage, animated: false)
     }
