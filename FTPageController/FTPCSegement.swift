@@ -61,11 +61,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         self.selectedPage = selectedPage
         self.applyConfigs(config: config)
     }
-    
-    public func setSelectedPage(page: NSInteger) {
-        self.selectedPage = page
-    }
-    
+
     public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
         for cell in self.collectionView.visibleCells {

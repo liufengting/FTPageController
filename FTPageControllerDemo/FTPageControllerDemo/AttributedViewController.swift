@@ -100,11 +100,11 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
     //FTPageControllerDelegate
     
     func pageController(pageController: FTPageController, didScollToPage page: NSInteger) {
-        
+        print("didScollToPage :\(page)")
     }
     
     func pageController(pageController: FTPageController, isScolling fromPage: NSInteger, toPage: NSInteger, percent: CGFloat) {
-        
+        print("isScolling fromPage: \(fromPage), toPage: \(toPage), percent: \(percent)")
     }
 
 }
