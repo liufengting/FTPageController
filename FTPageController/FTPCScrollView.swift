@@ -7,21 +7,21 @@
 
 import UIKit
 
-open class FTPCScrollView: UIScrollView {
+@objc open class FTPCScrollView: UIScrollView {
     
-    public weak var scrollViewConfig: FTPCScrollViewConfig!
+    @objc public weak var scrollViewConfig: FTPCScrollViewConfig!
     
-    public override init(frame: CGRect) {
+    @objc public override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialSetup()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    @objc public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialSetup()
     }
     
-    private func initialSetup() {
+    @objc private func initialSetup() {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.alwaysBounceHorizontal = true
@@ -35,7 +35,7 @@ open class FTPCScrollView: UIScrollView {
         }
     }
     
-    public func setupWith(scrollViewConfig: FTPCScrollViewConfig, pageCount: NSInteger) {
+    @objc public func setupWith(scrollViewConfig: FTPCScrollViewConfig, pageCount: NSInteger) {
         self.scrollViewConfig = scrollViewConfig
         self.frame = self.scrollViewConfig.frame;
         self.isScrollEnabled = self.scrollViewConfig.isScrollEnabled

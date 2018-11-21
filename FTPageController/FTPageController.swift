@@ -28,18 +28,18 @@ import UIKit
 
 // MARK: - FTPageController -
 
-open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
+@objc open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
 
-    public var currentPage: NSInteger = 0
-    public var viewControllers: [UIViewController] = [] {
+    @objc public var currentPage: NSInteger = 0
+    @objc public var viewControllers: [UIViewController] = [] {
         willSet {
             if newValue.count > 0 {
                 self.setupMode = .Manually
             }
         }
     }
-    public weak var delegate: FTPageControllerDelegate?
-    public weak var dataSource: FTPageControllerDataSource? {
+    @objc public weak var delegate: FTPageControllerDelegate?
+    @objc public weak var dataSource: FTPageControllerDataSource? {
         willSet {
             if newValue != nil {
                 self.setupMode = .DataSource
@@ -47,12 +47,12 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         }
     }
     
-    public lazy var segement: FTPCSegement = {
+    @objc public lazy var segement: FTPCSegement = {
         let view: FTPCSegement = FTPCSegement(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0))
         return view
     }()
     
-    public lazy var scrollView: FTPCScrollView = {
+    @objc public lazy var scrollView: FTPCScrollView = {
         let view = FTPCScrollView(frame: CGRect.zero)
         view.delegate = self
         return view
@@ -62,11 +62,11 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     private weak var superViewContoller: UIViewController?
     private var config: FTPCConfig = FTPCConfig.defaultConfig()
 
-    public func setupWith(superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger? = 0, config: FTPCConfig? = nil) {
+    @objc public func setupWith(superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger = 0, config: FTPCConfig? = nil) {
         self.superViewContoller = superViewController
         self.dataSource = dataSource
         
-        self.currentPage = initialIndex!
+        self.currentPage = initialIndex
         if let configration: FTPCConfig = config {
             self.config = configration
         }
@@ -74,12 +74,12 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         self.setupConponents()
     }
     
-    public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger? = 0, config: FTPCConfig? = nil) {
+    @objc public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger = 0, config: FTPCConfig? = nil) {
 
         self.superViewContoller = superViewController
         self.viewControllers = viewControllers
         
-        self.currentPage = initialIndex!
+        self.currentPage = initialIndex
         if let configration: FTPCConfig = config {
             self.config = configration
         }
@@ -87,7 +87,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         self.setupConponents()
     }
     
-    public func applyConfigAndReload(config: FTPCConfig) {
+    @objc public func applyConfigAndReload(config: FTPCConfig) {
         self.config = config
         self.setupConponents()
     }
@@ -150,7 +150,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         return nil
     }
     
-    public func scrollToPage(page: NSInteger, animated: Bool) {
+    @objc public func scrollToPage(page: NSInteger, animated: Bool) {
         if page < 0 || page >= self.numberOfPages() {
             return
         }
@@ -159,7 +159,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         self.scrollView.scrollRectToVisible(vcRect, animated: animated)
     }
 
-    public func didSelectPage(page: NSInteger, animated: Bool) {
+    @objc public func didSelectPage(page: NSInteger, animated: Bool) {
         let width = self.scrollView.bounds.size.width
         let vcRect = CGRect(x: width*CGFloat(page), y: 0, width: width, height: self.scrollView.bounds.size.height)
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
@@ -179,7 +179,7 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
     
     //    MARK: - UIScrollViewDelegate -
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    @objc public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageOffset = scrollView.contentOffset.x/scrollView.bounds.size.width
         // out of range
         if pageOffset <= 0.0 || pageOffset >= CGFloat(self.numberOfPages() - 1) {
@@ -198,19 +198,19 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         }
     }
 
-    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
+    @objc public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
         self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.didSelectPage(page: self.currentPage, animated: true)
     }
 
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    @objc public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.didSelectPage(page: self.currentPage, animated: true)
     }
     
     //    MARK: - FTPCSegementDelegate -
     
-    public func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger) {
+    @objc public func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger) {
         self.scrollToPage(page: page, animated: true)
     }
     

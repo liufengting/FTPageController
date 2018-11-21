@@ -7,17 +7,17 @@
 
 import UIKit
 
-open class FTPCTitleModel: NSObject {
+@objc open class FTPCTitleModel: NSObject {
     
-    public var title: String = ""
-    public var defaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
-    public var selectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
-    public var defaultColor: UIColor = UIColor.lightGray
-    public var selectedColor: UIColor = UIColor.black
-    public var indicatorColor: UIColor = UIColor.red
-    private(set) var titleWidth: CGFloat = 20.0
+    @objc public var title: String = ""
+    @objc public var defaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
+    @objc public var selectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
+    @objc public var defaultColor: UIColor = UIColor.lightGray
+    @objc public var selectedColor: UIColor = UIColor.black
+    @objc public var indicatorColor: UIColor = UIColor.red
+    @objc private(set) var titleWidth: CGFloat = 20.0
     
-    public convenience init(title: String?, defaultFont: UIFont? = nil, selectedFont: UIFont? = nil, defaultColor: UIColor? = nil, selectedColor: UIColor? = nil, indicatorColor: UIColor? = nil) {
+    @objc public convenience init(title: String?, defaultFont: UIFont? = nil, selectedFont: UIFont? = nil, defaultColor: UIColor? = nil, selectedColor: UIColor? = nil, indicatorColor: UIColor? = nil) {
         self.init()
         self.title = (title != nil && (title?.count)! > 0) ? title! : "Title"
         self.defaultFont = defaultFont ?? UIFont.systemFont(ofSize: 12.0)
@@ -28,7 +28,7 @@ open class FTPCTitleModel: NSObject {
         self.calculateTitleWidth()
     }
     
-    private func calculateTitleWidth() {
+    @objc private func calculateTitleWidth() {
         if self.title.count <= 0 || self.defaultFont.pointSize < 0 {
             return
         }

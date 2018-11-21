@@ -7,15 +7,15 @@
 
 import UIKit
 
-public protocol FTPCSegementDelegate: NSObjectProtocol {
+@objc public protocol FTPCSegementDelegate: NSObjectProtocol {
     
     func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger)
     
 }
 
-open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+@objc open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    public lazy var collectionView: UICollectionView = {
+    @objc public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
@@ -33,36 +33,36 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         return collection
     }()
     
-    public var indicator: UIView = UIView()
-    public weak var delegate: FTPCSegementDelegate?
-    public weak var segementConfig: FTPCSegementConfig!
-    public weak var indicatorConfig: FTPCIndicatorConfig!
-    public var selectedPage: NSInteger = 0
-    public var titleArray: [FTPCTitleModel] = []
+    @objc public var indicator: UIView = UIView()
+    @objc public weak var delegate: FTPCSegementDelegate?
+    @objc public weak var segementConfig: FTPCSegementConfig!
+    @objc public weak var indicatorConfig: FTPCIndicatorConfig!
+    @objc public var selectedPage: NSInteger = 0
+    @objc public var titleArray: [FTPCTitleModel] = []
     
-    public override init(frame: CGRect) {
+    @objc public override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(self.collectionView)
     }
     
-    public required init?(coder aDecoder: NSCoder) {
+    @objc public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.addSubview(self.collectionView)
     }
     
-    open override func layoutSubviews() {
+    @objc open override func layoutSubviews() {
         super.layoutSubviews()
         self.collectionView.frame = self.bounds
     }
     
-    public func setupWithTitles(titles: [FTPCTitleModel], config: FTPCConfig, delegate: FTPCSegementDelegate?, selectedPage: NSInteger)  {
+    @objc public func setupWithTitles(titles: [FTPCTitleModel], config: FTPCConfig, delegate: FTPCSegementDelegate?, selectedPage: NSInteger)  {
         self.titleArray = titles
         self.delegate = delegate
         self.selectedPage = selectedPage
         self.applyConfigs(config: config)
     }
 
-    public func selectPage(page: NSInteger, animated: Bool) {
+    @objc public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
         for cell in self.collectionView.visibleCells {
             if let realCell: FTPCSegementCell = cell as? FTPCSegementCell {
@@ -72,19 +72,19 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
     }
     
-    public func scrollIndictorToPage(page: NSInteger, animated: Bool) {
+    @objc public func scrollIndictorToPage(page: NSInteger, animated: Bool) {
         self.indicator.backgroundColor = self.titleArray[page].indicatorColor
         self.indicator.frame = self.frameForIndicatorAtIndex(index: page)
     }
     
-    public func handleTransition(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+    @objc public func handleTransition(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
         self.cellAtIndex(index: fromPage)?.handleTransition(percent: percent)
         self.cellAtIndex(index: toPage)?.handleTransition(percent:(1.0 - percent))
         self.updateIndicatorFrame(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
         self.updateIndicatorColor(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
     }
 
-    func updateIndicatorFrame(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+    @objc func updateIndicatorFrame(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
         let y = self.yPositionForIndicatorAtIndex(index: fromPage)
         var x: CGFloat = 0
         var width: CGFloat = 0
@@ -109,7 +109,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         self.indicator.frame = CGRect(x: x, y: y, width: width, height: self.heightForIndicatorAtIndex(index: fromPage))
     }
     
-    func updateIndicatorColor(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+    @objc func updateIndicatorColor(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
         let fromColor = (currentPage == fromPage) ? self.titleArray[fromPage].indicatorColor : self.titleArray[toPage].indicatorColor
         let toColor = (currentPage == fromPage) ? self.titleArray[toPage].indicatorColor : self.titleArray[fromPage].indicatorColor
         if fromColor.isEqual(color: toColor) == false {
@@ -118,7 +118,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         }
     }
     
-    func applyConfigs(config: FTPCConfig) {
+    @objc func applyConfigs(config: FTPCConfig) {
         self.segementConfig = config.segementConfig
         self.indicatorConfig = config.indicatorConfig
         
