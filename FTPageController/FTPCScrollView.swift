@@ -29,7 +29,7 @@ open class FTPCScrollView: UIScrollView {
         self.alwaysBounceVertical = false
         self.scrollsToTop = false
         self.isPagingEnabled = true
-        self.decelerationRate = UIScrollViewDecelerationRateNormal
+        self.decelerationRate = UIScrollView.DecelerationRate.normal
         if #available(iOS 11.0, *) {
             self.contentInsetAdjustmentBehavior = .never
         }

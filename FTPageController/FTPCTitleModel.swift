@@ -32,7 +32,7 @@ open class FTPCTitleModel: NSObject {
         if self.title.count <= 0 || self.defaultFont.pointSize < 0 {
             return
         }
-        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedStringKey.font : self.defaultFont] , context: nil)
+        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.defaultFont] , context: nil)
         self.titleWidth = size.width
     }
     

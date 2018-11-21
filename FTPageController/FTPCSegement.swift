@@ -17,7 +17,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
 
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collection.backgroundColor = UIColor.clear
         collection.register(FTPCSegementCell.classForCoder(), forCellWithReuseIdentifier: FTPCSegementCell.identifier)
@@ -26,7 +26,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
         }
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
-        collection.decelerationRate = UIScrollViewDecelerationRateNormal
+        collection.decelerationRate = UIScrollView.DecelerationRate.normal
         collection.delegate = self
         collection.dataSource = self
         collection.insertSubview(self.indicator, at: 0)
@@ -69,7 +69,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
                 realCell.setSelected(selected: realCell.indexPath.item == page)
             }
         }
-        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
     }
     
     public func scrollIndictorToPage(page: NSInteger, animated: Bool) {
@@ -162,7 +162,7 @@ open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDel
     }
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.collectionView.sendSubview(toBack: self.indicator)
+        self.collectionView.sendSubviewToBack(self.indicator)
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

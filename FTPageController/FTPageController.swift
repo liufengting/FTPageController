@@ -164,11 +164,11 @@ open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegat
         let vcRect = CGRect(x: width*CGFloat(page), y: 0, width: width, height: self.scrollView.bounds.size.height)
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
             if vc.parent == nil {
-                vc.willMove(toParentViewController: self.superViewContoller)
+                vc.willMove(toParent: self.superViewContoller)
                 vc.view.frame = vcRect
-                self.superViewContoller?.addChildViewController(vc)
+                self.superViewContoller?.addChild(vc)
                 self.scrollView.addSubview(vc.view)
-                vc.didMove(toParentViewController: self.superViewContoller)
+                vc.didMove(toParent: self.superViewContoller)
             }
         }
         self.segement.selectPage(page: page, animated: animated)
