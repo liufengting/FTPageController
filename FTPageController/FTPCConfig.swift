@@ -11,7 +11,7 @@ import UIKit
 /// describes how the controller was setup
 /// - Manually: [UIViewControllers]
 /// - DataSource: setup with dataSource
-public enum FTPCSetupMode {
+@objc public enum FTPCSetupMode : Int {
     case Manually
     case DataSource
 }
@@ -21,7 +21,7 @@ public enum FTPCSetupMode {
 /// - auto: item width decided by title, font and margin
 /// - fixed: fixed item width
 /// - fill: devide whole screen width into 4(coloumns)
-public enum FTPCSegementMode {
+@objc public enum FTPCSegementMode : Int {
     case auto
     case fixed
     case fill
@@ -32,7 +32,7 @@ public enum FTPCSegementMode {
 /// - auto: same with the title width (with margins)
 /// - fixed: fixed width
 /// - fill: width fill item
-public enum FTPCIndicatorMode {
+@objc public enum FTPCIndicatorMode : Int {
     case auto
     case fixed
     case fill
@@ -43,7 +43,7 @@ public enum FTPCIndicatorMode {
 /// - center: vertical center of segement
 /// - top: top of segement
 /// - bottom: bottom of segement
-public enum FTPCIndicatorPosition {
+@objc public enum FTPCIndicatorPosition : Int {
     case center
     case top
     case bottom
@@ -53,7 +53,7 @@ public enum FTPCIndicatorPosition {
 /// decides animation of indicator
 /// - linnear: linnear
 /// - expand: expand
-public enum FTPCIndicatorAnimationOption {
+@objc public enum FTPCIndicatorAnimationOption : Int {
     case linnear
     case expand
 }
@@ -103,7 +103,7 @@ public enum FTPCIndicatorAnimationOption {
 @objc public class FTPCSegementConfig: NSObject {
     
     @objc public var frame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
-    public var mode: FTPCSegementMode = .auto
+    @objc public var mode: FTPCSegementMode = .auto
     @objc public var isScrollEnabled: Bool = true
     @objc public var columns: NSInteger = 2
     @objc public var fixedWidth: CGFloat = 40.0
@@ -150,9 +150,9 @@ public enum FTPCIndicatorAnimationOption {
 
 @objc public class FTPCIndicatorConfig: NSObject {
     
-    public var mode: FTPCIndicatorMode = .auto
-    public var position: FTPCIndicatorPosition = .bottom
-    public var animationOption: FTPCIndicatorAnimationOption = .expand
+    @objc public var mode: FTPCIndicatorMode = .auto
+    @objc public var position: FTPCIndicatorPosition = .bottom
+    @objc public var animationOption: FTPCIndicatorAnimationOption = .expand
     @objc public var height: CGFloat = 2.0
     @objc public var width: CGFloat = 20.0
     @objc public var horizontalOffsetToTitle: CGFloat = 5.0
@@ -161,7 +161,7 @@ public enum FTPCIndicatorAnimationOption {
     @objc public var borderColor: UIColor = UIColor.red
     @objc public var borderWidth: CGFloat = 0.0
 
-    public convenience init(autoMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, horizontalOffsetToTitle: CGFloat) {
+    @objc public convenience init(autoMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, horizontalOffsetToTitle: CGFloat) {
         self.init()
         self.mode = .auto
         self.position = position
@@ -169,7 +169,7 @@ public enum FTPCIndicatorAnimationOption {
         self.horizontalOffsetToTitle = horizontalOffsetToTitle
     }
     
-    public convenience init(fixedMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, width: CGFloat) {
+    @objc public convenience init(fixedMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, width: CGFloat) {
         self.init()
         self.mode = .fixed
         self.position = position
@@ -177,7 +177,7 @@ public enum FTPCIndicatorAnimationOption {
         self.width = width
     }
     
-    public convenience init(fillMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption) {
+    @objc public convenience init(fillMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption) {
         self.init()
         self.mode = .fill
         self.animationOption = animationOption
