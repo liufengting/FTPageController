@@ -28,7 +28,7 @@ import UIKit
 
 // MARK: - FTPageController -
 
-@objc open class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
+@objc public class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
 
     @objc public var currentPage: NSInteger = 0
     @objc public var viewControllers: [UIViewController] = [] {
@@ -126,7 +126,7 @@ import UIKit
         return titles
     }
     
-    func numberOfPages() -> NSInteger {
+    @objc public func numberOfPages() -> NSInteger {
         if self.setupMode == .DataSource {
             if self.dataSource != nil {
                 return (self.dataSource?.numberOfViewControllers(pageController: self))!

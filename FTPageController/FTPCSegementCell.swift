@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 open class FTPCSegementCell: UICollectionViewCell {
 
     @objc static let identifier = "\(FTPCSegementCell.classForCoder())"
@@ -17,6 +16,7 @@ open class FTPCSegementCell: UICollectionViewCell {
         label.textAlignment = NSTextAlignment.center
         return label
     }()
+    
     @objc public weak var titleModel: FTPCTitleModel!
     @objc public weak var segementConfig: FTPCSegementConfig!
     @objc public var indexPath: IndexPath!

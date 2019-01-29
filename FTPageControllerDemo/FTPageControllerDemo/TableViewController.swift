@@ -46,7 +46,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.headerView.frame = CGRect(x: 0, y: 0, width: width, height: imageHeight)
         self.view.addSubview(self.headerView)
         self.view.bringSubviewToFront(self.tableView)
-        self.tableView.contentInset = UIEdgeInsets(top: imageHeight - CGFloat.navigationBarHeight(), left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: imageHeight - UIDevice.navigationBarHeight(), left: 0, bottom: 0, right: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +66,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.height() - CGFloat.navigationBarHeight() - 40.0
+        return UIScreen.height() - UIDevice.navigationBarHeight() - 40.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -78,7 +78,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if self.pageController.scrollView.superview != nil {
             self.pageController.scrollView.removeFromSuperview()
         }
-        self.pageController.scrollView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIScreen.height() - CGFloat.navigationBarHeight() - 40.0)
+        self.pageController.scrollView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIScreen.height() - UIDevice.navigationBarHeight() - 40.0)
         cell.addSubview(self.pageController.scrollView)
         return cell
     }
@@ -89,11 +89,12 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
-        if y <= CGFloat.navigationBarHeight() - imageHeight {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: CGFloat.navigationBarHeight() - y)
+        print(y);
+        if y <= UIDevice.navigationBarHeight() - imageHeight {
+            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIDevice.navigationBarHeight() - y)
         } else if y <= 0 {
             self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: imageHeight)
-            self.tableView.contentInset = UIEdgeInsets(top: -y, left: 0, bottom: 0, right: 0)
+            self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
         }
     }
     

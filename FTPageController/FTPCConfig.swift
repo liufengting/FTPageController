@@ -58,6 +58,71 @@ import UIKit
     case expand
 }
 
+@objc public extension UIScreen {
+    
+    @objc public static func width() -> CGFloat {
+        return self.main.bounds.size.width
+    }
+    
+    @objc public static func height() -> CGFloat {
+        return self.main.bounds.size.height
+    }
+    
+}
+
+@objc public extension UIDevice {
+    
+    @objc public static func is_iPhone_X_or_up() -> Bool {
+        guard #available(iOS 11.0, *) else {
+            return false
+        }
+        return UIApplication.shared.windows[0].safeAreaInsets != UIEdgeInsets.zero
+    }
+    
+    @objc public static func navigationBarHeight() -> CGFloat {
+        if self.is_iPhone_X_or_up() {
+            return 88.0
+        }
+        return 64.0
+    }
+    
+}
+
+@objc extension UIColor {
+    
+    @objc func isEqual(color: UIColor) -> Bool {
+        var fromR: CGFloat = 0;
+        var fromG: CGFloat = 0;
+        var fromB: CGFloat = 0;
+        var fromA: CGFloat = 0;
+        self.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
+        var toR: CGFloat = 0;
+        var toG: CGFloat = 0;
+        var toB: CGFloat = 0;
+        var toA: CGFloat = 0;
+        color.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
+        return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA);
+    }
+    
+    @objc static func transition(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
+        var fromR: CGFloat = 0;
+        var fromG: CGFloat = 0;
+        var fromB: CGFloat = 0;
+        var fromA: CGFloat = 0;
+        fromColor.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
+        var toR: CGFloat = 0;
+        var toG: CGFloat = 0;
+        var toB: CGFloat = 0;
+        var toA: CGFloat = 0;
+        toColor.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
+        return UIColor(red: fromR - ((fromR - toR) * percent),
+                       green: fromG - ((fromG - toG) * percent),
+                       blue: fromB - ((fromB - toB) * percent),
+                       alpha: fromA - ((fromA - toA) * percent))
+    }
+    
+}
+
 //MARK: - FTPCConfig -
 
 @objc public class FTPCConfig: NSObject {
@@ -83,7 +148,7 @@ import UIKit
 
 @objc public class FTPCScrollViewConfig: NSObject {
     
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight() + 40, width: UIScreen.width(), height: UIScreen.height() - (CGFloat.navigationBarHeight() + 40))
+    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.navigationBarHeight() + 40, width: UIScreen.width(), height: UIScreen.height() - (UIDevice.navigationBarHeight() + 40))
     @objc public var isScrollEnabled: Bool = true
     
     @objc public convenience init(frame: CGRect, isScrollEnabled: Bool) {
@@ -102,7 +167,7 @@ import UIKit
 
 @objc public class FTPCSegementConfig: NSObject {
     
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
+    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
     @objc public var mode: FTPCSegementMode = .auto
     @objc public var isScrollEnabled: Bool = true
     @objc public var columns: NSInteger = 2
@@ -189,75 +254,6 @@ import UIKit
         self.cornerRadius = cornerRadius
         self.borderColor = borderColor
         self.borderWidth = borderWidth
-    }
-    
-}
-
-@objc public extension UIScreen {
-    
-    @objc public static func width() -> CGFloat {
-        return self.main.bounds.size.width
-    }
-    
-    @objc public static func height() -> CGFloat {
-        return self.main.bounds.size.height
-    }
-    
-}
-
-@objc public extension UIDevice {
-    
-    @objc public func is_iPhone_X() -> Bool {
-        if UIScreen.main.bounds.height == 812.0 {
-            return true
-        }
-        return false
-    }
-    
-}
-
-extension CGFloat {
-    
-    public static func navigationBarHeight() -> CGFloat {
-        if UIDevice.current.is_iPhone_X() {
-            return 88.0
-        }
-        return 64.0
-    }
-    
-}
-
-@objc extension UIColor {
-    
-    @objc func isEqual(color: UIColor) -> Bool {
-        var fromR: CGFloat = 0;
-        var fromG: CGFloat = 0;
-        var fromB: CGFloat = 0;
-        var fromA: CGFloat = 0;
-        self.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
-        var toR: CGFloat = 0;
-        var toG: CGFloat = 0;
-        var toB: CGFloat = 0;
-        var toA: CGFloat = 0;
-        color.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
-        return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA);
-    }
-    
-    @objc static func transition(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
-        var fromR: CGFloat = 0;
-        var fromG: CGFloat = 0;
-        var fromB: CGFloat = 0;
-        var fromA: CGFloat = 0;
-        fromColor.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
-        var toR: CGFloat = 0;
-        var toG: CGFloat = 0;
-        var toB: CGFloat = 0;
-        var toA: CGFloat = 0;
-        toColor.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
-        return UIColor(red: fromR - ((fromR - toR) * percent),
-                       green: fromG - ((fromG - toG) * percent),
-                       blue: fromB - ((fromB - toB) * percent),
-                       alpha: fromA - ((fromA - toA) * percent))
     }
     
 }

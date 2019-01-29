@@ -60,7 +60,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         let indicatorBorderColor = UIColor(red: 255/255.0, green: 232/255.0, blue: 20/255.0, alpha: 1.0)
 
 
-        let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: CGFloat.navigationBarHeight(), width: UIScreen.width(), height: UIScreen.height() - CGFloat.navigationBarHeight()), isScrollEnabled: true)
+        let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: UIDevice.navigationBarHeight(), width: UIScreen.width(), height: UIScreen.height() - UIDevice.navigationBarHeight()), isScrollEnabled: true)
         
         let segementConfig = FTPCSegementConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: segementHeight), isScrollEnabled: true, columns: self.viewControllers.count)
         segementConfig.setupWith(backgroundColor: segementBGColor, cornerRadius: segementCornerRadius, borderColor: segementBRColor, borderWidth: 1.0)
@@ -84,17 +84,11 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
     }
     
     func pageController(pageController: FTPageController, viewControllerForIndex index: NSInteger) -> UIViewController? {
-        if index < self.viewControllers.count {
-            return self.viewControllers[index]
-        }
-        return nil
+        return self.viewControllers[index]
     }
     
     func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel? {
-        if index < self.titleModels.count {
-            return self.titleModels[index]
-        }
-        return nil
+        return self.titleModels[index]
     }
     
     //FTPageControllerDelegate

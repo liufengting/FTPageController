@@ -10,6 +10,9 @@
 		2A174513212A47B100897450 /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A17450E212A47B000897450 /* FTPCSegementCell.swift */; };
 		2A174515212A47B100897450 /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A174510212A47B100897450 /* FTPCSegement.swift */; };
 		2A174517212A47B100897450 /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A174512212A47B100897450 /* FTPageController.swift */; };
+		2A1D189D22000B0A00281BC7 /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D189C22000B0A00281BC7 /* FTPCTitleModel.swift */; };
+		2A1D189F22000B1900281BC7 /* FTPCScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D189E22000B1900281BC7 /* FTPCScrollView.swift */; };
+		2A1D18A122000B2400281BC7 /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1D18A022000B2400281BC7 /* FTPCConfig.swift */; };
 		2AAD6796211A90E600613CDD /* FTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AAD6794211A90E600613CDD /* FTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -17,6 +20,9 @@
 		2A17450E212A47B000897450 /* FTPCSegementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCSegementCell.swift; sourceTree = "<group>"; };
 		2A174510212A47B100897450 /* FTPCSegement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCSegement.swift; sourceTree = "<group>"; };
 		2A174512212A47B100897450 /* FTPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPageController.swift; sourceTree = "<group>"; };
+		2A1D189C22000B0A00281BC7 /* FTPCTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCTitleModel.swift; sourceTree = "<group>"; };
+		2A1D189E22000B1900281BC7 /* FTPCScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCScrollView.swift; sourceTree = "<group>"; };
+		2A1D18A022000B2400281BC7 /* FTPCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCConfig.swift; sourceTree = "<group>"; };
 		2AAD6791211A90E600613CDD /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAD6794211A90E600613CDD /* FTPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTPageController.h; sourceTree = "<group>"; };
 		2AAD6795211A90E600613CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +60,9 @@
 			children = (
 				2AAD6794211A90E600613CDD /* FTPageController.h */,
 				2A174512212A47B100897450 /* FTPageController.swift */,
+				2A1D18A022000B2400281BC7 /* FTPCConfig.swift */,
+				2A1D189C22000B0A00281BC7 /* FTPCTitleModel.swift */,
+				2A1D189E22000B1900281BC7 /* FTPCScrollView.swift */,
 				2A174510212A47B100897450 /* FTPCSegement.swift */,
 				2A17450E212A47B000897450 /* FTPCSegementCell.swift */,
 				2AAD6795211A90E600613CDD /* Info.plist */,
@@ -140,9 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1D189F22000B1900281BC7 /* FTPCScrollView.swift in Sources */,
 				2A174517212A47B100897450 /* FTPageController.swift in Sources */,
 				2A174515212A47B100897450 /* FTPCSegement.swift in Sources */,
 				2A174513212A47B100897450 /* FTPCSegementCell.swift in Sources */,
+				2A1D18A122000B2400281BC7 /* FTPCConfig.swift in Sources */,
+				2A1D189D22000B0A00281BC7 /* FTPCTitleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

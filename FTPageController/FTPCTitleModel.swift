@@ -10,8 +10,8 @@ import UIKit
 @objc open class FTPCTitleModel: NSObject {
     
     @objc public var title: String = ""
-    @objc public var defaultFont: UIFont = UIFont.systemFont(ofSize: 12.0)
-    @objc public var selectedFont: UIFont = UIFont.systemFont(ofSize: 15.0)
+    @objc public var defaultFont: UIFont = UIFont.systemFont(ofSize: 14.0)
+    @objc public var selectedFont: UIFont = UIFont.systemFont(ofSize: 16.0)
     @objc public var defaultColor: UIColor = UIColor.lightGray
     @objc public var selectedColor: UIColor = UIColor.black
     @objc public var indicatorColor: UIColor = UIColor.red
@@ -20,8 +20,8 @@ import UIKit
     @objc public convenience init(title: String?, defaultFont: UIFont? = nil, selectedFont: UIFont? = nil, defaultColor: UIColor? = nil, selectedColor: UIColor? = nil, indicatorColor: UIColor? = nil) {
         self.init()
         self.title = (title != nil && (title?.count)! > 0) ? title! : "Title"
-        self.defaultFont = defaultFont ?? UIFont.systemFont(ofSize: 12.0)
-        self.selectedFont = selectedFont ?? UIFont.systemFont(ofSize: 15.0)
+        self.defaultFont = defaultFont ?? UIFont.systemFont(ofSize: 14.0)
+        self.selectedFont = selectedFont ?? UIFont.systemFont(ofSize: 16.0)
         self.defaultColor = defaultColor ?? UIColor.darkGray
         self.selectedColor = selectedColor ?? UIColor.black
         self.indicatorColor = indicatorColor ?? UIColor.red
