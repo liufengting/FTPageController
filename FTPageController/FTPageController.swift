@@ -28,7 +28,7 @@ import UIKit
 
 // MARK: - FTPageController -
 
-@objc public class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegementDelegate {
+@objc public class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegmentDelegate {
 
     @objc public var currentPage: NSInteger = 0
     @objc public var viewControllers: [UIViewController] = [] {
@@ -47,8 +47,8 @@ import UIKit
         }
     }
     
-    @objc public lazy var segement: FTPCSegement = {
-        let view: FTPCSegement = FTPCSegement(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0))
+    @objc public lazy var segment: FTPCSegment = {
+        let view: FTPCSegment = FTPCSegment(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0))
         return view
     }()
     
@@ -93,7 +93,7 @@ import UIKit
     }
     
     func setupConponents() {
-        self.segement.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
+        self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
         self.scrollView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
 
         self.scrollToPage(page: self.currentPage, animated: false)
@@ -171,7 +171,7 @@ import UIKit
                 vc.didMove(toParent: self.superViewContoller)
             }
         }
-        self.segement.selectPage(page: page, animated: animated)
+        self.segment.selectPage(page: page, animated: animated)
         if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:didScollToPage:))))! {
             self.delegate?.pageController!(pageController: self, didScollToPage: page)
         }
@@ -192,9 +192,12 @@ import UIKit
             self.currentPage = formerPage
             return
         }
-        self.segement.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
+        // segment handle transition
+        self.segment.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
+
+        let toPage = self.currentPage == formerPage ? latterPage : formerPage;
         if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:isScolling:toPage:percent:))))! {
-            self.delegate?.pageController!(pageController: self, isScolling: formerPage, toPage: latterPage, percent: (pageOffset - CGFloat(formerPage)))
+            self.delegate?.pageController!(pageController: self, isScolling: self.currentPage, toPage: toPage, percent: (pageOffset - CGFloat(formerPage)))
         }
     }
 
@@ -208,9 +211,9 @@ import UIKit
         self.didSelectPage(page: self.currentPage, animated: true)
     }
     
-    //    MARK: - FTPCSegementDelegate -
+    //    MARK: - FTPCSegmentDelegate -
     
-    @objc public func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger) {
+    @objc public func ftPCSegment(segment: FTPCSegment, didSelect page: NSInteger) {
         self.scrollToPage(page: page, animated: true)
     }
     

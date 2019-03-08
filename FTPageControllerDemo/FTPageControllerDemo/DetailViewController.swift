@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
             self.automaticallyAdjustsScrollViewInsets = false
         }
         pageController.setupWith(superViewController: self, viewControllers: self.viewControllers)
-        self.view.addSubview(pageController.segement)
+        self.view.addSubview(pageController.segment)
         self.view.addSubview(pageController.scrollView)
     }
 

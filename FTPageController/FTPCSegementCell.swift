@@ -1,5 +1,5 @@
 //
-//  FTPCSegementCell.swift
+//  FTPCSegmentCell.swift
 //  FTPageController
 //
 //  Created by liufengting on 2018/8/8.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-open class FTPCSegementCell: UICollectionViewCell {
+open class FTPCSegmentCell: UICollectionViewCell {
 
-    @objc static let identifier = "\(FTPCSegementCell.classForCoder())"
+    @objc static let identifier = "\(FTPCSegmentCell.classForCoder())"
     
     @objc public lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -18,7 +18,7 @@ open class FTPCSegementCell: UICollectionViewCell {
     }()
     
     @objc public weak var titleModel: FTPCTitleModel!
-    @objc public weak var segementConfig: FTPCSegementConfig!
+    @objc public weak var segmentConfig: FTPCSegmentConfig!
     @objc public var indexPath: IndexPath!
 
     @objc public override init(frame: CGRect) {
@@ -36,30 +36,27 @@ open class FTPCSegementCell: UICollectionViewCell {
         self.titleLabel.frame = self.bounds
     }
     
-    @objc func setupWith(titleModel: FTPCTitleModel, segementConfig: FTPCSegementConfig, indexPath: IndexPath, selected: Bool) {
+    @objc func setupWith(titleModel: FTPCTitleModel, segmentConfig: FTPCSegmentConfig, indexPath: IndexPath, selected: Bool) {
         self.titleModel = titleModel
         self.titleLabel.text = titleModel.title
-        self.segementConfig = segementConfig
+        self.titleLabel.font = titleModel.defaultFont;
+        self.segmentConfig = segmentConfig
         self.indexPath = indexPath
         self.setSelected(selected: selected)
     }
     
     @objc func setSelected(selected: Bool) {
-        let font = selected ? self.titleModel.selectedFont : self.titleModel.defaultFont
         let textColor = selected ? self.titleModel.selectedColor : self.titleModel.defaultColor
-        UIView.animate(withDuration: 0.3) {
-            self.titleLabel.font = font
-            self.titleLabel.textColor = textColor
-        }
+        let scale = (self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize)
+        self.titleLabel.textColor = textColor
+        self.titleLabel.transform = selected ? CGAffineTransform(scaleX: scale, y: scale) : CGAffineTransform.identity
     }
     
     @objc func handleTransition(percent: CGFloat) {
-        let fontSize = self.titleModel.selectedFont.pointSize - ((self.titleModel.selectedFont.pointSize - self.titleModel.defaultFont.pointSize) * percent)
         let color = UIColor.transition(fromColor: self.titleModel.selectedColor, toColor: self.titleModel.defaultColor, percent: percent)
-        let font = UIFont(name: self.titleModel.defaultFont.fontName, size: fontSize)
-        self.titleLabel.font = font
         self.titleLabel.textColor = color
-        self.titleLabel.setNeedsLayout()
+        let scale = self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - ((self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - 1)*percent)
+        self.titleLabel.transform = CGAffineTransform(scaleX: scale, y: scale);
     }
 
 }

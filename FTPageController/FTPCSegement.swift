@@ -1,5 +1,5 @@
 //
-//  FTPCSegement.swift
+//  FTPCSegment.swift
 //  FTPageController
 //
 //  Created by liufengting on 2018/8/8.
@@ -7,20 +7,20 @@
 
 import UIKit
 
-@objc public protocol FTPCSegementDelegate: NSObjectProtocol {
+@objc public protocol FTPCSegmentDelegate: NSObjectProtocol {
     
-    func ftPCSegement(segement: FTPCSegement, didSelect page: NSInteger)
+    func ftPCSegment(segment: FTPCSegment, didSelect page: NSInteger)
     
 }
 
-@objc open class FTPCSegement: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+@objc open class FTPCSegment: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @objc public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         let collection = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
         collection.backgroundColor = UIColor.clear
-        collection.register(FTPCSegementCell.classForCoder(), forCellWithReuseIdentifier: FTPCSegementCell.identifier)
+        collection.register(FTPCSegmentCell.classForCoder(), forCellWithReuseIdentifier: FTPCSegmentCell.identifier)
         if #available(iOS 11.0, *) {
             collection.contentInsetAdjustmentBehavior = .never
         }
@@ -34,8 +34,8 @@ import UIKit
     }()
     
     @objc public var indicator: UIView = UIView()
-    @objc public weak var delegate: FTPCSegementDelegate?
-    @objc public weak var segementConfig: FTPCSegementConfig!
+    @objc public weak var delegate: FTPCSegmentDelegate?
+    @objc public weak var segmentConfig: FTPCSegmentConfig!
     @objc public weak var indicatorConfig: FTPCIndicatorConfig!
     @objc public var selectedPage: NSInteger = 0
     @objc public var titleArray: [FTPCTitleModel] = []
@@ -55,7 +55,7 @@ import UIKit
         self.collectionView.frame = self.bounds
     }
     
-    @objc public func setupWithTitles(titles: [FTPCTitleModel], config: FTPCConfig, delegate: FTPCSegementDelegate?, selectedPage: NSInteger)  {
+    @objc public func setupWithTitles(titles: [FTPCTitleModel], config: FTPCConfig, delegate: FTPCSegmentDelegate?, selectedPage: NSInteger)  {
         self.titleArray = titles
         self.delegate = delegate
         self.selectedPage = selectedPage
@@ -65,7 +65,7 @@ import UIKit
     @objc public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
         for cell in self.collectionView.visibleCells {
-            if let realCell: FTPCSegementCell = cell as? FTPCSegementCell {
+            if let realCell: FTPCSegmentCell = cell as? FTPCSegmentCell {
                 realCell.setSelected(selected: realCell.indexPath.item == page)
             }
         }
@@ -119,20 +119,20 @@ import UIKit
     }
     
     @objc func applyConfigs(config: FTPCConfig) {
-        self.segementConfig = config.segementConfig
+        self.segmentConfig = config.segmentConfig
         self.indicatorConfig = config.indicatorConfig
         
-        self.frame = self.segementConfig.frame
-        self.backgroundColor = self.segementConfig.backgroundColor
+        self.frame = self.segmentConfig.frame
+        self.backgroundColor = self.segmentConfig.backgroundColor
         
         self.indicator.backgroundColor = self.titleArray[self.selectedPage].indicatorColor
         self.indicator.frame = self.frameForIndicatorAtIndex(index: self.selectedPage)
         
-        if self.segementConfig.borderWidth > 0 {
+        if self.segmentConfig.borderWidth > 0 {
             self.layer.masksToBounds = true
-            self.layer.cornerRadius = self.segementConfig.cornerRadius
-            self.layer.borderWidth = self.segementConfig.borderWidth
-            self.layer.borderColor = self.segementConfig.borderColor.cgColor
+            self.layer.cornerRadius = self.segmentConfig.cornerRadius
+            self.layer.borderWidth = self.segmentConfig.borderWidth
+            self.layer.borderColor = self.segmentConfig.borderColor.cgColor
         }
         
         if self.indicatorConfig.borderWidth > 0 {
@@ -154,7 +154,7 @@ import UIKit
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: self.segmentConfig.borderWidth, bottom: 0, right: self.segmentConfig.borderWidth)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -170,8 +170,8 @@ import UIKit
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : FTPCSegementCell = collectionView.dequeueReusableCell(withReuseIdentifier: FTPCSegementCell.identifier, for: indexPath) as! FTPCSegementCell
-        cell.setupWith(titleModel: self.titleArray[indexPath.item], segementConfig: self.segementConfig, indexPath: indexPath, selected: (indexPath.item == self.selectedPage))
+        let cell : FTPCSegmentCell = collectionView.dequeueReusableCell(withReuseIdentifier: FTPCSegmentCell.identifier, for: indexPath) as! FTPCSegmentCell
+        cell.setupWith(titleModel: self.titleArray[indexPath.item], segmentConfig: self.segmentConfig, indexPath: indexPath, selected: (indexPath.item == self.selectedPage))
         return cell
     }
     
@@ -183,15 +183,15 @@ import UIKit
     func handleCellTapAtIndexPath(indexPath: IndexPath) {
         if self.selectedPage != indexPath.item {
             if self.delegate != nil {
-                self.delegate!.ftPCSegement(segement: self, didSelect: indexPath.item)
+                self.delegate!.ftPCSegment(segment: self, didSelect: indexPath.item)
             }
         }
     }
     
     //    MARK: - privite methods
     
-    func cellAtIndex(index: NSInteger) -> FTPCSegementCell? {
-        return self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? FTPCSegementCell
+    func cellAtIndex(index: NSInteger) -> FTPCSegmentCell? {
+        return self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? FTPCSegmentCell
     }
     
     func titleWidthForItemAtIndex(index: NSInteger) -> CGFloat {
@@ -200,13 +200,13 @@ import UIKit
     
     func widthForItemAtIndex(index: NSInteger) -> CGFloat {
         var width: CGFloat = 0.0
-        switch self.segementConfig.mode {
+        switch self.segmentConfig.mode {
         case .auto:
-            width = (self.titleArray[index].titleWidth + self.segementConfig.titleMargin * 2.0)
+            width = (self.titleArray[index].titleWidth + self.segmentConfig.titleMargin * 2.0)
         case .fixed:
-            width = self.segementConfig.fixedWidth
+            width = self.segmentConfig.fixedWidth
         case .fill:
-            width = self.segementConfig.frame.size.width / CGFloat(self.segementConfig.columns)
+            width = (self.segmentConfig.frame.size.width - self.segmentConfig.borderWidth * 2.0) / CGFloat(self.segmentConfig.columns)
         }
         return width
     }
@@ -262,6 +262,6 @@ import UIKit
     }
     
     open override var intrinsicContentSize: CGSize {
-        return self.segementConfig.frame.size
+        return self.segmentConfig.frame.size
     }
 }

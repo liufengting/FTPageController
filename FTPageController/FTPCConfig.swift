@@ -16,12 +16,12 @@ import UIKit
     case DataSource
 }
 
-/// FTPCSegementMode
+/// FTPCSegmentMode
 /// decides how to caculate the width of each item
 /// - auto: item width decided by title, font and margin
 /// - fixed: fixed item width
 /// - fill: devide whole screen width into 4(coloumns)
-@objc public enum FTPCSegementMode : Int {
+@objc public enum FTPCSegmentMode : Int {
     case auto
     case fixed
     case fill
@@ -40,9 +40,9 @@ import UIKit
 
 /// FTPCIndicatorPosition
 /// decides position of indicator
-/// - center: vertical center of segement
-/// - top: top of segement
-/// - bottom: bottom of segement
+/// - center: vertical center of segment
+/// - top: top of segment
+/// - bottom: bottom of segment
 @objc public enum FTPCIndicatorPosition : Int {
     case center
     case top
@@ -128,17 +128,17 @@ import UIKit
 @objc public class FTPCConfig: NSObject {
     
     @objc public var scrollViewConfig: FTPCScrollViewConfig = FTPCScrollViewConfig()
-    @objc public var segementConfig: FTPCSegementConfig = FTPCSegementConfig()
+    @objc public var segmentConfig: FTPCSegmentConfig = FTPCSegmentConfig()
     @objc public var indicatorConfig: FTPCIndicatorConfig = FTPCIndicatorConfig()
     
     @objc static func defaultConfig() -> FTPCConfig {
         return FTPCConfig()
     }
     
-    @objc public convenience init(scrollViewConfig: FTPCScrollViewConfig, segementConfig: FTPCSegementConfig, indicatorConfig: FTPCIndicatorConfig) {
+    @objc public convenience init(scrollViewConfig: FTPCScrollViewConfig, segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
         self.init()
         self.scrollViewConfig = scrollViewConfig
-        self.segementConfig = segementConfig
+        self.segmentConfig = segmentConfig
         self.indicatorConfig = indicatorConfig
     }
     
@@ -163,12 +163,12 @@ import UIKit
     
 }
 
-//MARK: - FTPCSegementConfig -
+//MARK: - FTPCSegmentConfig -
 
-@objc public class FTPCSegementConfig: NSObject {
+@objc public class FTPCSegmentConfig: NSObject {
     
     @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
-    @objc public var mode: FTPCSegementMode = .auto
+    @objc public var mode: FTPCSegmentMode = .auto
     @objc public var isScrollEnabled: Bool = true
     @objc public var columns: NSInteger = 2
     @objc public var fixedWidth: CGFloat = 40.0
