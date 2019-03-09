@@ -57,7 +57,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         let indicatorBorderColor = UIColor.black
 
 
-        let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: UIDevice.ft_navigationBarHeight(), width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight()), isScrollEnabled: true)
+        let scrollViewConfig = FTPCContainerViewConfig.init(frame: CGRect(x: 0, y: UIDevice.ft_navigationBarHeight(), width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight()), isScrollEnabled: true)
         
         let segmentConfig = FTPCSegmentConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: segmentHeight), isScrollEnabled: true, columns: self.viewControllers.count)
         segmentConfig.setupWith(backgroundColor: segmentBGColor, cornerRadius: segmentCornerRadius, borderColor: segmentBRColor, borderWidth: 1.0)
@@ -70,7 +70,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         pageController.setupWith(superViewController: self, dataSource: self, delegate: self, initialIndex: 1, config: config)
         
         self.navigationItem.titleView = pageController.segment
-        self.view.addSubview(pageController.collectionView)
+        self.view.addSubview(pageController.containerView)
     }
     
     

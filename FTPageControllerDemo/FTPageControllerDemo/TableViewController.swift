@@ -74,11 +74,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if self.pageController.collectionView.superview != nil {
-            self.pageController.collectionView.removeFromSuperview()
+        if self.pageController.containerView.superview != nil {
+            self.pageController.containerView.removeFromSuperview()
         }
-        self.pageController.collectionView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0)
-        cell.addSubview(self.pageController.collectionView)
+        self.pageController.containerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0)
+        cell.addSubview(self.pageController.containerView)
         return cell
     }
     

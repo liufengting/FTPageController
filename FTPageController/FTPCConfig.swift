@@ -127,7 +127,7 @@ import UIKit
 
 @objc public class FTPCConfig: NSObject {
     
-    @objc public var scrollViewConfig: FTPCScrollViewConfig = FTPCScrollViewConfig()
+    @objc public var scrollViewConfig: FTPCContainerViewConfig = FTPCContainerViewConfig()
     @objc public var segmentConfig: FTPCSegmentConfig = FTPCSegmentConfig()
     @objc public var indicatorConfig: FTPCIndicatorConfig = FTPCIndicatorConfig()
     
@@ -135,7 +135,7 @@ import UIKit
         return FTPCConfig()
     }
     
-    @objc public convenience init(scrollViewConfig: FTPCScrollViewConfig, segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
+    @objc public convenience init(scrollViewConfig: FTPCContainerViewConfig, segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
         self.init()
         self.scrollViewConfig = scrollViewConfig
         self.segmentConfig = segmentConfig
@@ -144,9 +144,9 @@ import UIKit
     
 }
 
-//MARK: - FTPCScrollViewConfig -
+//MARK: - FTPCContainerViewConfig -
 
-@objc public class FTPCScrollViewConfig: NSObject {
+@objc public class FTPCContainerViewConfig: NSObject {
     
     @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.ft_navigationBarHeight() + 40, width: UIScreen.ft_width(), height: UIScreen.ft_height() - (UIDevice.ft_navigationBarHeight() + 40))
     @objc public var isScrollEnabled: Bool = true
@@ -157,8 +157,8 @@ import UIKit
         self.isScrollEnabled = isScrollEnabled
     }
     
-    @objc static func configWith(frame: CGRect, isScrollEnabled: Bool) -> FTPCScrollViewConfig {
-        return FTPCScrollViewConfig.init(frame: frame, isScrollEnabled: isScrollEnabled)
+    @objc static func configWith(frame: CGRect, isScrollEnabled: Bool) -> FTPCContainerViewConfig {
+        return FTPCContainerViewConfig.init(frame: frame, isScrollEnabled: isScrollEnabled)
     }
     
 }

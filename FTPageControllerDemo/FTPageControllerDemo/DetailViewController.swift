@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         }
         pageController.setupWith(superViewController: self, viewControllers: self.viewControllers)
         self.view.addSubview(pageController.segment)
-        self.view.addSubview(pageController.collectionView)
+        self.view.addSubview(pageController.containerView)
     }
 
 }

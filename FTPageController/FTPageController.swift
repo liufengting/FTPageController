@@ -58,8 +58,8 @@ import UIKit
         return layout
     }()
     
-    @objc public lazy var collectionView: FTPCCollectionView = {
-        let view = FTPCCollectionView(frame: CGRect.zero, collectionViewLayout: self.collectionViewLayout)
+    @objc public lazy var containerView: FTPCContainerView = {
+        let view = FTPCContainerView(frame: CGRect.zero, collectionViewLayout: self.collectionViewLayout)
         view.backgroundColor = UIColor.clear
         view.register(FTPCContainerCell.classForCoder(), forCellWithReuseIdentifier: FTPCContainerCell.identifier)
         view.delegate = self
@@ -102,8 +102,8 @@ import UIKit
     
     func setupConponents() {
         self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
-        self.collectionView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
-        self.collectionView.reloadData()
+        self.containerView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
+        self.containerView.reloadData()
         self.scrollToPage(page: self.currentPage, animated: false)
         self.didSelectPage(page: self.currentPage, animated: false)
     }
@@ -159,11 +159,11 @@ import UIKit
     }
     
     @objc public func scrollToPage(page: NSInteger, animated: Bool) {
-        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: false)
+        self.containerView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: false)
     }
     
     func cellAtIndex(_ index: NSInteger) -> UICollectionViewCell {
-        return self.collectionView(self.collectionView, cellForItemAt: IndexPath(item: index, section: 0))
+        return self.collectionView(self.containerView, cellForItemAt: IndexPath(item: index, section: 0))
     }
 
     @objc public func didSelectPage(page: NSInteger, animated: Bool) {
@@ -205,7 +205,7 @@ import UIKit
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
-            let vcRect = CGRect(x: 0, y: 0, width: self.collectionView.bounds.size.width, height: self.collectionView.bounds.size.height)
+            let vcRect = CGRect(x: 0, y: 0, width: self.containerView.bounds.size.width, height: self.containerView.bounds.size.height)
             if vc.parent == nil {
                 vc.willMove(toParent: self.superViewContoller)
                 vc.view.frame = vcRect

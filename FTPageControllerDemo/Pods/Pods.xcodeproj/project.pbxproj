@@ -10,7 +10,7 @@
 		0972800305E3FB3BFCE3DA383354A632 /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F871C97BBEDA55BC54A61C8CAE8722 /* FTPCTitleModel.swift */; };
 		0B5B9F400E74A023FB4EA55D1A01CA98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		29961AB8A3C90249FDEE48B11A391D1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		2A9B791A22325C55009378D2 /* FTPCCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B791922325C55009378D2 /* FTPCCollectionView.swift */; };
+		2A9B791A22325C55009378D2 /* FTPCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B791922325C55009378D2 /* FTPCContainerView.swift */; };
 		2A9B791C22325EC8009378D2 /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9B791B22325EC8009378D2 /* FTPCContainerCell.swift */; };
 		6157AA0798F00DF3FBC0C7B71ECEBCAA /* Pods-FTPageControllerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF3F0F0C97A5BDA2195C99CD15BF26F /* Pods-FTPageControllerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4A9ADBB6506B5E5BD23F3CE17DC466 /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE805BDA536A150B3286AC7A1C8EF885 /* FTPCConfig.swift */; };
@@ -38,7 +38,7 @@
 		19F257506B2BF51FF7DA25F0724DF6F4 /* Pods-FTPageControllerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FTPageControllerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		1FF3F0F0C97A5BDA2195C99CD15BF26F /* Pods-FTPageControllerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FTPageControllerDemo-umbrella.h"; sourceTree = "<group>"; };
 		2A4837A1E97461BB3CF826974E59B0EB /* FTPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPageController-umbrella.h"; sourceTree = "<group>"; };
-		2A9B791922325C55009378D2 /* FTPCCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPCCollectionView.swift; sourceTree = "<group>"; };
+		2A9B791922325C55009378D2 /* FTPCContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPCContainerView.swift; sourceTree = "<group>"; };
 		2A9B791B22325EC8009378D2 /* FTPCContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPCContainerCell.swift; sourceTree = "<group>"; };
 		2DEBFDA2579C295E7D6CDC00872F152E /* Pods-FTPageControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FTPageControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		34F871C97BBEDA55BC54A61C8CAE8722 /* FTPCTitleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCTitleModel.swift; path = FTPageController/FTPCTitleModel.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				D7775588B15B5D3C6B12FE94C4CB15D1 /* FTPageController.h */,
 				D2A7F183CA3EDB1E2718495737963EB6 /* FTPageController.swift */,
 				BE805BDA536A150B3286AC7A1C8EF885 /* FTPCConfig.swift */,
-				2A9B791922325C55009378D2 /* FTPCCollectionView.swift */,
+				2A9B791922325C55009378D2 /* FTPCContainerView.swift */,
 				2A9B791B22325EC8009378D2 /* FTPCContainerCell.swift */,
 				EAA6BB5468B5211C87B6AE7C76959AB9 /* FTPCSegement.swift */,
 				5E7F76B6ACCD5E3DAF6F7545F7DAC52D /* FTPCSegementCell.swift */,
@@ -321,7 +321,7 @@
 				D5A47AADD5B1A274E304706A2191188A /* FTPCSegement.swift in Sources */,
 				CFCA4B94E6D388DB11ACCB07D0B7C7E7 /* FTPCSegementCell.swift in Sources */,
 				0972800305E3FB3BFCE3DA383354A632 /* FTPCTitleModel.swift in Sources */,
-				2A9B791A22325C55009378D2 /* FTPCCollectionView.swift in Sources */,
+				2A9B791A22325C55009378D2 /* FTPCContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
