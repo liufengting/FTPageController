@@ -64,6 +64,8 @@ import UIKit
 
     @objc public func selectPage(page: NSInteger, animated: Bool) {
         self.selectedPage = page
+        self.backgroundColor = self.titleArray[self.selectedPage].selectedMenuBackgroundColor
+        self.indicator.frame = self.frameForIndicatorAtIndex(index: self.selectedPage)
         for cell in self.collectionView.visibleCells {
             if let realCell: FTPCSegmentCell = cell as? FTPCSegmentCell {
                 realCell.setSelected(selected: realCell.indexPath.item == page)
@@ -82,6 +84,7 @@ import UIKit
         self.cellAtIndex(index: toPage)?.handleTransition(percent:(1.0 - percent))
         self.updateIndicatorFrame(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
         self.updateIndicatorColor(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
+        self.updateMenuBackgroundColor(fromPage: fromPage, toPage: toPage, currentPage: currentPage, percent: percent)
     }
 
     @objc func updateIndicatorFrame(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
@@ -102,7 +105,7 @@ import UIKit
                 let totalRange = toX + toW - frX
                 width = frW + percent * 2.0 * (totalRange - frW)
             } else {
-                x = frX + (toX - frX) * (percent - 0.5) * 2
+                x = frX + (toX - frX) * (percent - 0.5) * 2.0
                 width = toX + toW - x
             }
         }
@@ -113,8 +116,17 @@ import UIKit
         let fromColor = (currentPage == fromPage) ? self.titleArray[fromPage].indicatorColor : self.titleArray[toPage].indicatorColor
         let toColor = (currentPage == fromPage) ? self.titleArray[toPage].indicatorColor : self.titleArray[fromPage].indicatorColor
         if fromColor.isEqual(color: toColor) == false {
-            let color = UIColor.transition(fromColor: fromColor, toColor: toColor, percent: (currentPage == fromPage) ? percent : (1 - percent))
+            let color = UIColor.transit(fromColor: fromColor, toColor: toColor, percent: (currentPage == fromPage) ? percent : (1 - percent))
             self.indicator.backgroundColor = color
+        }
+    }
+    
+    @objc func updateMenuBackgroundColor(fromPage: NSInteger, toPage: NSInteger, currentPage: NSInteger, percent: CGFloat) {
+        let fromColor = (currentPage == fromPage) ? self.titleArray[fromPage].selectedMenuBackgroundColor : self.titleArray[toPage].selectedMenuBackgroundColor
+        let toColor = (currentPage == fromPage) ? self.titleArray[toPage].selectedMenuBackgroundColor : self.titleArray[fromPage].selectedMenuBackgroundColor
+        if fromColor.isEqual(color: toColor) == false {
+            let color = UIColor.transit(fromColor: fromColor, toColor: toColor, percent: (currentPage == fromPage) ? percent : (1 - percent))
+            self.backgroundColor = color
         }
     }
     
@@ -143,7 +155,7 @@ import UIKit
         }
     }
 
-    // MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout -
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
@@ -154,7 +166,7 @@ import UIKit
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: self.segmentConfig.borderWidth, bottom: 0, right: self.segmentConfig.borderWidth)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -188,7 +200,7 @@ import UIKit
         }
     }
     
-    //    MARK: - privite methods
+    //    MARK: - privite methods -
     
     func cellAtIndex(index: NSInteger) -> FTPCSegmentCell? {
         return self.collectionView.cellForItem(at: IndexPath(item: index, section: 0)) as? FTPCSegmentCell
@@ -264,4 +276,5 @@ import UIKit
     open override var intrinsicContentSize: CGSize {
         return self.segmentConfig.frame.size
     }
+    
 }

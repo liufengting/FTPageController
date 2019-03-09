@@ -60,11 +60,11 @@ import UIKit
 
 @objc public extension UIScreen {
     
-    @objc public static func width() -> CGFloat {
+    @objc public static func ft_width() -> CGFloat {
         return self.main.bounds.size.width
     }
     
-    @objc public static func height() -> CGFloat {
+    @objc public static func ft_height() -> CGFloat {
         return self.main.bounds.size.height
     }
     
@@ -72,15 +72,15 @@ import UIKit
 
 @objc public extension UIDevice {
     
-    @objc public static func is_iPhone_X_or_up() -> Bool {
+    @objc public static func ft_is_iPhone_X_or_up() -> Bool {
         guard #available(iOS 11.0, *) else {
             return false
         }
         return UIApplication.shared.windows[0].safeAreaInsets != UIEdgeInsets.zero
     }
     
-    @objc public static func navigationBarHeight() -> CGFloat {
-        if self.is_iPhone_X_or_up() {
+    @objc public static func ft_navigationBarHeight() -> CGFloat {
+        if self.ft_is_iPhone_X_or_up() {
             return 88.0
         }
         return 64.0
@@ -104,7 +104,7 @@ import UIKit
         return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA);
     }
     
-    @objc static func transition(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
+    @objc static func transit(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
         var fromR: CGFloat = 0;
         var fromG: CGFloat = 0;
         var fromB: CGFloat = 0;
@@ -148,7 +148,7 @@ import UIKit
 
 @objc public class FTPCScrollViewConfig: NSObject {
     
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.navigationBarHeight() + 40, width: UIScreen.width(), height: UIScreen.height() - (UIDevice.navigationBarHeight() + 40))
+    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.ft_navigationBarHeight() + 40, width: UIScreen.ft_width(), height: UIScreen.ft_height() - (UIDevice.ft_navigationBarHeight() + 40))
     @objc public var isScrollEnabled: Bool = true
     
     @objc public convenience init(frame: CGRect, isScrollEnabled: Bool) {
@@ -167,7 +167,7 @@ import UIKit
 
 @objc public class FTPCSegmentConfig: NSObject {
     
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.navigationBarHeight(), width: UIScreen.width(), height: 40.0)
+    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.ft_navigationBarHeight(), width: UIScreen.ft_width(), height: 40.0)
     @objc public var mode: FTPCSegmentMode = .auto
     @objc public var isScrollEnabled: Bool = true
     @objc public var columns: NSInteger = 2
@@ -209,6 +209,7 @@ import UIKit
         self.borderColor = borderColor
         self.borderWidth = borderWidth
     }
+    
 }
 
 //MARK: - FTPCIndicatorConfig -

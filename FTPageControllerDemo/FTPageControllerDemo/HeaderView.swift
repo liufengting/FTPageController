@@ -25,4 +25,5 @@ class HeaderView: UIImageView {
         self.contentMode = .scaleAspectFill
         self.image = UIImage(named: "bridge_bg")
     }
+    
 }

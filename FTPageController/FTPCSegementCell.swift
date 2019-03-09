@@ -23,12 +23,12 @@ open class FTPCSegmentCell: UICollectionViewCell {
 
     @objc public override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.titleLabel)
     }
     
     @objc public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.addSubview(self.titleLabel)
+        self.contentView.addSubview(self.titleLabel)
     }
     
     @objc open override func layoutSubviews() {
@@ -38,6 +38,7 @@ open class FTPCSegmentCell: UICollectionViewCell {
     
     @objc func setupWith(titleModel: FTPCTitleModel, segmentConfig: FTPCSegmentConfig, indexPath: IndexPath, selected: Bool) {
         self.titleModel = titleModel
+        self.backgroundColor = titleModel.backgroundColor
         self.titleLabel.text = titleModel.title
         self.titleLabel.font = titleModel.defaultFont;
         self.segmentConfig = segmentConfig
@@ -46,17 +47,30 @@ open class FTPCSegmentCell: UICollectionViewCell {
     }
     
     @objc func setSelected(selected: Bool) {
-        let textColor = selected ? self.titleModel.selectedColor : self.titleModel.defaultColor
+        let backgroundColor = selected ? self.titleModel.selectedBackgroundColor : self.titleModel.backgroundColor
+        let textColor = selected ? self.titleModel.selectedTitleColor : self.titleModel.defaultTitleColor
         let scale = (self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize)
+        self.backgroundColor = backgroundColor
         self.titleLabel.textColor = textColor
         self.titleLabel.transform = selected ? CGAffineTransform(scaleX: scale, y: scale) : CGAffineTransform.identity
     }
     
     @objc func handleTransition(percent: CGFloat) {
-        let color = UIColor.transition(fromColor: self.titleModel.selectedColor, toColor: self.titleModel.defaultColor, percent: percent)
-        self.titleLabel.textColor = color
-        let scale = self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - ((self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - 1)*percent)
-        self.titleLabel.transform = CGAffineTransform(scaleX: scale, y: scale);
+        // backgroundColor
+        if self.titleModel.backgroundColor.isEqual(color: self.titleModel.selectedBackgroundColor) == false {
+            let bgColor = UIColor.transit(fromColor: self.titleModel.selectedBackgroundColor, toColor: self.titleModel.backgroundColor, percent: percent)
+            self.backgroundColor = bgColor
+        }
+        // titleLabel.textColor
+        if self.titleModel.selectedTitleColor.isEqual(color: self.titleModel.defaultTitleColor) == false {
+            let textColor = UIColor.transit(fromColor: self.titleModel.selectedTitleColor, toColor: self.titleModel.defaultTitleColor, percent: percent)
+            self.titleLabel.textColor = textColor
+        }
+        // titleLabel.transform
+        if self.titleModel.selectedFont.pointSize != self.titleModel.defaultFont.pointSize {
+            let scale = self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - ((self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - 1)*percent)
+            self.titleLabel.transform = CGAffineTransform(scaleX: scale, y: scale);
+        }
     }
 
 }

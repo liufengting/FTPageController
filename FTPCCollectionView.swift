@@ -1,18 +1,18 @@
 //
-//  FTPCScrollView.swift
+//  FTPCCollectionView.swift
 //  FTPageController
 //
-//  Created by liufengting on 2018/8/25.
+//  Created by liufengting on 2019/3/8.
 //
 
 import UIKit
 
-@objc open class FTPCScrollView: UIScrollView {
-    
+@objc open class FTPCCollectionView: UICollectionView {
+
     @objc public weak var scrollViewConfig: FTPCScrollViewConfig!
     
-    @objc public override init(frame: CGRect) {
-        super.init(frame: frame)
+    @objc public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
         self.initialSetup()
     }
     
@@ -39,7 +39,6 @@ import UIKit
         self.scrollViewConfig = scrollViewConfig
         self.frame = self.scrollViewConfig.frame;
         self.isScrollEnabled = self.scrollViewConfig.isScrollEnabled
-        self.contentSize = CGSize(width: self.scrollViewConfig.frame.width * CGFloat(pageCount), height: self.scrollViewConfig.frame.height)
     }
     
 }

@@ -12,16 +12,17 @@ import FTPageController
 class AttributedViewController: UIViewController, FTPageControllerDataSource, FTPageControllerDelegate {
     
     var pageController = FTPageController()
+
+    let defaultTitleColor = [UIColor.red, UIColor.red, UIColor.red]
     
-    let bgColors = [UIColor.red, UIColor.cyan, UIColor.brown]
-    
-    let titleColors = [UIColor.green, UIColor.red, UIColor.cyan]
-    
+    let selectedTitleColors = [UIColor.green, UIColor.red, UIColor.cyan]
+
+    let indicatorColor = [UIColor.yellow, UIColor.cyan, UIColor.brown]
     
     lazy var titleModels: [FTPCTitleModel] = {
         var array: [FTPCTitleModel] = []
         for i in 0...2 {
-            let model = FTPCTitleModel(title: "Title\(i)", defaultFont: nil, selectedFont: nil, defaultColor: UIColor.white, selectedColor: titleColors[i], indicatorColor: bgColors[i])
+            let model = FTPCTitleModel(title: "Title\(i)", defaultFont: nil, selectedFont: nil, defaultColor: defaultTitleColor[i], selectedColor: selectedTitleColors[i], indicatorColor: indicatorColor[i], backgroundColor: nil, selectedBackgroundColor: nil, selectedMenuBackgroundColor: UIColor.blue)
             array.append(model);
         }
         return array;
@@ -31,7 +32,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         var array: [UIViewController] = []
         for i in 0...2 {
             let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
-            sub.text = "index: \(i)"
+            sub.index = i
             array.append(sub);
         }
         return array;
@@ -49,14 +50,14 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         let segmentHeight: CGFloat = 32.0;
         let segmentCornerRadius = segmentHeight/2.0;
         let segmentBGColor = UIColor(red: 11/255.0, green: 71/255.0, blue: 232/255.0, alpha: 1.0)
-        let segmentBRColor = UIColor(red: 13/255.0, green: 162/255.0, blue: 255/255.0, alpha: 1.0)
+        let segmentBRColor = UIColor.red
 
         let indicatorHeight: CGFloat = 30.0;
         let indicatorCornerRadius = indicatorHeight/2.0;
-        let indicatorBorderColor = UIColor(red: 255/255.0, green: 232/255.0, blue: 20/255.0, alpha: 1.0)
+        let indicatorBorderColor = UIColor.black
 
 
-        let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: UIDevice.navigationBarHeight(), width: UIScreen.width(), height: UIScreen.height() - UIDevice.navigationBarHeight()), isScrollEnabled: true)
+        let scrollViewConfig = FTPCScrollViewConfig.init(frame: CGRect(x: 0, y: UIDevice.ft_navigationBarHeight(), width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight()), isScrollEnabled: true)
         
         let segmentConfig = FTPCSegmentConfig.init(fillMode: CGRect(x: 0, y: 0, width: 180.0, height: segmentHeight), isScrollEnabled: true, columns: self.viewControllers.count)
         segmentConfig.setupWith(backgroundColor: segmentBGColor, cornerRadius: segmentCornerRadius, borderColor: segmentBRColor, borderWidth: 1.0)
@@ -69,7 +70,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         pageController.setupWith(superViewController: self, dataSource: self, delegate: self, initialIndex: 1, config: config)
         
         self.navigationItem.titleView = pageController.segment
-        self.view.addSubview(pageController.scrollView)
+        self.view.addSubview(pageController.collectionView)
     }
     
     

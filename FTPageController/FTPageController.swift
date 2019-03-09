@@ -28,7 +28,7 @@ import UIKit
 
 // MARK: - FTPageController -
 
-@objc public class FTPageController: NSObject, UIScrollViewDelegate, FTPCSegmentDelegate {
+@objc public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, FTPCSegmentDelegate {
 
     @objc public var currentPage: NSInteger = 0
     @objc public var viewControllers: [UIViewController] = [] {
@@ -48,13 +48,22 @@ import UIKit
     }
     
     @objc public lazy var segment: FTPCSegment = {
-        let view: FTPCSegment = FTPCSegment(frame: CGRect(x: 0, y: 0, width: UIScreen.width(), height: 40.0))
+        let view: FTPCSegment = FTPCSegment(frame: CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: 40.0))
         return view
     }()
     
-    @objc public lazy var scrollView: FTPCScrollView = {
-        let view = FTPCScrollView(frame: CGRect.zero)
+    @objc public lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        return layout
+    }()
+    
+    @objc public lazy var collectionView: FTPCCollectionView = {
+        let view = FTPCCollectionView(frame: CGRect.zero, collectionViewLayout: self.collectionViewLayout)
+        view.backgroundColor = UIColor.clear
+        view.register(FTPCContainerCell.classForCoder(), forCellWithReuseIdentifier: FTPCContainerCell.identifier)
         view.delegate = self
+        view.dataSource = self
         return view
     }()
     
@@ -75,7 +84,6 @@ import UIKit
     }
     
     @objc public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger = 0, config: FTPCConfig? = nil) {
-
         self.superViewContoller = superViewController
         self.viewControllers = viewControllers
         
@@ -94,8 +102,8 @@ import UIKit
     
     func setupConponents() {
         self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
-        self.scrollView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
-
+        self.collectionView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
+        self.collectionView.reloadData()
         self.scrollToPage(page: self.currentPage, animated: false)
         self.didSelectPage(page: self.currentPage, animated: false)
     }
@@ -151,30 +159,87 @@ import UIKit
     }
     
     @objc public func scrollToPage(page: NSInteger, animated: Bool) {
-        if page < 0 || page >= self.numberOfPages() {
-            return
-        }
-        let width = self.scrollView.bounds.size.width
-        let vcRect = CGRect(x: width*CGFloat(page), y: 0, width: width, height: self.scrollView.bounds.size.height)
-        self.scrollView.scrollRectToVisible(vcRect, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: false)
+    }
+    
+    func cellAtIndex(_ index: NSInteger) -> UICollectionViewCell {
+        return self.collectionView(self.collectionView, cellForItemAt: IndexPath(item: index, section: 0))
     }
 
     @objc public func didSelectPage(page: NSInteger, animated: Bool) {
-        let width = self.scrollView.bounds.size.width
-        let vcRect = CGRect(x: width*CGFloat(page), y: 0, width: width, height: self.scrollView.bounds.size.height)
+        if page != self.currentPage {
+            self.currentPage = page;
+        }
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
-            if vc.parent == nil {
-                vc.willMove(toParent: self.superViewContoller)
-                vc.view.frame = vcRect
-                self.superViewContoller?.addChild(vc)
-                self.scrollView.addSubview(vc.view)
-                vc.didMove(toParent: self.superViewContoller)
+            if (vc.isViewLoaded) {
+                vc.viewDidAppear(true)
             }
         }
         self.segment.selectPage(page: page, animated: animated)
         if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:didScollToPage:))))! {
             self.delegate?.pageController!(pageController: self, didScollToPage: page)
         }
+    }
+    
+    // MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout -
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return self.config.scrollViewConfig.frame.size
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.numberOfPages()
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
+            let vcRect = CGRect(x: 0, y: 0, width: self.collectionView.bounds.size.width, height: self.collectionView.bounds.size.height)
+            if vc.parent == nil {
+                vc.willMove(toParent: self.superViewContoller)
+                vc.view.frame = vcRect
+                self.superViewContoller?.addChild(vc)
+                if vc.view.superview != nil {
+                    vc.removeFromParent()
+                }
+                cell.contentView.addSubview(vc.view)
+                vc.didMove(toParent: self.superViewContoller)
+            } else {
+                if vc.view.superview != nil {
+                    vc.removeFromParent()
+                }
+                cell.contentView.addSubview(vc.view)
+                vc.viewWillAppear(true)
+            }
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
+            if (vc.isViewLoaded) {
+                vc.viewDidDisappear(true)
+            }
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : FTPCContainerCell = collectionView.dequeueReusableCell(withReuseIdentifier: FTPCContainerCell.identifier, for: indexPath) as! FTPCContainerCell
+        return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
     
     //    MARK: - UIScrollViewDelegate -
@@ -201,14 +266,22 @@ import UIKit
         }
     }
 
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if let vc: UIViewController = self.viewControllerForPage(page: self.currentPage) {
+            if (vc.isViewLoaded) {
+                vc.viewWillDisappear(true)
+            }
+        }
+    }
+    
     @objc public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
-        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        self.didSelectPage(page: self.currentPage, animated: true)
+        let page = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        self.didSelectPage(page: page, animated: true)
     }
 
     @objc public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.currentPage = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
-        self.didSelectPage(page: self.currentPage, animated: true)
+        let page = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+        self.didSelectPage(page: page, animated: true)
     }
     
     //    MARK: - FTPCSegmentDelegate -

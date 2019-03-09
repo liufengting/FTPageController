@@ -23,7 +23,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var array: [UIViewController] = []
         for i in 0...5 {
             let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
-            sub.text = "index: \(i)"
             array.append(sub);
         }
         return array;
@@ -34,7 +33,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return header
     }()
     
-    var imageHeight = 1085*UIScreen.width()/1920
+    var imageHeight = 1085*UIScreen.ft_width()/1920
     
 
     override func viewDidLoad() {
@@ -42,11 +41,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         self.tableView.contentInsetAdjustmentBehavior = .never
         
-        let width = UIScreen.width()
+        let width = UIScreen.ft_width()
         self.headerView.frame = CGRect(x: 0, y: 0, width: width, height: imageHeight)
         self.view.addSubview(self.headerView)
         self.view.bringSubviewToFront(self.tableView)
-        self.tableView.contentInset = UIEdgeInsets(top: imageHeight - UIDevice.navigationBarHeight(), left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: imageHeight - UIDevice.ft_navigationBarHeight(), left: 0, bottom: 0, right: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +65,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.height() - UIDevice.navigationBarHeight() - 40.0
+        return UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -75,11 +74,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if self.pageController.scrollView.superview != nil {
-            self.pageController.scrollView.removeFromSuperview()
+        if self.pageController.collectionView.superview != nil {
+            self.pageController.collectionView.removeFromSuperview()
         }
-        self.pageController.scrollView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIScreen.height() - UIDevice.navigationBarHeight() - 40.0)
-        cell.addSubview(self.pageController.scrollView)
+        self.pageController.collectionView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0)
+        cell.addSubview(self.pageController.collectionView)
         return cell
     }
     
@@ -90,10 +89,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         print(y);
-        if y <= UIDevice.navigationBarHeight() - imageHeight {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: UIDevice.navigationBarHeight() - y)
+        if y <= UIDevice.ft_navigationBarHeight() - imageHeight {
+            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIDevice.ft_navigationBarHeight() - y)
         } else if y <= 0 {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.width(), height: imageHeight)
+            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: imageHeight)
             self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
         }
     }

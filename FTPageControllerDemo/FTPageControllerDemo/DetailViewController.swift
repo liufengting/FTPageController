@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
         var array: [UIViewController] = []
         for i in 0...5 {
             let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
-            sub.text = "index: \(i)"
+            sub.index = i
             array.append(sub);
         }
         return array;
@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
         }
         pageController.setupWith(superViewController: self, viewControllers: self.viewControllers)
         self.view.addSubview(pageController.segment)
-        self.view.addSubview(pageController.scrollView)
+        self.view.addSubview(pageController.collectionView)
     }
 
 }
