@@ -3,24 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07F3FA2D2D782AC8659AF6F61320497A /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CD3395C6CE1A9E0E0801A3DB6EE084 /* FTPCConfig.swift */; };
-		0B206E80FE32BE85BC846A7C2FB01D7C /* FTPCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF385DF9C2ECF471CC3F40DDD7F581B /* FTPCContainerView.swift */; };
-		0BCBFF6AF4166E4DD18D5AAF13766366 /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B50BF5FCAC6CEB85BCFA42AE80AC6BF /* FTPCSegementCell.swift */; };
-		1F153D229D2305CCF4B7AB2028E63185 /* FTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = E00058230F3ADF3616E30925899D16D9 /* FTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2B975FEBA2BDA38D42B6C57F985CEC81 /* FTPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35E32F8F26D5F61A0A2D345F2C285608 /* FTPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3295D7FD412EB797C3FB31877DCF989B /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A22EFEAFABECA827C24A710672F10B /* FTPageController.swift */; };
-		691987CF776EB5712DC54BD2891D95F5 /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B909C867774CD1AD4E3E808F67FC93F /* FTPCSegement.swift */; };
-		7AAE1F63C004BD1B1C049CAF95BE6CFF /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36DD2E51CEDADA3CE8EDE2D769FB32D /* FTPCContainerCell.swift */; };
+		1101BF4519A9EAB97D30A0AB4098DC5F /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF30AF560F0C50D70B855B83ABD1A13 /* FTPCSegementCell.swift */; };
+		2B975FEBA2BDA38D42B6C57F985CEC81 /* FTPageController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 44DD100373879D9D5A690DF22C81B42B /* FTPageController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2CFCACD2A2750F7403094D6ADC636577 /* FTPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD41314DDD55F7EB2D78B12BB87EC85F /* FTPageController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31045604FE9FE6F85B9A2AFF1ADA3C66 /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107EAB6DFE5E072B9EC203E9BC830B5 /* FTPCSegement.swift */; };
+		7B8FC22324B28314C6F7D05FE17465CA /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EBF7CC5B62171BBC2CC175F7C37191 /* FTPCConfig.swift */; };
+		7BBF14C609B5248659016B2BD4F6FB86 /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E3B0E17D128B089313402D55B7788 /* FTPageController.swift */; };
+		80CED8187BAB11EF73F2D76A9FF79FCA /* FTPCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441BC7492BFB353E676730BAE10C8EC0 /* FTPCContainerView.swift */; };
 		887384EC5687A49C9ED4B2130A32DBBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		89821F297C2BCFD0248676E293D59A13 /* Pods-FTPageControllerDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AEA363CEE6EF2170A63507F0E9B76E6 /* Pods-FTPageControllerDemo-dummy.m */; };
-		91F898BF98212BE7FFAF7B92403867A2 /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47EFB60DD9DC9883DF94D6B3037F880F /* FTPCTitleModel.swift */; };
 		91FB6615CE16B368647677A9C7C53587 /* Pods-FTPageControllerDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F87C7C329112C7FB10D1E0F7E651983E /* Pods-FTPageControllerDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB3063303CF9EAD7E92D4C740101B9F0 /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F001C6E9C3842448752C0F757B8A47A /* FTPCTitleModel.swift */; };
 		E679178150B2D518FE0412339724A9D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		E70A22CB86C8F41FAE49FE0859E930D7 /* FTPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0B51822346250ECAB7B25B99CC1EFB /* FTPageController-dummy.m */; };
+		E70A22CB86C8F41FAE49FE0859E930D7 /* FTPageController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F19153E3D568E82BD2064005A28EFC1 /* FTPageController-dummy.m */; };
+		FB67A8EE0DE0BFA809DFFA1BD7607E9E /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1D955AA855F432503DF7BFD3758A4 /* FTPCContainerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,34 +34,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0107EAB6DFE5E072B9EC203E9BC830B5 /* FTPCSegement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCSegement.swift; path = Sources/FTPCSegement.swift; sourceTree = "<group>"; };
+		069793499500D3A199CE892A9D1C2DEC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		06ACE899D4D3367F22659C15779D8C12 /* Pods-FTPageControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FTPageControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		09E7135D81C5D18EA44AADE37644AA7C /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27CD3395C6CE1A9E0E0801A3DB6EE084 /* FTPCConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCConfig.swift; path = FTPageController/FTPCConfig.swift; sourceTree = "<group>"; };
-		286C8D0A5C666C74159E07C99E97F7E4 /* Pods_FTPageControllerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTPageControllerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B7DFE5F45005AE8E798DA2CE9FE762 /* FTPageController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FTPageController.modulemap; sourceTree = "<group>"; };
-		35E32F8F26D5F61A0A2D345F2C285608 /* FTPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPageController-umbrella.h"; sourceTree = "<group>"; };
-		47EFB60DD9DC9883DF94D6B3037F880F /* FTPCTitleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCTitleModel.swift; path = FTPageController/FTPCTitleModel.swift; sourceTree = "<group>"; };
-		55A22EFEAFABECA827C24A710672F10B /* FTPageController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPageController.swift; path = FTPageController/FTPageController.swift; sourceTree = "<group>"; };
-		5C8605E90067A617318C56D10DCA9040 /* FTPageController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FTPageController-Info.plist"; sourceTree = "<group>"; };
+		09E7135D81C5D18EA44AADE37644AA7C /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FTPageController.framework; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11D1D955AA855F432503DF7BFD3758A4 /* FTPCContainerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCContainerCell.swift; path = Sources/FTPCContainerCell.swift; sourceTree = "<group>"; };
+		286C8D0A5C666C74159E07C99E97F7E4 /* Pods_FTPageControllerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FTPageControllerDemo.framework; path = "Pods-FTPageControllerDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C35B7B043F7B442D6EC13895F32E223 /* FTPageController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FTPageController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		3B0774EEA50CD8C77C29D1B78867F5E9 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		3FCBCB243FB897B4FC06B2625D916096 /* FTPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FTPageController.xcconfig; sourceTree = "<group>"; };
+		441BC7492BFB353E676730BAE10C8EC0 /* FTPCContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCContainerView.swift; path = Sources/FTPCContainerView.swift; sourceTree = "<group>"; };
+		44DD100373879D9D5A690DF22C81B42B /* FTPageController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPageController-umbrella.h"; sourceTree = "<group>"; };
+		57EBF7CC5B62171BBC2CC175F7C37191 /* FTPCConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCConfig.swift; path = Sources/FTPCConfig.swift; sourceTree = "<group>"; };
+		5CF30AF560F0C50D70B855B83ABD1A13 /* FTPCSegementCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCSegementCell.swift; path = Sources/FTPCSegementCell.swift; sourceTree = "<group>"; };
+		5E5BA6373703D213C231B9007EC71400 /* FTPageController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FTPageController-Info.plist"; sourceTree = "<group>"; };
+		5F001C6E9C3842448752C0F757B8A47A /* FTPCTitleModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCTitleModel.swift; path = Sources/FTPCTitleModel.swift; sourceTree = "<group>"; };
 		6AEA363CEE6EF2170A63507F0E9B76E6 /* Pods-FTPageControllerDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FTPageControllerDemo-dummy.m"; sourceTree = "<group>"; };
-		6B909C867774CD1AD4E3E808F67FC93F /* FTPCSegement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCSegement.swift; path = FTPageController/FTPCSegement.swift; sourceTree = "<group>"; };
-		75D808AE736506A0D03CA1878E286934 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		7B0B51822346250ECAB7B25B99CC1EFB /* FTPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FTPageController-dummy.m"; sourceTree = "<group>"; };
-		80D37A372C634BF607EEBCE9B43393E2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8B50BF5FCAC6CEB85BCFA42AE80AC6BF /* FTPCSegementCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCSegementCell.swift; path = FTPageController/FTPCSegementCell.swift; sourceTree = "<group>"; };
-		8F5468D3A13163885D9C41B80803F81B /* FTPageController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = FTPageController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7F19153E3D568E82BD2064005A28EFC1 /* FTPageController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FTPageController-dummy.m"; sourceTree = "<group>"; };
 		906B897C255D019A25070EFB7C596418 /* Pods-FTPageControllerDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FTPageControllerDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A4DB869E68B5B4E26415003E2A3A0FEF /* FTPageController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FTPageController.xcconfig; sourceTree = "<group>"; };
-		BDF385DF9C2ECF471CC3F40DDD7F581B /* FTPCContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCContainerView.swift; path = FTPageController/FTPCContainerView.swift; sourceTree = "<group>"; };
+		920E3B0E17D128B089313402D55B7788 /* FTPageController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPageController.swift; path = Sources/FTPageController.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BD41314DDD55F7EB2D78B12BB87EC85F /* FTPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTPageController.h; path = Sources/FTPageController.h; sourceTree = "<group>"; };
 		C4A178155B76109334FC4C8A70077D2F /* Pods-FTPageControllerDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FTPageControllerDemo-frameworks.sh"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3C45477AFB02D1D7172579EB429C4F3 /* FTPageController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FTPageController.modulemap; sourceTree = "<group>"; };
 		DA6AD9A18EF41BA4962F26A9959B0C08 /* Pods-FTPageControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FTPageControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC769907AB8B1ABE0322AF901FC439A /* Pods-FTPageControllerDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FTPageControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		DB6B79DCCF9AD73CC380123493A714E1 /* FTPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPageController-prefix.pch"; sourceTree = "<group>"; };
 		DEB6FD9AE3A56338BB183D74AC184187 /* Pods-FTPageControllerDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FTPageControllerDemo.modulemap"; sourceTree = "<group>"; };
-		E00058230F3ADF3616E30925899D16D9 /* FTPageController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FTPageController.h; path = FTPageController/FTPageController.h; sourceTree = "<group>"; };
-		F15354B72EEA377527F186C670F7B96C /* FTPageController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FTPageController-prefix.pch"; sourceTree = "<group>"; };
-		F36DD2E51CEDADA3CE8EDE2D769FB32D /* FTPCContainerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTPCContainerCell.swift; path = FTPageController/FTPCContainerCell.swift; sourceTree = "<group>"; };
 		F55BBA1E98FDB9339A41A7D2E83CFED8 /* Pods-FTPageControllerDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FTPageControllerDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		F87C7C329112C7FB10D1E0F7E651983E /* Pods-FTPageControllerDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FTPageControllerDemo-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,18 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A7C10261272533D0BF313DC7E501B11 /* Support Files */ = {
+		00B75664E9DF865A8461094C4FBBF9EB /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				30B7DFE5F45005AE8E798DA2CE9FE762 /* FTPageController.modulemap */,
-				A4DB869E68B5B4E26415003E2A3A0FEF /* FTPageController.xcconfig */,
-				7B0B51822346250ECAB7B25B99CC1EFB /* FTPageController-dummy.m */,
-				5C8605E90067A617318C56D10DCA9040 /* FTPageController-Info.plist */,
-				F15354B72EEA377527F186C670F7B96C /* FTPageController-prefix.pch */,
-				35E32F8F26D5F61A0A2D345F2C285608 /* FTPageController-umbrella.h */,
+				2C35B7B043F7B442D6EC13895F32E223 /* FTPageController.podspec */,
+				3B0774EEA50CD8C77C29D1B78867F5E9 /* LICENSE */,
+				069793499500D3A199CE892A9D1C2DEC /* README.md */,
 			);
-			name = "Support Files";
-			path = "FTPageControllerDemo/Pods/Target Support Files/FTPageController";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		298E94D5CEFADF911BFC0CADAAAB80A2 /* Pods-FTPageControllerDemo */ = {
@@ -117,19 +113,19 @@
 			path = "Target Support Files/Pods-FTPageControllerDemo";
 			sourceTree = "<group>";
 		};
-		68A3D8DFFE92382A021F9EDFEB2E635D /* FTPageController */ = {
+		4C9D407696883AF91F5D1E2F2EFEB2A4 /* FTPageController */ = {
 			isa = PBXGroup;
 			children = (
-				E00058230F3ADF3616E30925899D16D9 /* FTPageController.h */,
-				55A22EFEAFABECA827C24A710672F10B /* FTPageController.swift */,
-				27CD3395C6CE1A9E0E0801A3DB6EE084 /* FTPCConfig.swift */,
-				F36DD2E51CEDADA3CE8EDE2D769FB32D /* FTPCContainerCell.swift */,
-				BDF385DF9C2ECF471CC3F40DDD7F581B /* FTPCContainerView.swift */,
-				6B909C867774CD1AD4E3E808F67FC93F /* FTPCSegement.swift */,
-				8B50BF5FCAC6CEB85BCFA42AE80AC6BF /* FTPCSegementCell.swift */,
-				47EFB60DD9DC9883DF94D6B3037F880F /* FTPCTitleModel.swift */,
-				EAAB548EE6E0AF9BB4CCE3A94FC36187 /* Pod */,
-				1A7C10261272533D0BF313DC7E501B11 /* Support Files */,
+				BD41314DDD55F7EB2D78B12BB87EC85F /* FTPageController.h */,
+				920E3B0E17D128B089313402D55B7788 /* FTPageController.swift */,
+				57EBF7CC5B62171BBC2CC175F7C37191 /* FTPCConfig.swift */,
+				11D1D955AA855F432503DF7BFD3758A4 /* FTPCContainerCell.swift */,
+				441BC7492BFB353E676730BAE10C8EC0 /* FTPCContainerView.swift */,
+				0107EAB6DFE5E072B9EC203E9BC830B5 /* FTPCSegement.swift */,
+				5CF30AF560F0C50D70B855B83ABD1A13 /* FTPCSegementCell.swift */,
+				5F001C6E9C3842448752C0F757B8A47A /* FTPCTitleModel.swift */,
+				00B75664E9DF865A8461094C4FBBF9EB /* Pod */,
+				F6E5206D4850CECC1203540D0A7E8964 /* Support Files */,
 			);
 			name = FTPageController;
 			path = ../..;
@@ -179,22 +175,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		EAAB548EE6E0AF9BB4CCE3A94FC36187 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				8F5468D3A13163885D9C41B80803F81B /* FTPageController.podspec */,
-				75D808AE736506A0D03CA1878E286934 /* LICENSE */,
-				80D37A372C634BF607EEBCE9B43393E2 /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
 		ECEC4F76A9811B1E428DE56FDB18FF97 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				68A3D8DFFE92382A021F9EDFEB2E635D /* FTPageController */,
+				4C9D407696883AF91F5D1E2F2EFEB2A4 /* FTPageController */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		F6E5206D4850CECC1203540D0A7E8964 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3C45477AFB02D1D7172579EB429C4F3 /* FTPageController.modulemap */,
+				3FCBCB243FB897B4FC06B2625D916096 /* FTPageController.xcconfig */,
+				7F19153E3D568E82BD2064005A28EFC1 /* FTPageController-dummy.m */,
+				5E5BA6373703D213C231B9007EC71400 /* FTPageController-Info.plist */,
+				DB6B79DCCF9AD73CC380123493A714E1 /* FTPageController-prefix.pch */,
+				44DD100373879D9D5A690DF22C81B42B /* FTPageController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "FTPageControllerDemo/Pods/Target Support Files/FTPageController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B975FEBA2BDA38D42B6C57F985CEC81 /* FTPageController-umbrella.h in Headers */,
-				1F153D229D2305CCF4B7AB2028E63185 /* FTPageController.h in Headers */,
+				2CFCACD2A2750F7403094D6ADC636577 /* FTPageController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,19 +264,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1020;
-				TargetAttributes = {
-					D552EF69174537C406AC181E78F2ECF2 = {
-						LastSwiftMigration = 1020;
-					};
-				};
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -321,13 +315,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E70A22CB86C8F41FAE49FE0859E930D7 /* FTPageController-dummy.m in Sources */,
-				3295D7FD412EB797C3FB31877DCF989B /* FTPageController.swift in Sources */,
-				07F3FA2D2D782AC8659AF6F61320497A /* FTPCConfig.swift in Sources */,
-				7AAE1F63C004BD1B1C049CAF95BE6CFF /* FTPCContainerCell.swift in Sources */,
-				0B206E80FE32BE85BC846A7C2FB01D7C /* FTPCContainerView.swift in Sources */,
-				691987CF776EB5712DC54BD2891D95F5 /* FTPCSegement.swift in Sources */,
-				0BCBFF6AF4166E4DD18D5AAF13766366 /* FTPCSegementCell.swift in Sources */,
-				91F898BF98212BE7FFAF7B92403867A2 /* FTPCTitleModel.swift in Sources */,
+				7BBF14C609B5248659016B2BD4F6FB86 /* FTPageController.swift in Sources */,
+				7B8FC22324B28314C6F7D05FE17465CA /* FTPCConfig.swift in Sources */,
+				FB67A8EE0DE0BFA809DFFA1BD7607E9E /* FTPCContainerCell.swift in Sources */,
+				80CED8187BAB11EF73F2D76A9FF79FCA /* FTPCContainerView.swift in Sources */,
+				31045604FE9FE6F85B9A2AFF1ADA3C66 /* FTPCSegement.swift in Sources */,
+				1101BF4519A9EAB97D30A0AB4098DC5F /* FTPCSegementCell.swift in Sources */,
+				CB3063303CF9EAD7E92D4C740101B9F0 /* FTPCTitleModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,7 +418,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -485,7 +478,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -546,10 +538,11 @@
 			};
 			name = Debug;
 		};
-		C1EAAB4EA60B6565D88A22837C3E5345 /* Debug */ = {
+		E9DC4F07CDE6BD88AC1343DDCBB6E74B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4DB869E68B5B4E26415003E2A3A0FEF /* FTPageController.xcconfig */;
+			baseConfigurationReference = 3FCBCB243FB897B4FC06B2625D916096 /* FTPageController.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -562,7 +555,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FTPageController/FTPageController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FTPageController/FTPageController-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,10 +574,11 @@
 			};
 			name = Debug;
 		};
-		D3A577A581026605532A535382C8C80A /* Release */ = {
+		F061F0EFA0BC19EF3FD40823A8533BC8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4DB869E68B5B4E26415003E2A3A0FEF /* FTPageController.xcconfig */;
+			baseConfigurationReference = 3FCBCB243FB897B4FC06B2625D916096 /* FTPageController.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -597,7 +591,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FTPageController/FTPageController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FTPageController/FTPageController-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,8 +617,8 @@
 		19AFF5F4A14DF6CDDF7AFE2174F9394F /* Build configuration list for PBXNativeTarget "FTPageController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C1EAAB4EA60B6565D88A22837C3E5345 /* Debug */,
-				D3A577A581026605532A535382C8C80A /* Release */,
+				E9DC4F07CDE6BD88AC1343DDCBB6E74B /* Debug */,
+				F061F0EFA0BC19EF3FD40823A8533BC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 PODS:
-  - FTPageController (0.0.4)
+  - FTPageController (0.0.5)
 
 DEPENDENCIES:
   - FTPageController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FTPageController: 5ec41bddd91fb16f9044a5c228f7f2a892e9d5b5
+  FTPageController: 5c53a0b366c79ec013bcf52386229d8f205f0f5d
 
 PODFILE CHECKSUM: 847f1ca6027f3a2ca4dd2fc1a88926f3387e3f2a
 

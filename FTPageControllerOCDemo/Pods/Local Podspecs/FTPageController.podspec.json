@@ -1,6 +1,6 @@
 {
   "name": "FTPageController",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "summary": "FTPageController makes UIPageViewController much easier to use.",
   "description": "FTPageController makes UIPageViewController much easier to use. It is just a resource for my future projects. Feel welcome to use anyway.",
   "homepage": "https://github.com/liufengting",
@@ -9,18 +9,18 @@
     "file": "LICENSE"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "authors": {
     "liufengting": "wo157121900@me.com"
   },
   "source": {
     "git": "https://github.com/liufengting/FTPageController.git",
-    "tag": "0.0.3"
+    "tag": "0.0.5"
   },
   "source_files": [
     "FTPageController",
-    "FTPageController/**/*.{h,m,xib,swift}"
+    "Sources/**/*.{h,m,xib,swift}"
   ],
-  "swift_version": "4.2"
+  "swift_versions": "5.0"
 }

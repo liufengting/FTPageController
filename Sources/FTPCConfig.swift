@@ -58,6 +58,8 @@ import UIKit
     case expand
 }
 
+//MARK: - extension for UIScreen -
+
 @objc public extension UIScreen {
     
     @objc static func ft_width() -> CGFloat {
@@ -69,6 +71,8 @@ import UIKit
     }
     
 }
+
+//MARK: - extension for UIDevice -
 
 @objc public extension UIDevice {
     
@@ -87,6 +91,8 @@ import UIKit
     }
     
 }
+
+//MARK: - extension for UIColor -
 
 @objc extension UIColor {
     

@@ -106,7 +106,7 @@
 				2A4A3351220005CA00ACFDFC /* Sources */,
 				2A4A3352220005CA00ACFDFC /* Frameworks */,
 				2A4A3353220005CA00ACFDFC /* Resources */,
-				2F1671D2614AF4242B9778C6 /* [CP] Embed Pods Frameworks */,
+				05F9E04A2B5CB736CF078098 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,22 +164,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F1671D2614AF4242B9778C6 /* [CP] Embed Pods Frameworks */ = {
+		05F9E04A2B5CB736CF078098 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerOCDemo/Pods-FTPageControllerOCDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FTPageController/FTPageController.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerOCDemo/Pods-FTPageControllerOCDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTPageController.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerOCDemo/Pods-FTPageControllerOCDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
