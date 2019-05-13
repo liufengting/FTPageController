@@ -101,7 +101,7 @@ import UIKit
     }
     
     func setupConponents() {
-        self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage);
+        self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage)
         self.containerView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
         self.containerView.reloadData()
         self.scrollToPage(page: self.currentPage, animated: false)
@@ -159,7 +159,7 @@ import UIKit
     }
     
     @objc public func scrollToPage(page: NSInteger, animated: Bool) {
-        self.containerView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: false)
+        self.containerView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: animated)
     }
     
     func cellAtIndex(_ index: NSInteger) -> UICollectionViewCell {
@@ -168,7 +168,7 @@ import UIKit
 
     @objc public func didSelectPage(page: NSInteger, animated: Bool) {
         if page != self.currentPage {
-            self.currentPage = page;
+            self.currentPage = page
         }
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
             if (vc.isViewLoaded) {
@@ -260,7 +260,7 @@ import UIKit
         // segment handle transition
         self.segment.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
 
-        let toPage = self.currentPage == formerPage ? latterPage : formerPage;
+        let toPage = self.currentPage == formerPage ? latterPage : formerPage
         if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:isScolling:toPage:percent:))))! {
             self.delegate?.pageController!(pageController: self, isScolling: self.currentPage, toPage: toPage, percent: (pageOffset - CGFloat(formerPage)))
         }

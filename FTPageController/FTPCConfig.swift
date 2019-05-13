@@ -60,11 +60,11 @@ import UIKit
 
 @objc public extension UIScreen {
     
-    @objc public static func ft_width() -> CGFloat {
+    @objc static func ft_width() -> CGFloat {
         return self.main.bounds.size.width
     }
     
-    @objc public static func ft_height() -> CGFloat {
+    @objc static func ft_height() -> CGFloat {
         return self.main.bounds.size.height
     }
     
@@ -72,14 +72,14 @@ import UIKit
 
 @objc public extension UIDevice {
     
-    @objc public static func ft_is_iPhone_X_or_up() -> Bool {
+    @objc static func ft_is_iPhone_X_or_up() -> Bool {
         guard #available(iOS 11.0, *) else {
             return false
         }
         return UIApplication.shared.windows[0].safeAreaInsets != UIEdgeInsets.zero
     }
     
-    @objc public static func ft_navigationBarHeight() -> CGFloat {
+    @objc static func ft_navigationBarHeight() -> CGFloat {
         if self.ft_is_iPhone_X_or_up() {
             return 88.0
         }
@@ -91,29 +91,29 @@ import UIKit
 @objc extension UIColor {
     
     @objc func isEqual(color: UIColor) -> Bool {
-        var fromR: CGFloat = 0;
-        var fromG: CGFloat = 0;
-        var fromB: CGFloat = 0;
-        var fromA: CGFloat = 0;
+        var fromR: CGFloat = 0
+        var fromG: CGFloat = 0
+        var fromB: CGFloat = 0
+        var fromA: CGFloat = 0
         self.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
-        var toR: CGFloat = 0;
-        var toG: CGFloat = 0;
-        var toB: CGFloat = 0;
-        var toA: CGFloat = 0;
+        var toR: CGFloat = 0
+        var toG: CGFloat = 0
+        var toB: CGFloat = 0
+        var toA: CGFloat = 0
         color.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
-        return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA);
+        return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA)
     }
     
     @objc static func transit(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
-        var fromR: CGFloat = 0;
-        var fromG: CGFloat = 0;
-        var fromB: CGFloat = 0;
-        var fromA: CGFloat = 0;
+        var fromR: CGFloat = 0
+        var fromG: CGFloat = 0
+        var fromB: CGFloat = 0
+        var fromA: CGFloat = 0
         fromColor.getRed(&fromR, green: &fromG, blue: &fromB, alpha: &fromA)
-        var toR: CGFloat = 0;
-        var toG: CGFloat = 0;
-        var toB: CGFloat = 0;
-        var toA: CGFloat = 0;
+        var toR: CGFloat = 0
+        var toG: CGFloat = 0
+        var toB: CGFloat = 0
+        var toA: CGFloat = 0
         toColor.getRed(&toR, green: &toG, blue: &toB, alpha: &toA)
         return UIColor(red: fromR - ((fromR - toR) * percent),
                        green: fromG - ((fromG - toG) * percent),

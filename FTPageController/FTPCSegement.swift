@@ -68,7 +68,10 @@ import UIKit
         self.indicator.frame = self.frameForIndicatorAtIndex(index: self.selectedPage)
         for cell in self.collectionView.visibleCells {
             if let realCell: FTPCSegmentCell = cell as? FTPCSegmentCell {
-                realCell.setSelected(selected: realCell.indexPath.item == page)
+                let select = realCell.indexPath.item == page
+                if realCell.isSelected != select {
+                    realCell.setSelected(selected: select)
+                }
             }
         }
         self.collectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
@@ -188,7 +191,7 @@ import UIKit
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+//        collectionView.deselectItem(at: indexPath, animated: true)
         self.handleCellTapAtIndexPath(indexPath: indexPath)
     }
     

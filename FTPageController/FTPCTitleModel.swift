@@ -38,8 +38,7 @@ import UIKit
         if self.title.count <= 0 || self.defaultFont.pointSize < 0 {
             return
         }
-        let size = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.defaultFont] , context: nil)
-        self.titleWidth = size.width
+        self.titleWidth = self.title.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 100.0), options: .usesLineFragmentOrigin, attributes:[NSAttributedString.Key.font : self.defaultFont] , context: nil).width
     }
     
 }

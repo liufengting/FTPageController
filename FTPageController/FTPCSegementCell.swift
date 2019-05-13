@@ -20,7 +20,6 @@ open class FTPCSegmentCell: UICollectionViewCell {
     @objc public weak var titleModel: FTPCTitleModel!
     @objc public weak var segmentConfig: FTPCSegmentConfig!
     @objc public var indexPath: IndexPath!
-
     @objc public override init(frame: CGRect) {
         super.init(frame: frame)
         self.contentView.addSubview(self.titleLabel)
@@ -47,12 +46,14 @@ open class FTPCSegmentCell: UICollectionViewCell {
     }
     
     @objc func setSelected(selected: Bool) {
+        self.isSelected = selected
         let backgroundColor = selected ? self.titleModel.selectedBackgroundColor : self.titleModel.backgroundColor
         let textColor = selected ? self.titleModel.selectedTitleColor : self.titleModel.defaultTitleColor
-        let scale = (self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize)
+        let font = selected ? self.titleModel.selectedFont : self.titleModel.defaultFont
         self.backgroundColor = backgroundColor
         self.titleLabel.textColor = textColor
-        self.titleLabel.transform = selected ? CGAffineTransform(scaleX: scale, y: scale) : CGAffineTransform.identity
+        self.titleLabel.font = font
+        self.titleLabel.transform = CGAffineTransform.identity
     }
     
     @objc func handleTransition(percent: CGFloat) {
@@ -68,6 +69,9 @@ open class FTPCSegmentCell: UICollectionViewCell {
         }
         // titleLabel.transform
         if self.titleModel.selectedFont.pointSize != self.titleModel.defaultFont.pointSize {
+            if self.titleLabel.font != self.titleModel.defaultFont {
+                self.titleLabel.font = self.titleModel.defaultFont
+            }
             let scale = self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - ((self.titleModel.selectedFont.pointSize/self.titleModel.defaultFont.pointSize - 1)*percent)
             self.titleLabel.transform = CGAffineTransform(scaleX: scale, y: scale);
         }

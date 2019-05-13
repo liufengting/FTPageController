@@ -33,7 +33,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return header
     }()
     
-    var imageHeight = 1085*UIScreen.ft_width()/1920
+    var originalImageHeight = 1085*UIScreen.ft_width()/1920
     
 
     override func viewDidLoad() {
@@ -42,10 +42,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableView.contentInsetAdjustmentBehavior = .never
         
         let width = UIScreen.ft_width()
-        self.headerView.frame = CGRect(x: 0, y: 0, width: width, height: imageHeight)
+        self.headerView.frame = CGRect(x: 0, y: 0, width: width, height: originalImageHeight)
         self.view.addSubview(self.headerView)
         self.view.bringSubviewToFront(self.tableView)
-        self.tableView.contentInset = UIEdgeInsets(top: imageHeight - UIDevice.ft_navigationBarHeight(), left: 0, bottom: 0, right: 0)
+        self.tableView.contentInset = UIEdgeInsets(top: originalImageHeight - UIDevice.ft_navigationBarHeight(), left: 0, bottom: 0, right: 0)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -89,10 +89,10 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         print(y);
-        if y <= UIDevice.ft_navigationBarHeight() - imageHeight {
+        if y <= UIDevice.ft_navigationBarHeight() - originalImageHeight {
             self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIDevice.ft_navigationBarHeight() - y)
         } else if y <= 0 {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: imageHeight)
+            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: originalImageHeight)
             self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
         }
     }
