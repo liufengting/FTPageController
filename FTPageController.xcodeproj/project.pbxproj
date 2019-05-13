@@ -17,9 +17,6 @@
 		2A6DDFB222894BE700DE42EF /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFAB22894BE600DE42EF /* FTPCContainerCell.swift */; };
 		2A6DDFB322894BE700DE42EF /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFAC22894BE600DE42EF /* FTPCSegementCell.swift */; };
 		2A6DDFB422894BE700DE42EF /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFAD22894BE700DE42EF /* FTPCSegement.swift */; };
-		2A6DDFB92289592100DE42EF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFB62289592100DE42EF /* LICENSE */; };
-		2A6DDFBA2289592100DE42EF /* FTPageController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFB72289592100DE42EF /* FTPageController.podspec */; };
-		2A6DDFBB2289592100DE42EF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFB82289592100DE42EF /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,9 +214,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A6DDFBB2289592100DE42EF /* README.md in Resources */,
-				2A6DDFB92289592100DE42EF /* LICENSE in Resources */,
-				2A6DDFBA2289592100DE42EF /* FTPageController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +385,7 @@
 		2A6DDFA222894B0900DE42EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -401,7 +396,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FTPageController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,6 +414,7 @@
 		2A6DDFA322894B0900DE42EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -429,7 +425,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = FTPageController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

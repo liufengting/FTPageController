@@ -80,7 +80,11 @@ import UIKit
         guard #available(iOS 11.0, *) else {
             return false
         }
-        return UIApplication.shared.windows[0].safeAreaInsets != UIEdgeInsets.zero
+        let screenHeight = UIScreen.main.nativeBounds.size.height;
+        if screenHeight == 2436 || screenHeight == 1792 || screenHeight == 2688 || screenHeight == 1624 {
+            return true
+        }
+        return false
     }
     
     @objc static func ft_navigationBarHeight() -> CGFloat {
