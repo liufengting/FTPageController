@@ -34,9 +34,6 @@
 		2A1FBB8F228A65C300AD692A /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4E228A645E00AD692A /* FTPCSegement.swift */; };
 		2A1FBB90228A65C300AD692A /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4F228A645E00AD692A /* FTPCSegementCell.swift */; };
 		2A1FBB91228A65C300AD692A /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */; };
-		2A1FBB96228A6A5B00AD692A /* FTPageController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB93228A6A5B00AD692A /* FTPageController.podspec */; };
-		2A1FBB97228A6A5B00AD692A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB94228A6A5B00AD692A /* LICENSE */; };
-		2A1FBB98228A6A5B00AD692A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB95228A6A5B00AD692A /* README.md */; };
 		2A1FBBA1228A6A8C00AD692A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA0228A6A8C00AD692A /* AppDelegate.m */; };
 		2A1FBBA4228A6A8C00AD692A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA3228A6A8C00AD692A /* ViewController.m */; };
 		2A1FBBA7228A6A8C00AD692A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA5228A6A8C00AD692A /* Main.storyboard */; };
@@ -374,9 +371,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A1FBB98228A6A5B00AD692A /* README.md in Resources */,
-				2A1FBB97228A6A5B00AD692A /* LICENSE in Resources */,
-				2A1FBB96228A6A5B00AD692A /* FTPageController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
