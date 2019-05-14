@@ -4,4 +4,10 @@
    <FileRef
       location = "container:FTPageController.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:FTPageControllerDemo/FTPageControllerDemo.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:FTPageControllerDemo_OC/FTPageControllerDemo_OC.xcodeproj">
+   </FileRef>
 </Workspace>

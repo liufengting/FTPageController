@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  FTPageControllerDemo
 //
-//  Created by liufengting on 2018/8/8.
-//  Copyright © 2018年 liufengting. All rights reserved.
+//  Created by liufengting on 2019/5/13.
+//  Copyright © 2019 liufengting. All rights reserved.
 //
 
 import UIKit

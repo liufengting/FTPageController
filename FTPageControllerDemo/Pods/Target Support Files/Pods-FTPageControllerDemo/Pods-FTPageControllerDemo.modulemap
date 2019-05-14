@@ -1,6 +1,0 @@
-framework module Pods_FTPageControllerDemo {
-  umbrella header "Pods-FTPageControllerDemo-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -3,118 +3,104 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22DD5650FBA853550A6C9D52 /* Pods_FTPageControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBC434D6BCD8B7BDA78F5A5 /* Pods_FTPageControllerDemo.framework */; };
-		2A3CC64621377F5300688576 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CC64521377F5300688576 /* TableViewController.swift */; };
-		2A3CC64821378CA500688576 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3CC64721378CA500688576 /* HeaderView.swift */; };
-		2A8F9246212ECCA0002EF6DC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */; };
-		2A8F9248212ECCE5002EF6DC /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8F9247212ECCE5002EF6DC /* SubViewController.swift */; };
-		2AAD67A9211A919300613CDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD67A8211A919300613CDD /* AppDelegate.swift */; };
-		2AAD67AB211A919300613CDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAD67AA211A919300613CDD /* ViewController.swift */; };
-		2AAD67AE211A919300613CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD67AC211A919300613CDD /* Main.storyboard */; };
-		2AAD67B0211A919500613CDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD67AF211A919500613CDD /* Assets.xcassets */; };
-		2AAD67B3211A919500613CDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AAD67B1211A919500613CDD /* LaunchScreen.storyboard */; };
-		2AC2076C2133E4750018327A /* AttributedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC2076B2133E4750018327A /* AttributedViewController.swift */; };
+		2A6DDFD922896DD500DE42EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFD822896DD500DE42EF /* AppDelegate.swift */; };
+		2A6DDFE022896DD600DE42EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFDF22896DD600DE42EF /* Assets.xcassets */; };
+		2A6DDFE322896DD600DE42EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFE122896DD600DE42EF /* LaunchScreen.storyboard */; };
+		2A6DDFF022896E0A00DE42EF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFEA22896E0A00DE42EF /* TableViewController.swift */; };
+		2A6DDFF122896E0A00DE42EF /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFEB22896E0A00DE42EF /* SubViewController.swift */; };
+		2A6DDFF222896E0A00DE42EF /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFEC22896E0A00DE42EF /* HeaderView.swift */; };
+		2A6DDFF322896E0A00DE42EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFED22896E0A00DE42EF /* ViewController.swift */; };
+		2A6DDFF422896E0A00DE42EF /* AttributedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFEE22896E0A00DE42EF /* AttributedViewController.swift */; };
+		2A6DDFF522896E0A00DE42EF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6DDFEF22896E0A00DE42EF /* DetailViewController.swift */; };
+		2A6DDFF822896E2900DE42EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6DDFF622896E2900DE42EF /* Main.storyboard */; };
+		2AFA387E228A53DC00CA4E20 /* FTPageController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6DE0242289742300DE42EF /* FTPageController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12E90AFCD79C0F79F0EC49FA /* Pods-FTPageControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTPageControllerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2A3CC64521377F5300688576 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		2A3CC64721378CA500688576 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2A8F9247212ECCE5002EF6DC /* SubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
-		2AAD67A5211A919300613CDD /* FTPageControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AAD67A8211A919300613CDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2AAD67AA211A919300613CDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2AAD67AD211A919300613CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2AAD67AF211A919500613CDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2AAD67B2211A919500613CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2AAD67B4211A919500613CDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AC2076B2133E4750018327A /* AttributedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedViewController.swift; sourceTree = "<group>"; };
-		48299063DCAA925ADC25D2A1 /* Pods-FTPageControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FTPageControllerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		7DBC434D6BCD8B7BDA78F5A5 /* Pods_FTPageControllerDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FTPageControllerDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6DDFD522896DD500DE42EF /* FTPageControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A6DDFD822896DD500DE42EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2A6DDFDF22896DD600DE42EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A6DDFE222896DD600DE42EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2A6DDFE422896DD600DE42EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A6DDFEA22896E0A00DE42EF /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/TableViewController.swift; sourceTree = "<group>"; };
+		2A6DDFEB22896E0A00DE42EF /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubViewController.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/SubViewController.swift; sourceTree = "<group>"; };
+		2A6DDFEC22896E0A00DE42EF /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderView.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/HeaderView.swift; sourceTree = "<group>"; };
+		2A6DDFED22896E0A00DE42EF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/ViewController.swift; sourceTree = "<group>"; };
+		2A6DDFEE22896E0A00DE42EF /* AttributedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttributedViewController.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/AttributedViewController.swift; sourceTree = "<group>"; };
+		2A6DDFEF22896E0A00DE42EF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../../../../FTPageControllerDemo/FTPageControllerDemo/DetailViewController.swift; sourceTree = "<group>"; };
+		2A6DDFF722896E2900DE42EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2A6DE0242289742300DE42EF /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2AAD67A2211A919300613CDD /* Frameworks */ = {
+		2A6DDFD222896DD500DE42EF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22DD5650FBA853550A6C9D52 /* Pods_FTPageControllerDemo.framework in Frameworks */,
+				2AFA387E228A53DC00CA4E20 /* FTPageController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07014919DD126B6C144B21A8 /* Frameworks */ = {
+		2A6DDFCC22896DD500DE42EF = {
 			isa = PBXGroup;
 			children = (
-				7DBC434D6BCD8B7BDA78F5A5 /* Pods_FTPageControllerDemo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2AAD679C211A919300613CDD = {
-			isa = PBXGroup;
-			children = (
-				2AAD67A7211A919300613CDD /* FTPageControllerDemo */,
-				2AAD67A6211A919300613CDD /* Products */,
-				57BE9849FBB4BE784C7AE104 /* Pods */,
-				07014919DD126B6C144B21A8 /* Frameworks */,
+				2A6DDFD722896DD500DE42EF /* FTPageControllerDemo */,
+				2A6DDFD622896DD500DE42EF /* Products */,
+				2A6DE0232289742300DE42EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		2AAD67A6211A919300613CDD /* Products */ = {
+		2A6DDFD622896DD500DE42EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2AAD67A5211A919300613CDD /* FTPageControllerDemo.app */,
+				2A6DDFD522896DD500DE42EF /* FTPageControllerDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2AAD67A7211A919300613CDD /* FTPageControllerDemo */ = {
+		2A6DDFD722896DD500DE42EF /* FTPageControllerDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2AAD67A8211A919300613CDD /* AppDelegate.swift */,
-				2AAD67AA211A919300613CDD /* ViewController.swift */,
-				2A8F9245212ECCA0002EF6DC /* DetailViewController.swift */,
-				2AC2076B2133E4750018327A /* AttributedViewController.swift */,
-				2A3CC64521377F5300688576 /* TableViewController.swift */,
-				2A3CC64721378CA500688576 /* HeaderView.swift */,
-				2A8F9247212ECCE5002EF6DC /* SubViewController.swift */,
-				2AAD67AC211A919300613CDD /* Main.storyboard */,
-				2AAD67AF211A919500613CDD /* Assets.xcassets */,
-				2AAD67B1211A919500613CDD /* LaunchScreen.storyboard */,
-				2AAD67B4211A919500613CDD /* Info.plist */,
+				2A6DDFD822896DD500DE42EF /* AppDelegate.swift */,
+				2A6DDFEE22896E0A00DE42EF /* AttributedViewController.swift */,
+				2A6DDFEF22896E0A00DE42EF /* DetailViewController.swift */,
+				2A6DDFEC22896E0A00DE42EF /* HeaderView.swift */,
+				2A6DDFEB22896E0A00DE42EF /* SubViewController.swift */,
+				2A6DDFEA22896E0A00DE42EF /* TableViewController.swift */,
+				2A6DDFED22896E0A00DE42EF /* ViewController.swift */,
+				2A6DDFF622896E2900DE42EF /* Main.storyboard */,
+				2A6DDFDF22896DD600DE42EF /* Assets.xcassets */,
+				2A6DDFE122896DD600DE42EF /* LaunchScreen.storyboard */,
+				2A6DDFE422896DD600DE42EF /* Info.plist */,
 			);
 			path = FTPageControllerDemo;
 			sourceTree = "<group>";
 		};
-		57BE9849FBB4BE784C7AE104 /* Pods */ = {
+		2A6DE0232289742300DE42EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				48299063DCAA925ADC25D2A1 /* Pods-FTPageControllerDemo.debug.xcconfig */,
-				12E90AFCD79C0F79F0EC49FA /* Pods-FTPageControllerDemo.release.xcconfig */,
+				2A6DE0242289742300DE42EF /* FTPageController.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2AAD67A4211A919300613CDD /* FTPageControllerDemo */ = {
+		2A6DDFD422896DD500DE42EF /* FTPageControllerDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2AAD67B7211A919500613CDD /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */;
+			buildConfigurationList = 2A6DDFE722896DD600DE42EF /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */;
 			buildPhases = (
-				0CB4900BB2100602C57B328A /* [CP] Check Pods Manifest.lock */,
-				2AAD67A1211A919300613CDD /* Sources */,
-				2AAD67A2211A919300613CDD /* Frameworks */,
-				2AAD67A3211A919300613CDD /* Resources */,
-				ABC76EFE1A2CC8ABF6F33877 /* [CP] Embed Pods Frameworks */,
+				2A6DDFD122896DD500DE42EF /* Sources */,
+				2A6DDFD222896DD500DE42EF /* Frameworks */,
+				2A6DDFD322896DD500DE42EF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -122,25 +108,25 @@
 			);
 			name = FTPageControllerDemo;
 			productName = FTPageControllerDemo;
-			productReference = 2AAD67A5211A919300613CDD /* FTPageControllerDemo.app */;
+			productReference = 2A6DDFD522896DD500DE42EF /* FTPageControllerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2AAD679D211A919300613CDD /* Project object */ = {
+		2A6DDFCD22896DD500DE42EF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = liufengting;
 				TargetAttributes = {
-					2AAD67A4211A919300613CDD = {
-						CreatedOnToolsVersion = 10.0;
+					2A6DDFD422896DD500DE42EF = {
+						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
-			buildConfigurationList = 2AAD67A0211A919300613CDD /* Build configuration list for PBXProject "FTPageControllerDemo" */;
+			buildConfigurationList = 2A6DDFD022896DD500DE42EF /* Build configuration list for PBXProject "FTPageControllerDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,105 +134,67 @@
 				en,
 				Base,
 			);
-			mainGroup = 2AAD679C211A919300613CDD;
-			productRefGroup = 2AAD67A6211A919300613CDD /* Products */;
+			mainGroup = 2A6DDFCC22896DD500DE42EF;
+			productRefGroup = 2A6DDFD622896DD500DE42EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2AAD67A4211A919300613CDD /* FTPageControllerDemo */,
+				2A6DDFD422896DD500DE42EF /* FTPageControllerDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2AAD67A3211A919300613CDD /* Resources */ = {
+		2A6DDFD322896DD500DE42EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AAD67B3211A919500613CDD /* LaunchScreen.storyboard in Resources */,
-				2AAD67B0211A919500613CDD /* Assets.xcassets in Resources */,
-				2AAD67AE211A919300613CDD /* Main.storyboard in Resources */,
+				2A6DDFF822896E2900DE42EF /* Main.storyboard in Resources */,
+				2A6DDFE322896DD600DE42EF /* LaunchScreen.storyboard in Resources */,
+				2A6DDFE022896DD600DE42EF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0CB4900BB2100602C57B328A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FTPageControllerDemo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABC76EFE1A2CC8ABF6F33877 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FTPageControllerDemo/Pods-FTPageControllerDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		2AAD67A1211A919300613CDD /* Sources */ = {
+		2A6DDFD122896DD500DE42EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AC2076C2133E4750018327A /* AttributedViewController.swift in Sources */,
-				2A3CC64621377F5300688576 /* TableViewController.swift in Sources */,
-				2A8F9246212ECCA0002EF6DC /* DetailViewController.swift in Sources */,
-				2AAD67AB211A919300613CDD /* ViewController.swift in Sources */,
-				2AAD67A9211A919300613CDD /* AppDelegate.swift in Sources */,
-				2A8F9248212ECCE5002EF6DC /* SubViewController.swift in Sources */,
-				2A3CC64821378CA500688576 /* HeaderView.swift in Sources */,
+				2A6DDFF322896E0A00DE42EF /* ViewController.swift in Sources */,
+				2A6DDFF122896E0A00DE42EF /* SubViewController.swift in Sources */,
+				2A6DDFF422896E0A00DE42EF /* AttributedViewController.swift in Sources */,
+				2A6DDFD922896DD500DE42EF /* AppDelegate.swift in Sources */,
+				2A6DDFF022896E0A00DE42EF /* TableViewController.swift in Sources */,
+				2A6DDFF222896E0A00DE42EF /* HeaderView.swift in Sources */,
+				2A6DDFF522896E0A00DE42EF /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2AAD67AC211A919300613CDD /* Main.storyboard */ = {
+		2A6DDFE122896DD600DE42EF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2AAD67AD211A919300613CDD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2AAD67B1211A919500613CDD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AAD67B2211A919500613CDD /* Base */,
+				2A6DDFE222896DD600DE42EF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2A6DDFF622896E2900DE42EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A6DDFF722896E2900DE42EF /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2AAD67B5211A919500613CDD /* Debug */ = {
+		2A6DDFE522896DD600DE42EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -297,7 +245,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -307,7 +255,7 @@
 			};
 			name = Debug;
 		};
-		2AAD67B6211A919500613CDD /* Release */ = {
+		2A6DDFE622896DD600DE42EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -352,7 +300,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -362,70 +310,68 @@
 			};
 			name = Release;
 		};
-		2AAD67B8211A919500613CDD /* Debug */ = {
+		2A6DDFE822896DD600DE42EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 48299063DCAA925ADC25D2A1 /* Pods-FTPageControllerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
-		2AAD67B9211A919500613CDD /* Release */ = {
+		2A6DDFE922896DD600DE42EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 12E90AFCD79C0F79F0EC49FA /* Pods-FTPageControllerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E83AC9WR2F;
 				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2AAD67A0211A919300613CDD /* Build configuration list for PBXProject "FTPageControllerDemo" */ = {
+		2A6DDFD022896DD500DE42EF /* Build configuration list for PBXProject "FTPageControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2AAD67B5211A919500613CDD /* Debug */,
-				2AAD67B6211A919500613CDD /* Release */,
+				2A6DDFE522896DD600DE42EF /* Debug */,
+				2A6DDFE622896DD600DE42EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2AAD67B7211A919500613CDD /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */ = {
+		2A6DDFE722896DD600DE42EF /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2AAD67B8211A919500613CDD /* Debug */,
-				2AAD67B9211A919500613CDD /* Release */,
+				2A6DDFE822896DD600DE42EF /* Debug */,
+				2A6DDFE922896DD600DE42EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2AAD679D211A919300613CDD /* Project object */;
+	rootObject = 2A6DDFCD22896DD500DE42EF /* Project object */;
 }
