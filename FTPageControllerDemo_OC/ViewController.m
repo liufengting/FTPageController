@@ -8,8 +8,7 @@
 
 #import "ViewController.h"
 #import "SubViewViewController.h"
-//#import "FTPageControllerDemo_OC-Swift.h"
-#import <FTPageController/FTPageController.h>
+#import "FTPageControllerDemo_OC-Swift.h"
 
 @interface ViewController ()
 

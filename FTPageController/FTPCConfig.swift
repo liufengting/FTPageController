@@ -11,6 +11,7 @@ import UIKit
 /// describes how the controller was setup
 /// - Manually: [UIViewControllers]
 /// - DataSource: setup with dataSource
+
 @objc public enum FTPCSetupMode : Int {
     case Manually
     case DataSource
@@ -21,6 +22,7 @@ import UIKit
 /// - auto: item width decided by title, font and margin
 /// - fixed: fixed item width
 /// - fill: devide whole screen width into 4(coloumns)
+
 @objc public enum FTPCSegmentMode : Int {
     case auto
     case fixed
@@ -32,6 +34,7 @@ import UIKit
 /// - auto: same with the title width (with margins)
 /// - fixed: fixed width
 /// - fill: width fill item
+
 @objc public enum FTPCIndicatorMode : Int {
     case auto
     case fixed
@@ -43,6 +46,7 @@ import UIKit
 /// - center: vertical center of segment
 /// - top: top of segment
 /// - bottom: bottom of segment
+
 @objc public enum FTPCIndicatorPosition : Int {
     case center
     case top
@@ -53,6 +57,7 @@ import UIKit
 /// decides animation of indicator
 /// - linnear: linnear
 /// - expand: expand
+
 @objc public enum FTPCIndicatorAnimationOption : Int {
     case linnear
     case expand

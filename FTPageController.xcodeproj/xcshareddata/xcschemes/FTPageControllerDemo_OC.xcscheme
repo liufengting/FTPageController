@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A6DDFD422896DD500DE42EF"
-               BuildableName = "FTPageControllerDemo.app"
-               BlueprintName = "FTPageControllerDemo"
-               ReferencedContainer = "container:FTPageControllerDemo.xcodeproj">
+               BlueprintIdentifier = "2A1FBB9C228A6A8C00AD692A"
+               BuildableName = "FTPageControllerDemo_OC.app"
+               BlueprintName = "FTPageControllerDemo_OC"
+               ReferencedContainer = "container:FTPageController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A6DDFD422896DD500DE42EF"
-            BuildableName = "FTPageControllerDemo.app"
-            BlueprintName = "FTPageControllerDemo"
-            ReferencedContainer = "container:FTPageControllerDemo.xcodeproj">
+            BlueprintIdentifier = "2A1FBB9C228A6A8C00AD692A"
+            BuildableName = "FTPageControllerDemo_OC.app"
+            BlueprintName = "FTPageControllerDemo_OC"
+            ReferencedContainer = "container:FTPageController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A6DDFD422896DD500DE42EF"
-            BuildableName = "FTPageControllerDemo.app"
-            BlueprintName = "FTPageControllerDemo"
-            ReferencedContainer = "container:FTPageControllerDemo.xcodeproj">
+            BlueprintIdentifier = "2A1FBB9C228A6A8C00AD692A"
+            BuildableName = "FTPageControllerDemo_OC.app"
+            BlueprintName = "FTPageControllerDemo_OC"
+            ReferencedContainer = "container:FTPageController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A6DDFD422896DD500DE42EF"
-            BuildableName = "FTPageControllerDemo.app"
-            BlueprintName = "FTPageControllerDemo"
-            ReferencedContainer = "container:FTPageControllerDemo.xcodeproj">
+            BlueprintIdentifier = "2A1FBB9C228A6A8C00AD692A"
+            BuildableName = "FTPageControllerDemo_OC.app"
+            BlueprintName = "FTPageControllerDemo_OC"
+            ReferencedContainer = "container:FTPageController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
