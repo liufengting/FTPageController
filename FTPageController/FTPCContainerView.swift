@@ -7,21 +7,19 @@
 
 import UIKit
 
-@objc open class FTPCContainerView: UICollectionView {
-
-    @objc public weak var scrollViewConfig: FTPCContainerViewConfig!
+public class FTPCContainerView: UICollectionView {
     
-    @objc public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         self.initialSetup()
     }
     
-    @objc public required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialSetup()
     }
-    
-    @objc private func initialSetup() {
+        
+    private func initialSetup() {
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.alwaysBounceHorizontal = true
@@ -35,10 +33,14 @@ import UIKit
         }
     }
     
-    @objc public func setupWith(scrollViewConfig: FTPCContainerViewConfig, pageCount: NSInteger) {
-        self.scrollViewConfig = scrollViewConfig
-        self.frame = self.scrollViewConfig.frame;
-        self.isScrollEnabled = self.scrollViewConfig.isScrollEnabled
+    public func setupWith(controller: FTPageController) {
+        self.delegate = controller
+        self.dataSource = controller
+        self.register(FTPCContainerCell.classForCoder(), forCellWithReuseIdentifier: FTPCContainerCell.identifier)
+        if let layout = self.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        self.reloadData()
     }
     
 }

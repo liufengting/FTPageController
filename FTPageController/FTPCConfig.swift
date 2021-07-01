@@ -12,7 +12,7 @@ import UIKit
 /// - Manually: [UIViewControllers]
 /// - DataSource: setup with dataSource
 
-@objc public enum FTPCSetupMode : Int {
+public enum FTPCSetupMode : Int {
     case Manually
     case DataSource
 }
@@ -23,7 +23,7 @@ import UIKit
 /// - fixed: fixed item width
 /// - fill: devide whole screen width into 4(coloumns)
 
-@objc public enum FTPCSegmentMode : Int {
+public enum FTPCSegmentMode : Int {
     case auto
     case fixed
     case fill
@@ -35,7 +35,7 @@ import UIKit
 /// - fixed: fixed width
 /// - fill: width fill item
 
-@objc public enum FTPCIndicatorMode : Int {
+public enum FTPCIndicatorMode : Int {
     case auto
     case fixed
     case fill
@@ -47,7 +47,7 @@ import UIKit
 /// - top: top of segment
 /// - bottom: bottom of segment
 
-@objc public enum FTPCIndicatorPosition : Int {
+public enum FTPCIndicatorPosition : Int {
     case center
     case top
     case bottom
@@ -58,54 +58,125 @@ import UIKit
 /// - linnear: linnear
 /// - expand: expand
 
-@objc public enum FTPCIndicatorAnimationOption : Int {
+public enum FTPCIndicatorAnimationOption : Int {
     case linnear
     case expand
 }
 
-//MARK: - extension for UIScreen -
+//MARK: - FTPCConfig -
 
-@objc public extension UIScreen {
+public class FTPCConfig: NSObject {
     
-    @objc static func ft_width() -> CGFloat {
-        return self.main.bounds.size.width
+    public var segmentConfig: FTPCSegmentConfig = FTPCSegmentConfig(autoMode: true, titleMargin: 25.0)
+    public var indicatorConfig: FTPCIndicatorConfig = FTPCIndicatorConfig(autoMode: .bottom, animationOption: .expand, horizontalOffset: 5.0)
+
+    public override init() {
+        super.init()
     }
     
-    @objc static func ft_height() -> CGFloat {
-        return self.main.bounds.size.height
+    init(segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
+        super.init()
+        self.segmentConfig = segmentConfig
+        self.indicatorConfig = indicatorConfig
     }
     
 }
 
-//MARK: - extension for UIDevice -
+//MARK: - FTPCSegmentConfig -
 
-@objc public extension UIDevice {
+public class FTPCSegmentConfig: NSObject {
     
-    @objc static func ft_is_iPhone_X_or_up() -> Bool {
-        guard #available(iOS 11.0, *) else {
-            return false
-        }
-        let screenHeight = UIScreen.main.nativeBounds.size.height;
-        if screenHeight == 2436 || screenHeight == 1792 || screenHeight == 2688 || screenHeight == 1624 {
-            return true
-        }
-        return false
+    public var mode: FTPCSegmentMode = .auto
+    public var isScrollEnabled: Bool = true
+    public var columns: Int = 2
+    public var fixedWidth: CGFloat = 40.0
+    public var titleMargin: CGFloat = 25.0
+    public var backgroundColor: UIColor = UIColor.systemBackground
+    public var cornerRadius: CGFloat = 0.0
+    public var borderColor: UIColor = UIColor.red
+    public var borderWidth: CGFloat = 0.0
+    
+    public init(autoMode isScrollEnabled: Bool, titleMargin: CGFloat) {
+        super.init()
+        self.mode = .auto
+        self.isScrollEnabled = isScrollEnabled
+        self.titleMargin = titleMargin
     }
     
-    @objc static func ft_navigationBarHeight() -> CGFloat {
-        if self.ft_is_iPhone_X_or_up() {
-            return 88.0
-        }
-        return 64.0
+    public init(fixedMode isScrollEnabled: Bool, fixedWidth: CGFloat) {
+        super.init()
+        self.mode = .fixed
+        self.isScrollEnabled = isScrollEnabled
+        self.fixedWidth = fixedWidth
+    }
+    
+    public init(fillMode isScrollEnabled: Bool, columns: Int) {
+        super.init()
+        self.mode = .fill
+        self.isScrollEnabled = isScrollEnabled
+        self.columns = columns
+    }
+    
+    public func setupWith(backgroundColor: UIColor, cornerRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        self.backgroundColor = backgroundColor
+        self.cornerRadius = cornerRadius
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+    }
+    
+}
+
+//MARK: - FTPCIndicatorConfig -
+
+public class FTPCIndicatorConfig: NSObject {
+    
+    public var mode: FTPCIndicatorMode = .auto
+    public var position: FTPCIndicatorPosition = .bottom
+    public var animationOption: FTPCIndicatorAnimationOption = .expand
+    public var height: CGFloat = 2.0
+    public var width: CGFloat = 20.0
+    public var horizontalOffset: CGFloat = 5.0
+    public var cornerRadius: CGFloat = 0.0
+    public var borderColor: UIColor = UIColor.red
+    public var borderWidth: CGFloat = 0.0
+    
+    public init(autoMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, horizontalOffset: CGFloat) {
+        super.init()
+        self.mode = .auto
+        self.position = position
+        self.animationOption = animationOption
+        self.horizontalOffset = horizontalOffset
+    }
+
+    public init(fixedMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, width: CGFloat) {
+        super.init()
+        self.mode = .fixed
+        self.position = position
+        self.animationOption = animationOption
+        self.width = width
+    }
+    
+    public init(fillMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption) {
+        super.init()
+        self.mode = .fill
+        self.animationOption = animationOption
+        self.position = position
+    }
+
+    public func setupWith(height: CGFloat, cornerRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+        self.height = height
+        self.cornerRadius = cornerRadius
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
     }
     
 }
 
 //MARK: - extension for UIColor -
 
-@objc extension UIColor {
+public extension UIColor {
     
-    @objc func isEqual(color: UIColor) -> Bool {
+    func isEqual(color: UIColor) -> Bool {
         var fromR: CGFloat = 0
         var fromG: CGFloat = 0
         var fromB: CGFloat = 0
@@ -119,7 +190,7 @@ import UIKit
         return (fromR == toR) && (fromG == toG) && (fromB == toB) && (fromA == toA)
     }
     
-    @objc static func transit(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
+    static func transit(fromColor: UIColor, toColor: UIColor, percent: CGFloat) -> UIColor {
         var fromR: CGFloat = 0
         var fromG: CGFloat = 0
         var fromB: CGFloat = 0
@@ -134,142 +205,6 @@ import UIKit
                        green: fromG - ((fromG - toG) * percent),
                        blue: fromB - ((fromB - toB) * percent),
                        alpha: fromA - ((fromA - toA) * percent))
-    }
-    
-}
-
-//MARK: - FTPCConfig -
-
-@objc public class FTPCConfig: NSObject {
-    
-    @objc public var scrollViewConfig: FTPCContainerViewConfig = FTPCContainerViewConfig()
-    @objc public var segmentConfig: FTPCSegmentConfig = FTPCSegmentConfig()
-    @objc public var indicatorConfig: FTPCIndicatorConfig = FTPCIndicatorConfig()
-    
-    @objc static func defaultConfig() -> FTPCConfig {
-        return FTPCConfig()
-    }
-    
-    @objc public convenience init(scrollViewConfig: FTPCContainerViewConfig, segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
-        self.init()
-        self.scrollViewConfig = scrollViewConfig
-        self.segmentConfig = segmentConfig
-        self.indicatorConfig = indicatorConfig
-    }
-    
-}
-
-//MARK: - FTPCContainerViewConfig -
-
-@objc public class FTPCContainerViewConfig: NSObject {
-    
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.ft_navigationBarHeight() + 40, width: UIScreen.ft_width(), height: UIScreen.ft_height() - (UIDevice.ft_navigationBarHeight() + 40))
-    @objc public var isScrollEnabled: Bool = true
-    
-    @objc public convenience init(frame: CGRect, isScrollEnabled: Bool) {
-        self.init()
-        self.frame = frame
-        self.isScrollEnabled = isScrollEnabled
-    }
-    
-    @objc static func configWith(frame: CGRect, isScrollEnabled: Bool) -> FTPCContainerViewConfig {
-        return FTPCContainerViewConfig.init(frame: frame, isScrollEnabled: isScrollEnabled)
-    }
-    
-}
-
-//MARK: - FTPCSegmentConfig -
-
-@objc public class FTPCSegmentConfig: NSObject {
-    
-    @objc public var frame: CGRect = CGRect(x: 0.0, y: UIDevice.ft_navigationBarHeight(), width: UIScreen.ft_width(), height: 40.0)
-    @objc public var mode: FTPCSegmentMode = .auto
-    @objc public var isScrollEnabled: Bool = true
-    @objc public var columns: NSInteger = 2
-    @objc public var fixedWidth: CGFloat = 40.0
-    @objc public var titleMargin: CGFloat = 25.0
-    
-    @objc public var backgroundColor: UIColor = UIColor.white
-    @objc public var cornerRadius: CGFloat = 0.0
-    @objc public var borderColor: UIColor = UIColor.red
-    @objc public var borderWidth: CGFloat = 0.0
-    
-    @objc public convenience init(autoMode frame: CGRect, isScrollEnabled: Bool, titleMargin: CGFloat) {
-        self.init()
-        self.mode = .auto
-        self.frame = frame
-        self.isScrollEnabled = isScrollEnabled
-        self.titleMargin = titleMargin
-    }
-    
-    @objc public convenience init(fixedMode frame: CGRect, isScrollEnabled: Bool, fixedWidth: CGFloat) {
-        self.init()
-        self.mode = .fixed
-        self.frame = frame
-        self.isScrollEnabled = isScrollEnabled
-        self.fixedWidth = fixedWidth
-    }
-    
-    @objc public convenience init(fillMode frame: CGRect, isScrollEnabled: Bool, columns: NSInteger) {
-        self.init()
-        self.mode = .fill
-        self.frame = frame
-        self.isScrollEnabled = isScrollEnabled
-        self.columns = columns
-    }
-    
-    @objc public func setupWith(backgroundColor: UIColor, cornerRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
-        self.backgroundColor = backgroundColor
-        self.cornerRadius = cornerRadius
-        self.borderColor = borderColor
-        self.borderWidth = borderWidth
-    }
-    
-}
-
-//MARK: - FTPCIndicatorConfig -
-
-@objc public class FTPCIndicatorConfig: NSObject {
-    
-    @objc public var mode: FTPCIndicatorMode = .auto
-    @objc public var position: FTPCIndicatorPosition = .bottom
-    @objc public var animationOption: FTPCIndicatorAnimationOption = .expand
-    @objc public var height: CGFloat = 2.0
-    @objc public var width: CGFloat = 20.0
-    @objc public var horizontalOffsetToTitle: CGFloat = 5.0
-    
-    @objc public var cornerRadius: CGFloat = 0.0
-    @objc public var borderColor: UIColor = UIColor.red
-    @objc public var borderWidth: CGFloat = 0.0
-
-    @objc public convenience init(autoMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, horizontalOffsetToTitle: CGFloat) {
-        self.init()
-        self.mode = .auto
-        self.position = position
-        self.animationOption = animationOption
-        self.horizontalOffsetToTitle = horizontalOffsetToTitle
-    }
-    
-    @objc public convenience init(fixedMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption, width: CGFloat) {
-        self.init()
-        self.mode = .fixed
-        self.position = position
-        self.animationOption = animationOption
-        self.width = width
-    }
-    
-    @objc public convenience init(fillMode position: FTPCIndicatorPosition, animationOption: FTPCIndicatorAnimationOption) {
-        self.init()
-        self.mode = .fill
-        self.animationOption = animationOption
-        self.position = position
-    }
-    
-    @objc public func setupWith(height: CGFloat, cornerRadius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
-        self.height = height
-        self.cornerRadius = cornerRadius
-        self.borderColor = borderColor
-        self.borderWidth = borderWidth
     }
     
 }

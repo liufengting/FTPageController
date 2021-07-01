@@ -32,9 +32,6 @@ static NSString * const SubCellsIndentifier = @"SubCellsIndentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SubCellsIndentifier forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SubCellsIndentifier];
-    }
     cell.textLabel.text = [NSString stringWithFormat:@"Title %ld", self.vcIndex];
     return cell;
 }

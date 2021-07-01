@@ -7,45 +7,44 @@
 
 import UIKit
 
-open class FTPCSegmentCell: UICollectionViewCell {
+public class FTPCSegmentCell: UICollectionViewCell {
 
-    @objc static let identifier = "\(FTPCSegmentCell.classForCoder())"
+    static let identifier = "\(FTPCSegmentCell.classForCoder())"
     
-    @objc public lazy var titleLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
         return label
     }()
     
-    @objc public weak var titleModel: FTPCTitleModel!
-    @objc public weak var segmentConfig: FTPCSegmentConfig!
-    @objc public var indexPath: IndexPath!
-    @objc public override init(frame: CGRect) {
+    public var titleModel: FTPCTitleModel!
+    public var indexPath: IndexPath!
+    
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.contentView.addSubview(self.titleLabel)
     }
     
-    @objc public required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.contentView.addSubview(self.titleLabel)
     }
     
-    @objc open override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         self.titleLabel.frame = self.bounds
     }
     
-    @objc func setupWith(titleModel: FTPCTitleModel, segmentConfig: FTPCSegmentConfig, indexPath: IndexPath, selected: Bool) {
+    public func setupWith(titleModel: FTPCTitleModel, indexPath: IndexPath, selected: Bool) {
         self.titleModel = titleModel
         self.backgroundColor = titleModel.backgroundColor
         self.titleLabel.text = titleModel.title
         self.titleLabel.font = titleModel.defaultFont;
-        self.segmentConfig = segmentConfig
         self.indexPath = indexPath
         self.setSelected(selected: selected)
     }
     
-    @objc func setSelected(selected: Bool) {
+    func setSelected(selected: Bool) {
         self.isSelected = selected
         let backgroundColor = selected ? self.titleModel.selectedBackgroundColor : self.titleModel.backgroundColor
         let textColor = selected ? self.titleModel.selectedTitleColor : self.titleModel.defaultTitleColor
@@ -56,7 +55,7 @@ open class FTPCSegmentCell: UICollectionViewCell {
         self.titleLabel.transform = CGAffineTransform.identity
     }
     
-    @objc func handleTransition(percent: CGFloat) {
+    func handleTransition(percent: CGFloat) {
         // backgroundColor
         if self.titleModel.backgroundColor.isEqual(color: self.titleModel.selectedBackgroundColor) == false {
             let bgColor = UIColor.transit(fromColor: self.titleModel.selectedBackgroundColor, toColor: self.titleModel.backgroundColor, percent: percent)

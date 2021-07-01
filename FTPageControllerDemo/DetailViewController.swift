@@ -11,27 +11,25 @@ import UIKit
 class DetailViewController: UIViewController {
 
     var pageController = FTPageController()
-
+    
+    @IBOutlet weak var segment: FTPCSegment!
+    @IBOutlet weak var container: FTPCContainerView!
+    
     lazy var viewControllers: [UIViewController] = {
         var array: [UIViewController] = []
         for i in 0...5 {
-            let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
-            sub.index = i
-            array.append(sub);
+            if let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as? SubViewController {
+                sub.index = i
+                array.append(sub);
+            }
         }
         return array;
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if #available(iOS 11.0, *) {
 
-        } else {
-            self.automaticallyAdjustsScrollViewInsets = false
-        }
-        pageController.setupWith(superViewController: self, viewControllers: self.viewControllers)
-        self.view.addSubview(pageController.segment)
-        self.view.addSubview(pageController.containerView)
+        pageController.setupWith(segment: self.segment, container: self.container, superViewController: self, viewControllers: self.viewControllers)
     }
 
 }

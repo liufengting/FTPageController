@@ -11,12 +11,11 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var dataArray = ["Defalult", "Attributed", "TableView section Header"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        
     }
             
     //    MARK: - UITableViewDelegate, UITableViewDataSource -
@@ -51,3 +50,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
 }
 
+//MARK: - extension for UIScreen -
+
+public extension UIScreen {
+    
+    static func ft_width() -> CGFloat {
+        return self.main.bounds.size.width
+    }
+    
+    static func ft_height() -> CGFloat {
+        return self.main.bounds.size.height
+    }
+    
+}

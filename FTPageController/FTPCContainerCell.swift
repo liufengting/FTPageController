@@ -9,6 +9,6 @@ import UIKit
 
 class FTPCContainerCell: UICollectionViewCell {
 
-    @objc static let identifier = "\(FTPCContainerCell.classForCoder())"
+    static let identifier = "\(FTPCContainerCell.classForCoder())"
 
 }

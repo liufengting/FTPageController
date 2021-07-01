@@ -12,17 +12,15 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     @IBOutlet weak var tableView: UITableView!
     
-    lazy var pageController: FTPageController = {
-        let pager = FTPageController()
-        pager.setupWith(superViewController: self, viewControllers: self.viewControllers)
-        return pager
-    }()
+    var pageController: FTPageController = FTPageController()
     
     lazy var viewControllers: [UIViewController] = {
         var array: [UIViewController] = []
         for i in 0...5 {
-            let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as! SubViewController
-            array.append(sub);
+            if let sub: SubViewController = self.storyboard?.instantiateViewController(withIdentifier: "SubViewController") as? SubViewController {
+                sub.index = i
+                array.append(sub);
+            }
         }
         return array;
     }()
@@ -73,11 +71,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if self.pageController.containerView.superview != nil {
-            self.pageController.containerView.removeFromSuperview()
-        }
-        self.pageController.containerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0)
-        cell.addSubview(self.pageController.containerView)
+//        if self.pageController.container?.superview != nil {
+//            self.pageController.container?.removeFromSuperview()
+//        }
+//        self.pageController.container.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: UIScreen.ft_height() - UIDevice.ft_navigationBarHeight() - 40.0)
+//        cell.addSubview(self.pageController.container ?? <#default value#>)
         return cell
     }
     
@@ -94,6 +92,30 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: originalImageHeight)
             self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
         }
+    }
+    
+}
+
+//MARK: - extension for UIDevice -
+
+public extension UIDevice {
+    
+    static func ft_is_iPhone_X_or_up() -> Bool {
+        guard #available(iOS 11.0, *) else {
+            return false
+        }
+        let screenHeight = UIScreen.main.nativeBounds.size.height;
+        if screenHeight == 2436 || screenHeight == 1792 || screenHeight == 2688 || screenHeight == 1624 {
+            return true
+        }
+        return false
+    }
+    
+    static func ft_navigationBarHeight() -> CGFloat {
+        if self.ft_is_iPhone_X_or_up() {
+            return 88.0
+        }
+        return 64.0
     }
     
 }

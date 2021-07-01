@@ -9,124 +9,109 @@ import UIKit
 
 // MARK: - FTPageControllerDelegate -
 
-@objc public protocol FTPageControllerDelegate: NSObjectProtocol {
+public protocol FTPageControllerDelegate: NSObjectProtocol {
 
-    @objc optional func pageController(pageController: FTPageController, didScollToPage page: NSInteger)
-    @objc optional func pageController(pageController: FTPageController, isScolling fromPage: NSInteger, toPage: NSInteger, percent: CGFloat)
+    func pageController(_ pageController: FTPageController, didScollToPage page: Int)
+    func pageController(_ pageController: FTPageController, isScolling fromPage: Int, toPage: Int, percent: CGFloat)
 
 }
 
 // MARK: - FTPageControllerDataSource -
 
-@objc public protocol FTPageControllerDataSource: NSObjectProtocol {
+public protocol FTPageControllerDataSource: NSObjectProtocol {
     
-    func numberOfViewControllers(pageController: FTPageController) -> NSInteger
-    func pageController(pageController: FTPageController, viewControllerForIndex index: NSInteger) -> UIViewController?
-    @objc optional func pageController(pageController: FTPageController, titleModelForIndex index: NSInteger) -> FTPCTitleModel?
+    func numberOfViewControllers(_ pageController: FTPageController) -> Int
+    func pageController(_ pageController: FTPageController, viewControllerForIndex index: Int) -> UIViewController?
+    func pageController(_ pageController: FTPageController, titleModelForIndex index: Int) -> FTPCTitleModel?
 
 }
 
 // MARK: - FTPageController -
 
-@objc public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, FTPCSegmentDelegate {
+public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, FTPCSegmentDelegate {
 
-    @objc public var currentPage: NSInteger = 0
-    @objc public var viewControllers: [UIViewController] = [] {
-        willSet {
-            if newValue.count > 0 {
-                self.setupMode = .Manually
-            }
-        }
-    }
-    @objc public weak var delegate: FTPageControllerDelegate?
-    @objc public weak var dataSource: FTPageControllerDataSource? {
+    public var currentPage: Int = 0
+    public weak var delegate: FTPageControllerDelegate?
+    public weak var dataSource: FTPageControllerDataSource? {
         willSet {
             if newValue != nil {
                 self.setupMode = .DataSource
             }
         }
     }
+    public var viewControllers: [UIViewController] = [] {
+        willSet {
+            if newValue.count > 0 {
+                self.setupMode = .Manually
+            }
+        }
+    }
     
-    @objc public lazy var segment: FTPCSegment = {
-        let view: FTPCSegment = FTPCSegment(frame: CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: 40.0))
-        return view
-    }()
-    
-    @objc public lazy var collectionViewLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        return layout
-    }()
-    
-    @objc public lazy var containerView: FTPCContainerView = {
-        let view = FTPCContainerView(frame: CGRect.zero, collectionViewLayout: self.collectionViewLayout)
-        view.backgroundColor = UIColor.clear
-        view.register(FTPCContainerCell.classForCoder(), forCellWithReuseIdentifier: FTPCContainerCell.identifier)
-        view.delegate = self
-        view.dataSource = self
-        return view
-    }()
+    public weak var segment: FTPCSegment?
+    public weak var container: FTPCContainerView?
     
     private(set) var setupMode: FTPCSetupMode = .Manually
     private weak var superViewContoller: UIViewController?
-    private var config: FTPCConfig = FTPCConfig.defaultConfig()
+    private var config: FTPCConfig = FTPCConfig()
 
-    @objc public func setupWith(superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger = 0, config: FTPCConfig? = nil) {
+    public func setupWith(segment: FTPCSegment, container: FTPCContainerView, superViewController: UIViewController, dataSource: FTPageControllerDataSource, delegate: FTPageControllerDelegate? = nil, initialIndex: Int = 0, config: FTPCConfig? = nil) {
+        self.segment = segment
+        self.container = container
         self.superViewContoller = superViewController
         self.dataSource = dataSource
-        
+        self.delegate = delegate
         self.currentPage = initialIndex
         if let configration: FTPCConfig = config {
             self.config = configration
         }
-        self.delegate = delegate
         self.setupConponents()
     }
-    
-    @objc public func setupWith(superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: NSInteger = 0, config: FTPCConfig? = nil) {
+
+    public func setupWith(segment: FTPCSegment, container: FTPCContainerView, superViewController: UIViewController, viewControllers: [UIViewController], delegate: FTPageControllerDelegate? = nil, initialIndex: Int = 0, config: FTPCConfig? = nil) {
+        self.segment = segment
+        self.container = container
         self.superViewContoller = superViewController
         self.viewControllers = viewControllers
-        
+        self.delegate = delegate
         self.currentPage = initialIndex
         if let configration: FTPCConfig = config {
             self.config = configration
         }
-        self.delegate = delegate
         self.setupConponents()
     }
     
-    @objc public func applyConfigAndReload(config: FTPCConfig) {
+    public func applyConfigAndReload(config: FTPCConfig) {
         self.config = config
         self.setupConponents()
     }
     
     func setupConponents() {
-        self.segment.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage)
-        self.containerView.setupWith(scrollViewConfig: self.config.scrollViewConfig, pageCount: self.numberOfPages())
-        self.containerView.reloadData()
-        self.scrollToPage(page: self.currentPage, animated: false)
-        self.didSelectPage(page: self.currentPage, animated: false)
+        self.container?.setupWith(controller: self)
+        self.segment?.setupWithTitles(titles: self.titleModelArray(), config: self.config, delegate: self, selectedPage: self.currentPage)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            self.scrollToPage(page: self.currentPage, animated: false)
+            self.didSelectPage(page: self.currentPage, animated: false)
+        }
     }
     
     func titleModelArray() -> [FTPCTitleModel] {
         var titles: [FTPCTitleModel] = []
         if self.setupMode == .Manually {
             for vc in self.viewControllers {
-                let titleModel = FTPCTitleModel(title: vc.title, defaultFont: UIFont.systemFont(ofSize: 12.0))
+                let title = vc.title ?? "Title"
+                let titleModel = FTPCTitleModel(title: title)
                 titles.append(titleModel)
             }
         } else {
-            for i in 0...numberOfPages() - 1  {
-                var titleModel: FTPCTitleModel? = nil
-                if self.dataSource != nil && (self.dataSource?.responds(to: #selector(FTPageControllerDataSource.pageController(pageController:titleModelForIndex:))))!{
-                    if let model = self.dataSource?.pageController!(pageController: self, titleModelForIndex: i) {
-                        titleModel = model
-                    }
-                }else if let vc = self.viewControllerForPage(page: i) {
-                    titleModel = FTPCTitleModel(title: vc.title)
+            for i in 0..<numberOfPages() {
+                var titleModel: FTPCTitleModel?
+                if let model = self.dataSource?.pageController(self, titleModelForIndex: i) {
+                    titleModel = model
+                } else if let vc = self.viewControllerForPage(page: i) {
+                    titleModel = FTPCTitleModel(title: vc.title ?? "Title")
                 }
                 if titleModel == nil {
-                    titleModel = FTPCTitleModel(title: "")
+                    titleModel = FTPCTitleModel(title: "Title")
                 }
                 titles.append(titleModel!)
             }
@@ -134,21 +119,21 @@ import UIKit
         return titles
     }
     
-    @objc public func numberOfPages() -> NSInteger {
+    func numberOfPages() -> Int {
         if self.setupMode == .DataSource {
             if self.dataSource != nil {
-                return (self.dataSource?.numberOfViewControllers(pageController: self))!
+                return (self.dataSource?.numberOfViewControllers(self))!
             }
         } else {
             return self.viewControllers.count
         }
         return 0
     }
-    
-    func viewControllerForPage(page: NSInteger) -> UIViewController? {
+
+    func viewControllerForPage(page: Int) -> UIViewController? {
         if self.setupMode == .DataSource {
             if self.dataSource != nil {
-                return self.dataSource?.pageController(pageController: self, viewControllerForIndex: page)
+                return self.dataSource?.pageController(self, viewControllerForIndex: page)
             }
         } else {
             if page >= 0 && page < self.viewControllers.count {
@@ -158,27 +143,25 @@ import UIKit
         return nil
     }
     
-    @objc public func scrollToPage(page: NSInteger, animated: Bool) {
-        self.containerView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: animated)
+    func cellAtIndex(_ index: Int) -> UICollectionViewCell {
+        return self.collectionView(self.container!, cellForItemAt: IndexPath(item: index, section: 0))
     }
     
-    func cellAtIndex(_ index: NSInteger) -> UICollectionViewCell {
-        return self.collectionView(self.containerView, cellForItemAt: IndexPath(item: index, section: 0))
+    public func scrollToPage(page: Int, animated: Bool) {
+        self.container?.scrollToItem(at: IndexPath(item: page, section: 0), at: .left, animated: animated)
     }
 
-    @objc public func didSelectPage(page: NSInteger, animated: Bool) {
+    public func didSelectPage(page: Int, animated: Bool) {
         if page != self.currentPage {
             self.currentPage = page
         }
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
-            if (vc.isViewLoaded) {
+            if vc.isViewLoaded {
                 vc.viewDidAppear(true)
             }
         }
-        self.segment.selectPage(page: page, animated: animated)
-        if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:didScollToPage:))))! {
-            self.delegate?.pageController!(pageController: self, didScollToPage: page)
-        }
+        self.segment?.selectPage(page: page, animated: animated)
+        self.delegate?.pageController(self, didScollToPage: page)
     }
     
     // MARK: - UICollectionViewDataSource, UICollectionViewDelegateFlowLayout -
@@ -196,7 +179,7 @@ import UIKit
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return self.config.scrollViewConfig.frame.size
+        return collectionView.bounds.size
     }
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -205,29 +188,38 @@ import UIKit
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
-            let vcRect = CGRect(x: 0, y: 0, width: self.containerView.bounds.size.width, height: self.containerView.bounds.size.height)
+            let vcRect = CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
             if vc.parent == nil {
                 vc.willMove(toParent: self.superViewContoller)
                 vc.view.frame = vcRect
                 self.superViewContoller?.addChild(vc)
                 if vc.view.superview != nil {
+                    vc.view.removeFromSuperview()
+                }
+                if vc.parent != nil {
                     vc.removeFromParent()
                 }
                 cell.contentView.addSubview(vc.view)
                 vc.didMove(toParent: self.superViewContoller)
+                vc.view.layoutSubviews()
             } else {
                 if vc.view.superview != nil {
+                    vc.view.removeFromSuperview()
+                }
+                if vc.parent != nil {
                     vc.removeFromParent()
                 }
+                vc.view.frame = vcRect
                 cell.contentView.addSubview(vc.view)
                 vc.viewWillAppear(true)
+                vc.view.layoutSubviews()
             }
         }
     }
     
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
-            if (vc.isViewLoaded) {
+            if vc.isViewLoaded {
                 vc.viewDidDisappear(true)
             }
         }
@@ -244,49 +236,47 @@ import UIKit
     
     //    MARK: - UIScrollViewDelegate -
     
-    @objc public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageOffset = scrollView.contentOffset.x/scrollView.bounds.size.width
         // out of range
         if pageOffset <= 0.0 || pageOffset >= CGFloat(self.numberOfPages() - 1) {
             return
         }
-        let formerPage = NSInteger(floor(Double(pageOffset)))
-        let latterPage = NSInteger(ceil(Double(pageOffset)))
+        let formerPage = Int(floor(Double(pageOffset)))
+        let latterPage = Int(ceil(Double(pageOffset)))
         // continunesly scroll for more than one page
         if fabs(Double(pageOffset - CGFloat(self.currentPage))) >= 1 {
             self.currentPage = formerPage
             return
         }
         // segment handle transition
-        self.segment.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
+        self.segment?.handleTransition(fromPage: formerPage, toPage: latterPage, currentPage: self.currentPage, percent: (pageOffset - CGFloat(formerPage)))
 
         let toPage = self.currentPage == formerPage ? latterPage : formerPage
-        if self.delegate != nil && (self.delegate?.responds(to: #selector(FTPageControllerDelegate.pageController(pageController:isScolling:toPage:percent:))))! {
-            self.delegate?.pageController!(pageController: self, isScolling: self.currentPage, toPage: toPage, percent: (pageOffset - CGFloat(formerPage)))
-        }
+        self.delegate?.pageController(self, isScolling: self.currentPage, toPage: toPage, percent: (pageOffset - CGFloat(formerPage)))
     }
 
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if let vc: UIViewController = self.viewControllerForPage(page: self.currentPage) {
-            if (vc.isViewLoaded) {
+            if vc.isViewLoaded {
                 vc.viewWillDisappear(true)
             }
         }
     }
     
-    @objc public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
-        let page = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+   public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
+        let page = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.didSelectPage(page: page, animated: true)
     }
 
-    @objc public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = NSInteger(scrollView.contentOffset.x/scrollView.bounds.size.width)
+   public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let page = Int(scrollView.contentOffset.x/scrollView.bounds.size.width)
         self.didSelectPage(page: page, animated: true)
     }
     
     //    MARK: - FTPCSegmentDelegate -
     
-    @objc public func ftPCSegment(segment: FTPCSegment, didSelect page: NSInteger) {
+    public func ftPCSegment(_ segment: FTPCSegment, didSelect page: Int) {
         self.scrollToPage(page: page, animated: true)
     }
     

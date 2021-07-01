@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SubViewViewController : UIViewController
 
-@property (nonatomic, assign) NSInteger vcIndex;
+@property (nonatomic, assign) Int vcIndex;
 
 @end
 
