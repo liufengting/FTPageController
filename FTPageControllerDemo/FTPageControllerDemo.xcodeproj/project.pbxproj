@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2AA126D126941EE000D1EE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126D026941EE000D1EE8C /* AppDelegate.swift */; };
+		2AA126D526941EE000D1EE8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126D426941EE000D1EE8C /* ViewController.swift */; };
+		2AA126D826941EE000D1EE8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA126D626941EE000D1EE8C /* Main.storyboard */; };
+		2AA126DA26941EE000D1EE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA126D926941EE000D1EE8C /* Assets.xcassets */; };
+		2AA126DD26941EE000D1EE8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA126DB26941EE000D1EE8C /* LaunchScreen.storyboard */; };
+		2AA126E926941F5F00D1EE8C /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E426941F5E00D1EE8C /* SubViewController.swift */; };
+		2AA126EA26941F5F00D1EE8C /* AttributedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E526941F5E00D1EE8C /* AttributedViewController.swift */; };
+		2AA126EB26941F5F00D1EE8C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E626941F5F00D1EE8C /* TableViewController.swift */; };
+		2AA126EC26941F5F00D1EE8C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E726941F5F00D1EE8C /* DetailViewController.swift */; };
+		2AA126ED26941F5F00D1EE8C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E826941F5F00D1EE8C /* HeaderView.swift */; };
+		2AA126F026941FAE00D1EE8C /* FTPageController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA126EF26941FAE00D1EE8C /* FTPageController.framework */; };
+		2AA126F126941FAE00D1EE8C /* FTPageController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA126EF26941FAE00D1EE8C /* FTPageController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2AA126F226941FAE00D1EE8C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2AA126F126941FAE00D1EE8C /* FTPageController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2AA126CD26941EE000D1EE8C /* FTPageControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AA126D026941EE000D1EE8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2AA126D426941EE000D1EE8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AA126D726941EE000D1EE8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2AA126D926941EE000D1EE8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2AA126DC26941EE000D1EE8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2AA126DE26941EE000D1EE8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AA126E426941F5E00D1EE8C /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
+		2AA126E526941F5E00D1EE8C /* AttributedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedViewController.swift; sourceTree = "<group>"; };
+		2AA126E626941F5F00D1EE8C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		2AA126E726941F5F00D1EE8C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2AA126E826941F5F00D1EE8C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2AA126EF26941FAE00D1EE8C /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AA126CA26941EE000D1EE8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA126F026941FAE00D1EE8C /* FTPageController.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2AA126C426941EE000D1EE8C = {
+			isa = PBXGroup;
+			children = (
+				2AA126CF26941EE000D1EE8C /* FTPageControllerDemo */,
+				2AA126CE26941EE000D1EE8C /* Products */,
+				2AA126EE26941FAE00D1EE8C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2AA126CE26941EE000D1EE8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AA126CD26941EE000D1EE8C /* FTPageControllerDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AA126CF26941EE000D1EE8C /* FTPageControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				2AA126D026941EE000D1EE8C /* AppDelegate.swift */,
+				2AA126D426941EE000D1EE8C /* ViewController.swift */,
+				2AA126E526941F5E00D1EE8C /* AttributedViewController.swift */,
+				2AA126E726941F5F00D1EE8C /* DetailViewController.swift */,
+				2AA126E826941F5F00D1EE8C /* HeaderView.swift */,
+				2AA126E426941F5E00D1EE8C /* SubViewController.swift */,
+				2AA126E626941F5F00D1EE8C /* TableViewController.swift */,
+				2AA126D626941EE000D1EE8C /* Main.storyboard */,
+				2AA126D926941EE000D1EE8C /* Assets.xcassets */,
+				2AA126DB26941EE000D1EE8C /* LaunchScreen.storyboard */,
+				2AA126DE26941EE000D1EE8C /* Info.plist */,
+			);
+			path = FTPageControllerDemo;
+			sourceTree = "<group>";
+		};
+		2AA126EE26941FAE00D1EE8C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AA126EF26941FAE00D1EE8C /* FTPageController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2AA126CC26941EE000D1EE8C /* FTPageControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2AA126E126941EE000D1EE8C /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */;
+			buildPhases = (
+				2AA126C926941EE000D1EE8C /* Sources */,
+				2AA126CA26941EE000D1EE8C /* Frameworks */,
+				2AA126CB26941EE000D1EE8C /* Resources */,
+				2AA126F226941FAE00D1EE8C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FTPageControllerDemo;
+			productName = FTPageControllerDemo;
+			productReference = 2AA126CD26941EE000D1EE8C /* FTPageControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2AA126C526941EE000D1EE8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					2AA126CC26941EE000D1EE8C = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 2AA126C826941EE000D1EE8C /* Build configuration list for PBXProject "FTPageControllerDemo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2AA126C426941EE000D1EE8C;
+			productRefGroup = 2AA126CE26941EE000D1EE8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2AA126CC26941EE000D1EE8C /* FTPageControllerDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2AA126CB26941EE000D1EE8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA126DD26941EE000D1EE8C /* LaunchScreen.storyboard in Resources */,
+				2AA126DA26941EE000D1EE8C /* Assets.xcassets in Resources */,
+				2AA126D826941EE000D1EE8C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2AA126C926941EE000D1EE8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA126EA26941F5F00D1EE8C /* AttributedViewController.swift in Sources */,
+				2AA126E926941F5F00D1EE8C /* SubViewController.swift in Sources */,
+				2AA126D526941EE000D1EE8C /* ViewController.swift in Sources */,
+				2AA126EC26941F5F00D1EE8C /* DetailViewController.swift in Sources */,
+				2AA126EB26941F5F00D1EE8C /* TableViewController.swift in Sources */,
+				2AA126D126941EE000D1EE8C /* AppDelegate.swift in Sources */,
+				2AA126ED26941F5F00D1EE8C /* HeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2AA126D626941EE000D1EE8C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AA126D726941EE000D1EE8C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2AA126DB26941EE000D1EE8C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AA126DC26941EE000D1EE8C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2AA126DF26941EE000D1EE8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2AA126E026941EE000D1EE8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2AA126E226941EE000D1EE8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E83AC9WR2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = FTPageControllerDemo;
+				INFOPLIST_KEY_CFBundleName = FTPageControllerDemo;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2AA126E326941EE000D1EE8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = E83AC9WR2F;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
+				INFOPLIST_KEY_CFBundleExecutable = FTPageControllerDemo;
+				INFOPLIST_KEY_CFBundleName = FTPageControllerDemo;
+				INFOPLIST_KEY_CFBundleVersion = 1;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2AA126C826941EE000D1EE8C /* Build configuration list for PBXProject "FTPageControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA126DF26941EE000D1EE8C /* Debug */,
+				2AA126E026941EE000D1EE8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2AA126E126941EE000D1EE8C /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2AA126E226941EE000D1EE8C /* Debug */,
+				2AA126E326941EE000D1EE8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2AA126C526941EE000D1EE8C /* Project object */;
+}

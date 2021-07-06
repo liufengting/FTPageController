@@ -74,7 +74,7 @@ public class FTPCConfig: NSObject {
         super.init()
     }
     
-    init(segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
+    public init(segmentConfig: FTPCSegmentConfig, indicatorConfig: FTPCIndicatorConfig) {
         super.init()
         self.segmentConfig = segmentConfig
         self.indicatorConfig = indicatorConfig

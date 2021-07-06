@@ -15,38 +15,6 @@
 		2A1FBB58228A645F00AD692A /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */; };
 		2A1FBB59228A645F00AD692A /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB52228A645F00AD692A /* FTPageController.swift */; };
 		2A1FBB5A228A645F00AD692A /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB53228A645F00AD692A /* FTPCConfig.swift */; };
-		2A1FBB62228A64B200AD692A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB61228A64B200AD692A /* AppDelegate.swift */; };
-		2A1FBB69228A64B200AD692A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB68228A64B200AD692A /* Assets.xcassets */; };
-		2A1FBB6C228A64B200AD692A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB6A228A64B200AD692A /* LaunchScreen.storyboard */; };
-		2A1FBB83228A656500AD692A /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB7D228A656500AD692A /* SubViewController.swift */; };
-		2A1FBB84228A656500AD692A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB7E228A656500AD692A /* HeaderView.swift */; };
-		2A1FBB85228A656500AD692A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB7F228A656500AD692A /* DetailViewController.swift */; };
-		2A1FBB86228A656500AD692A /* AttributedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB80228A656500AD692A /* AttributedViewController.swift */; };
-		2A1FBB87228A656500AD692A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB81228A656500AD692A /* TableViewController.swift */; };
-		2A1FBB88228A656500AD692A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB82228A656500AD692A /* ViewController.swift */; };
-		2A1FBB8A228A658600AD692A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBB89228A658600AD692A /* Main.storyboard */; };
-		2A1FBB8B228A65C300AD692A /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB52228A645F00AD692A /* FTPageController.swift */; };
-		2A1FBB8C228A65C300AD692A /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB53228A645F00AD692A /* FTPCConfig.swift */; };
-		2A1FBB8D228A65C300AD692A /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB50228A645F00AD692A /* FTPCContainerCell.swift */; };
-		2A1FBB8E228A65C300AD692A /* FTPCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4D228A645E00AD692A /* FTPCContainerView.swift */; };
-		2A1FBB8F228A65C300AD692A /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4E228A645E00AD692A /* FTPCSegement.swift */; };
-		2A1FBB90228A65C300AD692A /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4F228A645E00AD692A /* FTPCSegementCell.swift */; };
-		2A1FBB91228A65C300AD692A /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */; };
-		2A1FBBA1228A6A8C00AD692A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA0228A6A8C00AD692A /* AppDelegate.m */; };
-		2A1FBBA4228A6A8C00AD692A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA3228A6A8C00AD692A /* ViewController.m */; };
-		2A1FBBA7228A6A8C00AD692A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA5228A6A8C00AD692A /* Main.storyboard */; };
-		2A1FBBA9228A6A8D00AD692A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBBA8228A6A8D00AD692A /* Assets.xcassets */; };
-		2A1FBBAC228A6A8D00AD692A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBBAA228A6A8D00AD692A /* LaunchScreen.storyboard */; };
-		2A1FBBAF228A6A8D00AD692A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBAE228A6A8D00AD692A /* main.m */; };
-		2A1FBBB7228A6B3200AD692A /* SubViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBBB4228A6B3100AD692A /* SubViewViewController.m */; };
-		2A1FBBB8228A6B3200AD692A /* SubViewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A1FBBB6228A6B3200AD692A /* SubViewViewController.xib */; };
-		2A1FBBB9228A6B6200AD692A /* FTPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB52228A645F00AD692A /* FTPageController.swift */; };
-		2A1FBBBA228A6B6200AD692A /* FTPCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB53228A645F00AD692A /* FTPCConfig.swift */; };
-		2A1FBBBB228A6B6200AD692A /* FTPCContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB50228A645F00AD692A /* FTPCContainerCell.swift */; };
-		2A1FBBBC228A6B6200AD692A /* FTPCContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4D228A645E00AD692A /* FTPCContainerView.swift */; };
-		2A1FBBBD228A6B6200AD692A /* FTPCSegement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4E228A645E00AD692A /* FTPCSegement.swift */; };
-		2A1FBBBE228A6B6200AD692A /* FTPCSegementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB4F228A645E00AD692A /* FTPCSegementCell.swift */; };
-		2A1FBBBF228A6B6200AD692A /* FTPCTitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,53 +28,13 @@
 		2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCTitleModel.swift; sourceTree = "<group>"; };
 		2A1FBB52228A645F00AD692A /* FTPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPageController.swift; sourceTree = "<group>"; };
 		2A1FBB53228A645F00AD692A /* FTPCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FTPCConfig.swift; sourceTree = "<group>"; };
-		2A1FBB5F228A64B200AD692A /* FTPageControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A1FBB61228A64B200AD692A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A1FBB68228A64B200AD692A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A1FBB6B228A64B200AD692A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2A1FBB6D228A64B200AD692A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A1FBB7D228A656500AD692A /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
-		2A1FBB7E228A656500AD692A /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		2A1FBB7F228A656500AD692A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2A1FBB80228A656500AD692A /* AttributedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedViewController.swift; sourceTree = "<group>"; };
-		2A1FBB81228A656500AD692A /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		2A1FBB82228A656500AD692A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2A1FBB89228A658600AD692A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2A1FBB93228A6A5B00AD692A /* FTPageController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FTPageController.podspec; sourceTree = SOURCE_ROOT; };
 		2A1FBB94228A6A5B00AD692A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		2A1FBB95228A6A5B00AD692A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		2A1FBB9D228A6A8C00AD692A /* FTPageControllerDemo_OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FTPageControllerDemo_OC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A1FBB9F228A6A8C00AD692A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2A1FBBA0228A6A8C00AD692A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A1FBBA2228A6A8C00AD692A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2A1FBBA3228A6A8C00AD692A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2A1FBBA6228A6A8C00AD692A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2A1FBBA8228A6A8D00AD692A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A1FBBAB228A6A8D00AD692A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2A1FBBAD228A6A8D00AD692A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A1FBBAE228A6A8D00AD692A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2A1FBBB3228A6B3100AD692A /* SubViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewViewController.h; sourceTree = "<group>"; };
-		2A1FBBB4228A6B3100AD692A /* SubViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewViewController.m; sourceTree = "<group>"; };
-		2A1FBBB5228A6B3100AD692A /* FTPageControllerDemo_OC-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FTPageControllerDemo_OC-Bridging-Header.h"; sourceTree = "<group>"; };
-		2A1FBBB6228A6B3200AD692A /* SubViewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubViewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2A1FBB30228A643D00AD692A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1FBB5C228A64B200AD692A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1FBB9A228A6A8C00AD692A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,8 +49,6 @@
 			children = (
 				2A1FBB92228A6A1A00AD692A /* Metadata */,
 				2A1FBB35228A643D00AD692A /* FTPageController */,
-				2A1FBB60228A64B200AD692A /* FTPageControllerDemo */,
-				2A1FBB9E228A6A8C00AD692A /* FTPageControllerDemo_OC */,
 				2A1FBB34228A643D00AD692A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,8 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				2A1FBB33228A643D00AD692A /* FTPageController.framework */,
-				2A1FBB5F228A64B200AD692A /* FTPageControllerDemo.app */,
-				2A1FBB9D228A6A8C00AD692A /* FTPageControllerDemo_OC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,31 +68,13 @@
 				2A1FBB37228A643D00AD692A /* Info.plist */,
 				2A1FBB52228A645F00AD692A /* FTPageController.swift */,
 				2A1FBB53228A645F00AD692A /* FTPCConfig.swift */,
+				2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */,
 				2A1FBB4D228A645E00AD692A /* FTPCContainerView.swift */,
 				2A1FBB50228A645F00AD692A /* FTPCContainerCell.swift */,
 				2A1FBB4E228A645E00AD692A /* FTPCSegement.swift */,
 				2A1FBB4F228A645E00AD692A /* FTPCSegementCell.swift */,
-				2A1FBB51228A645F00AD692A /* FTPCTitleModel.swift */,
 			);
 			path = FTPageController;
-			sourceTree = "<group>";
-		};
-		2A1FBB60228A64B200AD692A /* FTPageControllerDemo */ = {
-			isa = PBXGroup;
-			children = (
-				2A1FBB61228A64B200AD692A /* AppDelegate.swift */,
-				2A1FBB82228A656500AD692A /* ViewController.swift */,
-				2A1FBB7F228A656500AD692A /* DetailViewController.swift */,
-				2A1FBB80228A656500AD692A /* AttributedViewController.swift */,
-				2A1FBB7D228A656500AD692A /* SubViewController.swift */,
-				2A1FBB81228A656500AD692A /* TableViewController.swift */,
-				2A1FBB7E228A656500AD692A /* HeaderView.swift */,
-				2A1FBB89228A658600AD692A /* Main.storyboard */,
-				2A1FBB68228A64B200AD692A /* Assets.xcassets */,
-				2A1FBB6A228A64B200AD692A /* LaunchScreen.storyboard */,
-				2A1FBB6D228A64B200AD692A /* Info.plist */,
-			);
-			path = FTPageControllerDemo;
 			sourceTree = "<group>";
 		};
 		2A1FBB92228A6A1A00AD692A /* Metadata */ = {
@@ -180,26 +86,6 @@
 			);
 			name = Metadata;
 			path = FTPageController;
-			sourceTree = "<group>";
-		};
-		2A1FBB9E228A6A8C00AD692A /* FTPageControllerDemo_OC */ = {
-			isa = PBXGroup;
-			children = (
-				2A1FBB9F228A6A8C00AD692A /* AppDelegate.h */,
-				2A1FBBA0228A6A8C00AD692A /* AppDelegate.m */,
-				2A1FBBA2228A6A8C00AD692A /* ViewController.h */,
-				2A1FBBA3228A6A8C00AD692A /* ViewController.m */,
-				2A1FBBB3228A6B3100AD692A /* SubViewViewController.h */,
-				2A1FBBB4228A6B3100AD692A /* SubViewViewController.m */,
-				2A1FBBB6228A6B3200AD692A /* SubViewViewController.xib */,
-				2A1FBBA5228A6A8C00AD692A /* Main.storyboard */,
-				2A1FBBA8228A6A8D00AD692A /* Assets.xcassets */,
-				2A1FBBAA228A6A8D00AD692A /* LaunchScreen.storyboard */,
-				2A1FBBAD228A6A8D00AD692A /* Info.plist */,
-				2A1FBBB5228A6B3100AD692A /* FTPageControllerDemo_OC-Bridging-Header.h */,
-				2A1FBBAE228A6A8D00AD692A /* main.m */,
-			);
-			path = FTPageControllerDemo_OC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,40 +120,6 @@
 			productReference = 2A1FBB33228A643D00AD692A /* FTPageController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2A1FBB5E228A64B200AD692A /* FTPageControllerDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A1FBB6E228A64B200AD692A /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */;
-			buildPhases = (
-				2A1FBB5B228A64B200AD692A /* Sources */,
-				2A1FBB5C228A64B200AD692A /* Frameworks */,
-				2A1FBB5D228A64B200AD692A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FTPageControllerDemo;
-			productName = FTPageControllerDemo;
-			productReference = 2A1FBB5F228A64B200AD692A /* FTPageControllerDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
-		2A1FBB9C228A6A8C00AD692A /* FTPageControllerDemo_OC */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A1FBBB0228A6A8D00AD692A /* Build configuration list for PBXNativeTarget "FTPageControllerDemo_OC" */;
-			buildPhases = (
-				2A1FBB99228A6A8C00AD692A /* Sources */,
-				2A1FBB9A228A6A8C00AD692A /* Frameworks */,
-				2A1FBB9B228A6A8C00AD692A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FTPageControllerDemo_OC;
-			productName = FTPageControllerDemo_OC;
-			productReference = 2A1FBB9D228A6A8C00AD692A /* FTPageControllerDemo_OC.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -281,12 +133,6 @@
 					2A1FBB32228A643D00AD692A = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
-					};
-					2A1FBB5E228A64B200AD692A = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					2A1FBB9C228A6A8C00AD692A = {
-						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -304,8 +150,6 @@
 			projectRoot = "";
 			targets = (
 				2A1FBB32228A643D00AD692A /* FTPageController */,
-				2A1FBB5E228A64B200AD692A /* FTPageControllerDemo */,
-				2A1FBB9C228A6A8C00AD692A /* FTPageControllerDemo_OC */,
 			);
 		};
 /* End PBXProject section */
@@ -315,27 +159,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1FBB5D228A64B200AD692A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A1FBB8A228A658600AD692A /* Main.storyboard in Resources */,
-				2A1FBB6C228A64B200AD692A /* LaunchScreen.storyboard in Resources */,
-				2A1FBB69228A64B200AD692A /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1FBB9B228A6A8C00AD692A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A1FBBAC228A6A8D00AD692A /* LaunchScreen.storyboard in Resources */,
-				2A1FBBA9228A6A8D00AD692A /* Assets.xcassets in Resources */,
-				2A1FBBB8228A6B3200AD692A /* SubViewViewController.xib in Resources */,
-				2A1FBBA7228A6A8C00AD692A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,73 +179,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A1FBB5B228A64B200AD692A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A1FBB8B228A65C300AD692A /* FTPageController.swift in Sources */,
-				2A1FBB8C228A65C300AD692A /* FTPCConfig.swift in Sources */,
-				2A1FBB8D228A65C300AD692A /* FTPCContainerCell.swift in Sources */,
-				2A1FBB8E228A65C300AD692A /* FTPCContainerView.swift in Sources */,
-				2A1FBB8F228A65C300AD692A /* FTPCSegement.swift in Sources */,
-				2A1FBB90228A65C300AD692A /* FTPCSegementCell.swift in Sources */,
-				2A1FBB91228A65C300AD692A /* FTPCTitleModel.swift in Sources */,
-				2A1FBB86228A656500AD692A /* AttributedViewController.swift in Sources */,
-				2A1FBB87228A656500AD692A /* TableViewController.swift in Sources */,
-				2A1FBB62228A64B200AD692A /* AppDelegate.swift in Sources */,
-				2A1FBB84228A656500AD692A /* HeaderView.swift in Sources */,
-				2A1FBB88228A656500AD692A /* ViewController.swift in Sources */,
-				2A1FBB83228A656500AD692A /* SubViewController.swift in Sources */,
-				2A1FBB85228A656500AD692A /* DetailViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A1FBB99228A6A8C00AD692A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A1FBBB9228A6B6200AD692A /* FTPageController.swift in Sources */,
-				2A1FBBBA228A6B6200AD692A /* FTPCConfig.swift in Sources */,
-				2A1FBBBB228A6B6200AD692A /* FTPCContainerCell.swift in Sources */,
-				2A1FBBBC228A6B6200AD692A /* FTPCContainerView.swift in Sources */,
-				2A1FBBBD228A6B6200AD692A /* FTPCSegement.swift in Sources */,
-				2A1FBBBE228A6B6200AD692A /* FTPCSegementCell.swift in Sources */,
-				2A1FBBBF228A6B6200AD692A /* FTPCTitleModel.swift in Sources */,
-				2A1FBBA4228A6A8C00AD692A /* ViewController.m in Sources */,
-				2A1FBBAF228A6A8D00AD692A /* main.m in Sources */,
-				2A1FBBB7228A6B3200AD692A /* SubViewViewController.m in Sources */,
-				2A1FBBA1228A6A8C00AD692A /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		2A1FBB6A228A64B200AD692A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A1FBB6B228A64B200AD692A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		2A1FBBA5228A6A8C00AD692A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A1FBBA6228A6A8C00AD692A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2A1FBBAA228A6A8D00AD692A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A1FBBAB228A6A8D00AD692A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2A1FBB45228A643D00AD692A /* Debug */ = {
@@ -604,78 +361,6 @@
 			};
 			name = Release;
 		};
-		2A1FBB6F228A64B200AD692A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E83AC9WR2F;
-				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2A1FBB70228A64B200AD692A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E83AC9WR2F;
-				INFOPLIST_FILE = FTPageControllerDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liufengting.FTPageControllerDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2A1FBBB1228A6A8D00AD692A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E83AC9WR2F;
-				INFOPLIST_FILE = FTPageControllerDemo_OC/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liufengting.FTPageControllerDemo-OC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2A1FBBB2228A6A8D00AD692A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E83AC9WR2F;
-				INFOPLIST_FILE = FTPageControllerDemo_OC/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liufengting.FTPageControllerDemo-OC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -693,24 +378,6 @@
 			buildConfigurations = (
 				2A1FBB48228A643D00AD692A /* Debug */,
 				2A1FBB49228A643D00AD692A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A1FBB6E228A64B200AD692A /* Build configuration list for PBXNativeTarget "FTPageControllerDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A1FBB6F228A64B200AD692A /* Debug */,
-				2A1FBB70228A64B200AD692A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A1FBBB0228A6A8D00AD692A /* Build configuration list for PBXNativeTarget "FTPageControllerDemo_OC" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A1FBBB1228A6A8D00AD692A /* Debug */,
-				2A1FBBB2228A6A8D00AD692A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

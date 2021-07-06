@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FTPageController
 
 class AttributedViewController: UIViewController, FTPageControllerDataSource, FTPageControllerDelegate {
     

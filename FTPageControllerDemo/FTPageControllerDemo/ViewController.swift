@@ -2,8 +2,7 @@
 //  ViewController.swift
 //  FTPageControllerDemo
 //
-//  Created by liufengting on 2018/8/8.
-//  Copyright © 2018年 liufengting. All rights reserved.
+//  Created by LiuFengting on 2021/7/6.
 //
 
 import UIKit

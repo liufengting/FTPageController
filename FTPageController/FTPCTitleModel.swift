@@ -21,7 +21,7 @@ public class FTPCTitleModel {
     public var selected: Bool = false
     private(set) var titleWidth:  CGFloat = 0
     
-    init(title: String, defaultTitleColor: UIColor = UIColor.lightText, selectedTitleColor: UIColor = UIColor.lightText) {
+    public init(title: String, defaultTitleColor: UIColor = UIColor.lightText, selectedTitleColor: UIColor = UIColor.lightText) {
         self.title = title
         self.defaultTitleColor = defaultTitleColor
         self.selectedTitleColor = selectedTitleColor

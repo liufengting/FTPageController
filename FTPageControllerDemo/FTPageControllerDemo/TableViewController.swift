@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FTPageController
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

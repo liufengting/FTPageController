@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FTPageController
 
 class DetailViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class DetailViewController: UIViewController {
                 array.append(sub);
             }
         }
-        return array;
+        return array
     }()
 
     override func viewDidLoad() {
