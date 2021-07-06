@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "FTPageController"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "FTPageController makes UIPageViewController much easier to use."
   s.description  = <<-DESC
     FTPageController makes UIPageViewController much easier to use. It is just a resource for my future projects. Feel welcome to use anyway.
