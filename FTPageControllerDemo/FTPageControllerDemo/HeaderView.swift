@@ -11,14 +11,9 @@ import UIKit
 class HeaderView: UIView {
 
     @IBOutlet weak var imageView: UIImageView!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setup()
-    }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         self.setup()
     }
     

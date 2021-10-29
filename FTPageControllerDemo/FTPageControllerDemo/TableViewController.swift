@@ -27,7 +27,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }()
     
     lazy var headerView: HeaderView = {
-       let header = HeaderView(frame: CGRect.zero)
+        let header = Bundle.main.loadNibNamed("HeaderView", owner: nil, options: nil)?.first as! HeaderView
         return header
     }()
     
@@ -65,7 +65,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.pageController.setupWith(segment: segment, container: container, superViewController: self, dataSource: self, delegate: self)
         
-        self.pageController.stick(scrollView: self.tableView, at: 200)
+        self.pageController.stick(scrollView: self.tableView, at: originalImageHeight - navigationBarHeight)
     }
 
     override func viewWillAppear(_ animated: Bool) {

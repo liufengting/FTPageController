@@ -63,7 +63,7 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         let offsetY = scrollView.contentOffset.y
         
-        if offsetY >= 0 && offsetY <= self.superOffset{
+        if offsetY >= 0 && offsetY <= self.superOffset {
             self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: offsetY)
 //            scrollView.setContentOffset(.zero, animated: false)
         }
