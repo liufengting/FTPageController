@@ -19,6 +19,7 @@
 		2AA126ED26941F5F00D1EE8C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA126E826941F5F00D1EE8C /* HeaderView.swift */; };
 		2AA126F026941FAE00D1EE8C /* FTPageController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA126EF26941FAE00D1EE8C /* FTPageController.framework */; };
 		2AA126F126941FAE00D1EE8C /* FTPageController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA126EF26941FAE00D1EE8C /* FTPageController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2ADF95B9272BF5B5001D1769 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF95B8272BF5B5001D1769 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +50,7 @@
 		2AA126E726941F5F00D1EE8C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2AA126E826941F5F00D1EE8C /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2AA126EF26941FAE00D1EE8C /* FTPageController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FTPageController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ADF95B8272BF5B5001D1769 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +89,10 @@
 				2AA126D426941EE000D1EE8C /* ViewController.swift */,
 				2AA126E526941F5E00D1EE8C /* AttributedViewController.swift */,
 				2AA126E726941F5F00D1EE8C /* DetailViewController.swift */,
-				2AA126E826941F5F00D1EE8C /* HeaderView.swift */,
-				2AA126E426941F5E00D1EE8C /* SubViewController.swift */,
 				2AA126E626941F5F00D1EE8C /* TableViewController.swift */,
+				2AA126E426941F5E00D1EE8C /* SubViewController.swift */,
+				2AA126E826941F5F00D1EE8C /* HeaderView.swift */,
+				2ADF95B8272BF5B5001D1769 /* HeaderView.xib */,
 				2AA126D626941EE000D1EE8C /* Main.storyboard */,
 				2AA126D926941EE000D1EE8C /* Assets.xcassets */,
 				2AA126DB26941EE000D1EE8C /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				2AA126DD26941EE000D1EE8C /* LaunchScreen.storyboard in Resources */,
 				2AA126DA26941EE000D1EE8C /* Assets.xcassets in Resources */,
 				2AA126D826941EE000D1EE8C /* Main.storyboard in Resources */,
+				2ADF95B9272BF5B5001D1769 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +348,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +380,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

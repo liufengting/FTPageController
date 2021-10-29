@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol FTPCSegmentDelegate: NSObjectProtocol {
+public protocol FTPCSegmentDelegate: AnyObject {
     
     func ftPCSegment(_ segment: FTPCSegment, didSelect page: Int)
     

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class HeaderView: UIImageView {
+class HeaderView: UIView {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
@@ -23,7 +25,7 @@ class HeaderView: UIImageView {
     func setup() {
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFill
-        self.image = UIImage(named: "bridge_bg")
+        self.imageView.image = UIImage(named: "aaa")
     }
     
 }

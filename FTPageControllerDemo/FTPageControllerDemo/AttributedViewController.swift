@@ -10,7 +10,7 @@ import UIKit
 import FTPageController
 
 class AttributedViewController: UIViewController, FTPageControllerDataSource, FTPageControllerDelegate {
-    
+
     var pageController = FTPageController()
     @IBOutlet weak var container: FTPCContainerView!
     lazy var segment: FTPCSegment = {
@@ -90,6 +90,10 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
     
     func pageController(_ pageController: FTPageController, isScolling fromPage: Int, toPage: Int, percent: CGFloat) {
         print("isScolling fromPage: \(fromPage), toPage: \(toPage), percent: \(percent)")
+    }
+
+    func pageController(_ pageController: FTPageController, controller: UIViewController, didUpdate offset: CGFloat) {
+        
     }
 
 }

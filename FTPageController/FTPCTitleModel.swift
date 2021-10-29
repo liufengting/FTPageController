@@ -12,8 +12,8 @@ public class FTPCTitleModel {
     public var title: String = ""
     public var defaultFont: UIFont = UIFont.systemFont(ofSize: 14.0)
     public var selectedFont: UIFont = UIFont.systemFont(ofSize: 16.0)
-    public var defaultTitleColor: UIColor = UIColor.lightText
-    public var selectedTitleColor: UIColor = UIColor.lightText
+    public var defaultTitleColor: UIColor = UIColor.secondaryLabel
+    public var selectedTitleColor: UIColor = UIColor.label
     public var indicatorColor: UIColor = UIColor.red
     public var backgroundColor: UIColor = UIColor.clear // color for current cell background
     public var selectedBackgroundColor: UIColor = UIColor.clear // color for current cell background when selected
@@ -21,7 +21,7 @@ public class FTPCTitleModel {
     public var selected: Bool = false
     private(set) var titleWidth:  CGFloat = 0
     
-    public init(title: String, defaultTitleColor: UIColor = UIColor.lightText, selectedTitleColor: UIColor = UIColor.lightText) {
+    public init(title: String, defaultTitleColor: UIColor = UIColor.secondaryLabel, selectedTitleColor: UIColor = UIColor.label) {
         self.title = title
         self.defaultTitleColor = defaultTitleColor
         self.selectedTitleColor = selectedTitleColor
