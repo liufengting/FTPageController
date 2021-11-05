@@ -9,7 +9,7 @@
 import UIKit
 import FTPageController
 
-class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FTContentViewController {
+class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var index = 0
     
@@ -59,14 +59,14 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll: ", scrollView.contentOffset.y)
-        
-        let offsetY = scrollView.contentOffset.y
-        
-        if offsetY >= 0 && offsetY <= self.superOffset {
-            self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: offsetY)
-//            scrollView.setContentOffset(.zero, animated: false)
-        }
+//        print("scrollViewDidScroll: ", scrollView.contentOffset.y)
+//
+//        let offsetY = scrollView.contentOffset.y
+//
+//        if offsetY >= 0 && offsetY <= self.superOffset {
+//            self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: offsetY)
+////            scrollView.setContentOffset(.zero, animated: false)
+//        }
     
         
 //        if scrollView.contentOffset.y <= self.superOffset {
@@ -92,18 +92,18 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //    }
 //
     
-    var superScrollViewProtocol: FTContentViewControllerProtocol?
-    
-    var superScrollView: UIScrollView?
-    
-    var superOffset: CGFloat = 0
-
-    func stick(scrollView: UIScrollView, at offset: CGFloat) {
-        print(scrollView)
-        self.superScrollView = scrollView
-        self.superOffset = offset
-    }
-    
+//    var superScrollViewProtocol: FTContentViewControllerProtocol?
+//    
+//    var superScrollView: UIScrollView?
+//    
+//    var superOffset: CGFloat = 0
+//
+//    func stick(scrollView: UIScrollView, at offset: CGFloat) {
+//        print(scrollView)
+//        self.superScrollView = scrollView
+//        self.superOffset = offset
+//    }
+//    
     
     
 }

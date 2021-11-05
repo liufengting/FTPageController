@@ -65,7 +65,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         self.pageController.setupWith(segment: segment, container: container, superViewController: self, dataSource: self, delegate: self)
         
-        self.pageController.stick(scrollView: self.tableView, at: originalImageHeight - navigationBarHeight)
+//        self.pageController.stick(scrollView: self.tableView, at: originalImageHeight - navigationBarHeight)
     }
 
     override func viewWillAppear(_ animated: Bool) {
