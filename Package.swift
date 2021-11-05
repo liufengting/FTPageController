@@ -9,7 +9,7 @@ let package = Package(
         .library(name: "FTPageController", targets: ["FTPageController"]),
     ],
     targets: [
-        .target(name: "FTPageController", path: "FTPageController/")
+        .target(name: "FTPageController", path: "FTPageController")
     ],
     swiftLanguageVersions: [.v5]
 )
