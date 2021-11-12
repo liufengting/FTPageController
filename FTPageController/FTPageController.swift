@@ -13,7 +13,6 @@ public protocol FTPageControllerDelegate: AnyObject {
 
     func pageController(_ pageController: FTPageController, didScollToPage page: Int)
     func pageController(_ pageController: FTPageController, isScolling fromPage: Int, toPage: Int, percent: CGFloat)
-//    func pageController(_ pageController: FTPageController, controller: UIViewController, didUpdate offset: CGFloat)
 
 }
 
@@ -26,22 +25,6 @@ public protocol FTPageControllerDataSource: AnyObject {
     func pageController(_ pageController: FTPageController, titleModelForIndex index: Int) -> FTPCTitleModel?
 
 }
-
-//public protocol FTContentViewControllerProtocol: AnyObject {
-//
-//    func ftContentViewController(_ controller: UIViewController, didUpdate offset: CGFloat)
-//
-//}
-//
-//public protocol FTContentViewController: AnyObject {
-//
-//    var superScrollViewProtocol: FTContentViewControllerProtocol? { get set }
-//    var superScrollView: UIScrollView? { get set }
-//    var superOffset: CGFloat { get set }
-//
-//    func stick(scrollView: UIScrollView, at offset: CGFloat)
-//
-//}
 
 // MARK: - FTPageController -
 
@@ -97,22 +80,6 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
         }
         self.setupConponents()
     }
-    
-//    public func stick(scrollView: UIScrollView, at offset: CGFloat) {
-//        self.superScrollView = scrollView
-//        for i in 0..<self.numberOfPages() {
-//            if let vc: FTContentViewController = self.viewControllerForPage(page: i) as? FTContentViewController {
-//                vc.superScrollViewProtocol = self
-//                vc.stick(scrollView: scrollView, at: offset)
-//            }
-//        }
-//    }
-    
-//    public func ftContentViewController(_ controller: UIViewController, didUpdate offset: CGFloat) {
-////        let scOff =
-////        self.superScrollView?.setContentOffset(CGPoint(x: 0, y: (self.superScrollView?.contentOffset ?? 0) + offset), animated: true)
-//        self.delegate?.pageController(self, controller: controller, didUpdate: offset)
-//    }
     
     public func applyConfigAndReload(config: FTPCConfig) {
         self.config = config

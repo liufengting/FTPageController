@@ -117,14 +117,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y = scrollView.contentOffset.y
-        print(y);
-        if y <= navigationBarHeight - originalImageHeight {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: navigationBarHeight - y)
-        } else if y <= 0 {
-            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: originalImageHeight)
-            self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
-        }
+//        let y = scrollView.contentOffset.y
+//        print(y);
+//        if y <= navigationBarHeight - originalImageHeight {
+//            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: navigationBarHeight - y)
+//        } else if y <= 0 {
+//            self.headerView.frame = CGRect(x: 0, y: 0, width: UIScreen.ft_width(), height: originalImageHeight)
+//            self.tableView.contentInset = UIEdgeInsets(top: max(0, -y), left: 0, bottom: 0, right: 0)
+//        }
     }
     
     func numberOfViewControllers(_ pageController: FTPageController) -> Int {
@@ -150,11 +150,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func pageController(_ pageController: FTPageController, controller: UIViewController, didUpdate offset: CGFloat) {
 //        print(offset, " didUpdate")
 //        let orig = originalImageHeight - navigationBarHeight
-        let offsetY = self.tableView.contentOffset.y + offset
+//        let offsetY = self.tableView.contentOffset.y + offset
         
-        print(offsetY, " didUpdate")
+        print(offset, " didUpdate")
 
-        self.tableView.setContentOffset(CGPoint(x: 0, y: offsetY), animated: true)
+        self.tableView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
     }
     
     

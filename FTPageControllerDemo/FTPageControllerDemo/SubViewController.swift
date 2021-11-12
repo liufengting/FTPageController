@@ -60,15 +60,15 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        print("scrollViewDidScroll: ", scrollView.contentOffset.y)
-//
+
 //        let offsetY = scrollView.contentOffset.y
 //
 //        if offsetY >= 0 && offsetY <= self.superOffset {
 //            self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: offsetY)
 ////            scrollView.setContentOffset(.zero, animated: false)
 //        }
-    
-        
+//
+//
 //        if scrollView.contentOffset.y <= self.superOffset {
 //            self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: scrollView.contentOffset.y)
 //            scrollView.setContentOffset(.zero, animated: false)
@@ -80,7 +80,11 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //
 //        let trans = pan.translation(in: self.tableView)
 //
-//        print("trans.y : ", trans.y)
+//        print("trans.y : ", trans.y, "self.superOffset", self.superOffset)
+//        if trans.y <= self.superOffset {
+//            self.superScrollViewProtocol?.ftContentViewController(self, didUpdate: -trans.y)
+//            self.tableView.setContentOffset(.zero, animated: false)
+//        }
 //
 //    }
 
@@ -93,9 +97,9 @@ class SubViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //
     
 //    var superScrollViewProtocol: FTContentViewControllerProtocol?
-//    
+//
 //    var superScrollView: UIScrollView?
-//    
+//
 //    var superOffset: CGFloat = 0
 //
 //    func stick(scrollView: UIScrollView, at offset: CGFloat) {

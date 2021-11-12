@@ -10,8 +10,8 @@ import UIKit
 public class FTPCTitleModel {
     
     public var title: String = ""
-    public var defaultFont: UIFont = UIFont.systemFont(ofSize: 14.0)
-    public var selectedFont: UIFont = UIFont.systemFont(ofSize: 16.0)
+    public var defaultFont: UIFont = UIFont.systemFont(ofSize: 14.0, weight: .medium)
+    public var selectedFont: UIFont = UIFont.systemFont(ofSize: 16.0, weight: .medium)
     public var defaultTitleColor: UIColor = UIColor.secondaryLabel
     public var selectedTitleColor: UIColor = UIColor.label
     public var indicatorColor: UIColor = UIColor.red

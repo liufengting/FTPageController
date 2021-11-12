@@ -60,12 +60,9 @@ public class FTPCSegment: UICollectionView, UICollectionViewDataSource, UICollec
         self.selectedPage = page
         self.backgroundColor = self.titleArray[self.selectedPage].selectedMenuBackgroundColor
         self.indicator.frame = self.frameForIndicatorAtIndex(index: self.selectedPage)
-        for cell in self.visibleCells {
-            if let realCell = cell as? FTPCSegmentCell {
-                let select = realCell.indexPath.item == page
-                if realCell.isSelected != select {
-                    realCell.setSelected(selected: select)
-                }
+        for indexPath in self.indexPathsForVisibleItems {
+            if let realCell = self.cellForItem(at: indexPath) as? FTPCSegmentCell {
+                realCell.setSelected(selected: indexPath.item == page)
             }
         }
         self.scrollToItem(at: IndexPath(item: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
