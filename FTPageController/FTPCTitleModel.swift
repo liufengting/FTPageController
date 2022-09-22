@@ -36,3 +36,20 @@ public class FTPCTitleModel {
     }
     
 }
+
+extension UIViewController {
+    
+    struct Holder {
+        static var superNavigationController: UINavigationController? = nil
+    }
+    
+    var superNavigationController: UINavigationController? {
+        get {
+            return Holder.superNavigationController
+        }
+        set(newValue) {
+            Holder.superNavigationController = newValue
+        }
+    }
+    
+}

@@ -158,7 +158,8 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
         }
         if let vc: UIViewController = self.viewControllerForPage(page: page) {
             if vc.isViewLoaded {
-                vc.viewDidAppear(true)
+                vc.beginAppearanceTransition(true, animated: true)
+                vc.endAppearanceTransition()
             }
         }
         self.segment?.selectPage(page: page, animated: animated)
@@ -194,6 +195,9 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
                 vc.willMove(toParent: self.superViewContoller)
                 vc.view.frame = vcRect
                 self.superViewContoller?.addChild(vc)
+                if let nav = self.superViewContoller?.navigationController {
+                    vc.superNavigationController = nav
+                }
                 if vc.view.superview != nil {
                     vc.view.removeFromSuperview()
                 }
@@ -212,7 +216,8 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
                 }
                 vc.view.frame = vcRect
                 cell.contentView.addSubview(vc.view)
-                vc.viewWillAppear(true)
+                vc.beginAppearanceTransition(true, animated: true)
+                vc.endAppearanceTransition()
                 vc.view.layoutSubviews()
             }
         }
@@ -221,7 +226,8 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
     public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let vc: UIViewController = self.viewControllerForPage(page: indexPath.item) {
             if vc.isViewLoaded {
-                vc.viewDidDisappear(true)
+                vc.beginAppearanceTransition(false, animated: true)
+                vc.endAppearanceTransition()
             }
         }
     }
@@ -260,7 +266,8 @@ public class FTPageController: NSObject, UICollectionViewDelegateFlowLayout, UIC
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if let vc: UIViewController = self.viewControllerForPage(page: self.currentPage) {
             if vc.isViewLoaded {
-                vc.viewWillDisappear(true)
+                vc.beginAppearanceTransition(false, animated: true)
+                vc.endAppearanceTransition()
             }
         }
     }
