@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/liufengting"
   s.license      = { :type => "MIT", :file => "LICENSE" }
-  s.platform     = :ios, "12.0"
+  s.platform     = :ios, "13.0"
   s.author       = { "liufengting" => "wo157121900@me.com" }
   s.source       = { :git => "https://github.com/liufengting/FTPageController.git", :tag => "#{s.version}" }
   s.source_files  = "FTPageController", "FTPageController/**/*.{h,m,xib,swift}"
