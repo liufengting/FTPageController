@@ -29,6 +29,7 @@ class AttributedViewController: UIViewController, FTPageControllerDataSource, FT
         for i in 0...2 {
             let model = FTPCTitleModel(title: "Title\(i)", defaultTitleColor: defaultTitleColor[i], selectedTitleColor: selectedTitleColors[i])
             model.indicatorColor = indicatorColor[i]
+//            model.selectedMenuBackgroundColor = selectedTitleColors[i]
             array.append(model);
         }
         return array;

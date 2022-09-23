@@ -17,7 +17,7 @@ public class FTPCTitleModel {
     public var indicatorColor: UIColor = UIColor.red
     public var backgroundColor: UIColor = UIColor.clear // color for current cell background
     public var selectedBackgroundColor: UIColor = UIColor.clear // color for current cell background when selected
-    public var selectedMenuBackgroundColor: UIColor = UIColor.systemBackground // color for menu background when selected
+    public var selectedMenuBackgroundColor: UIColor? // color for menu background when selected
     public var selected: Bool = false
     private(set) var titleWidth:  CGFloat = 0
     

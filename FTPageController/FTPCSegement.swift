@@ -58,7 +58,9 @@ public class FTPCSegment: UICollectionView, UICollectionViewDataSource, UICollec
 
     public func selectPage(page: Int, animated: Bool) {
         self.selectedPage = page
-        self.backgroundColor = self.titleArray[self.selectedPage].selectedMenuBackgroundColor
+        if let selectedMenuBackgroundColor = self.titleArray[self.selectedPage].selectedMenuBackgroundColor {
+            self.backgroundColor = selectedMenuBackgroundColor
+        }
         self.indicator.frame = self.frameForIndicatorAtIndex(index: self.selectedPage)
         for indexPath in self.indexPathsForVisibleItems {
             if let realCell = self.cellForItem(at: indexPath) as? FTPCSegmentCell {
@@ -116,8 +118,10 @@ public class FTPCSegment: UICollectionView, UICollectionViewDataSource, UICollec
     }
     
     func updateMenuBackgroundColor(fromPage: Int, toPage: Int, currentPage: Int, percent: CGFloat) {
-        let fromColor = (currentPage == fromPage) ? self.titleArray[fromPage].selectedMenuBackgroundColor : self.titleArray[toPage].selectedMenuBackgroundColor
-        let toColor = (currentPage == fromPage) ? self.titleArray[toPage].selectedMenuBackgroundColor : self.titleArray[fromPage].selectedMenuBackgroundColor
+        guard let from = self.titleArray[fromPage].selectedMenuBackgroundColor else { return }
+        guard let to = self.titleArray[toPage].selectedMenuBackgroundColor else { return }
+        let fromColor = (currentPage == fromPage) ? from : to
+        let toColor = (currentPage == fromPage) ? to : from
         if fromColor.isEqual(color: toColor) == false {
             let color = UIColor.transit(fromColor: fromColor, toColor: toColor, percent: (currentPage == fromPage) ? percent : (1 - percent))
             self.backgroundColor = color
